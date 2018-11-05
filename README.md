@@ -5,11 +5,11 @@
 RTHybrid mono-directional version (living signal into model) - No RT/DAQ/GUI
 
 ## RTHybrid
-Read RTHybrid project to use and cite this work.
+**Read RTHybrid principal project to use and cite this work**
 
-For more information about full RTHybrid please check out:
+For more information about RTHybrid please check out:
 
-**https://github.com/GNB-UAM/RTHybrid**
+https://github.com/GNB-UAM/RTHybrid
 
 ## About
 
