@@ -2,14 +2,14 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/GNB-UAM/RTHybrid"> <img src="assets/logo_rthy.png?raw=true" width="100" height="100"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/GNB-UAM"> <img src="assets/logo_gnb.png?raw=true" width="100" height="100"> </a>
 
-RTHybrid mono-directional version (living signal into model) - No RT/DAQ
+RTHybrid mono-directional version (living signal into model) - No RT/DAQ/GUI
 
 ## RTHybrid
+Read RTHybrid project to use and cite this work.
+
 For more information about full RTHybrid please check out:
 
-#### https://github.com/GNB-UAM/RTHybrid 
-
-##### - Read RTHybrid project to use and cite this work
+**https://github.com/GNB-UAM/RTHybrid**
 
 ## About
 
