@@ -132,14 +132,14 @@ void rt_cleanup () {
             output_values[i] = 0;
         }
 
-       if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
+       /*if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
             fprintf(stderr, "RT_THREAD: error writing to DAQ.\n");
-        }
+        }*/
     }
 
     if (dsc != NULL) {
         free_pointers(1, &session);
-        daq_close_device ((void**) &dsc);
+        daq_close_device ();
     }
 
     free_pointers(7, &(args->in_channels), &(args->out_channels), &lectura_a, &lectura_b, &lectura_t, &input_values, &output_values);
@@ -210,8 +210,8 @@ void * rt_thread(void * arg) {
     /****************************************************
     Open DAQ
     ****************************************************/
-
-    if (daq_open_device((void**) &dsc) != OK) {
+    char file_offline[] = "data/19h_18m_46s_1.txt";
+    daq_open_device (file_offline);/*if (daq_open_device((void**) &dsc) != OK) {
         fprintf(stderr, "RT_THREAD: error opening device.\n");
 
         msg.id = -1;
@@ -219,9 +219,9 @@ void * rt_thread(void * arg) {
 	        perror("Closing message not sent");
 	    }
         pthread_exit(NULL);
-    }
+    }*/
 
-    if (daq_create_session ((void**) &dsc, &session) != OK) {
+    /*if (daq_create_session ((void**) &dsc, &session) != OK) {
         fprintf(stderr, "RT_THREAD: error creating DAQ session.\n");
         daq_close_device ((void**) &dsc);
 
@@ -230,7 +230,7 @@ void * rt_thread(void * arg) {
 	        perror("Closing message not sent");
 	    }
         pthread_exit(NULL);
-    }
+    }*/
 
     input_values = (double *) malloc (sizeof(double) * args->n_in_chan);
     output_values = (double *) malloc (sizeof(double) * args->n_out_chan);
@@ -243,7 +243,7 @@ void * rt_thread(void * arg) {
         output_values[i] = 0;
     }
 
-    if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
+    /*if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
         fprintf(stderr, "RT_THREAD: error writing to DAQ.\n");
         daq_close_device ((void**) &dsc);
 
@@ -252,7 +252,7 @@ void * rt_thread(void * arg) {
 	        perror("Closing message not sent");
 	    }
         pthread_exit(NULL);
-    }
+    }*/
 
 
     if (DEBUG == 1) syslog(LOG_INFO, "RT_THREAD: DAQ started");
@@ -393,7 +393,7 @@ void * rt_thread(void * arg) {
     for (i = 0; i < args->n_out_chan; i++) {
         output_values[i] = 0;
     }
-    if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
+    /*if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
         fprintf(stderr, "RT_THREAD: error writing to DAQ.\n");
         daq_close_device ((void**) &dsc);
 
@@ -402,7 +402,7 @@ void * rt_thread(void * arg) {
 	        perror("Closing message not sent");
 	    }
         pthread_exit(NULL);
-    }
+    }*/
 
     free_pointers(2, &session, &cal_struct);
     daq_close_device ((void**) &dsc);
@@ -481,11 +481,11 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
             if (args->n_out_chan >= 2) output_values[1] = v_model_scaled;
 
 
-            if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
+            /*if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
                 fprintf(stderr, "RT_THREAD: error writing to DAQ.\n");
                 daq_close_device ((void**) &dsc);
                 pthread_exit(NULL);
-            }
+            }*/
 
             /* Send data to the message queue */
             if (args->n_in_chan > 1) {
@@ -509,17 +509,17 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
 
 
             /* Read data from the DAQ */
-            if (daq_read(session, args->n_in_chan, args->in_channels, input_values) != 0) {
+            if (read_single_data_comedi (input_values) != 0) {
 
                 for (i = 0; i < args->n_out_chan; i++) {
                     output_values[i] = 0;
                 }
 
-                if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
+                /*if (daq_write(session, args->n_out_chan, args->out_channels, output_values) != OK) {
                     fprintf(stderr, "RT_THREAD: error writing to DAQ.\n");
                     daq_close_device ((void**) &dsc);
                     pthread_exit(NULL);
-                }
+                }*/
 
                 free_pointers(2, &session, &cal_struct);
                 daq_close_device ((void**) &dsc);

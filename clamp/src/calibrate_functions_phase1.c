@@ -6,8 +6,8 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
     int i=0;
     double retval=0.0;
     struct timespec ts_target, ts_start;
-    double max_abs = DBL_MIN;
-    double min_abs = DBL_MAX;
+    double max_abs = -DBL_MAX;
+    double min_abs =  DBL_MAX;
     double percentage_min = 0.10;
     double percentage_max = 0.90;
     double range;
@@ -37,7 +37,7 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
 
         /*SLEEP & READ DATA*/
         clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts_target, NULL);
-        if (daq_read(session, n_channels, in_channels, ret_values) != 0) {
+        if (read_single_data_comedi (ret_values)!= 0) {
             return -1;
         }
         retval = (ret_values[0] * 1000.0) / input_factor;
@@ -53,7 +53,7 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
         /*NEXT PERIOD*/
         ts_add_time(&ts_target, 0, period); 
     }
-    
+
     /*RETURN*/
     range = max_abs - min_abs;
     *min_abs_real = min_abs;

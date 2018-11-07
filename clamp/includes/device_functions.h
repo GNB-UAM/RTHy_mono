@@ -14,15 +14,15 @@ extern "C" {
 
 typedef struct _Daq_session Daq_session;
 
-int daq_open_device (void ** device);
+int daq_open_device (char * file);
 
-int daq_create_session (void  ** device, Daq_session ** session_ptr);
+//int daq_create_session (void  ** device, Daq_session ** session_ptr);
 
-int daq_close_device (void ** device);
+int daq_close_device ();
 
-int daq_read (Daq_session * session, int n_channels, int * channels, double * ret);
+int read_single_data_comedi (double * ret);
 
-int daq_write (Daq_session * session, int n_channels, int * channels, double * values);
+//int daq_write (Daq_session * session, int n_channels, int * channels, double * values);
 
 #endif //DEVICE_FUNCTIONS_H
 

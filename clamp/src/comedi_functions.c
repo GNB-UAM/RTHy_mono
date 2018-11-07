@@ -1,65 +1,68 @@
 #include "../includes/device_functions.h"
-#include <comedilib.h>
+//#include <comedilib.h>
 
-#define READ_FROM_FILE 0
+#define READ_FROM_FILE 1
 
-struct _Daq_session{
+/*struct _Daq_session{
 	comedi_t * device;
-	int in_subdev;		/*input subdevice */
-	int out_subdev;		/*output subdevice */
+	int in_subdev;		*input subdevice *
+	int out_subdev;		*output subdevice *
 	int range;			
 	int aref;		
-};
+};*/
 
 
 /* Read from file variables */
 FILE * f;
 
-comedi_range * get_range_info_comedi (Daq_session * session, int direction, int chan);
-lsampl_t get_maxdata_comedi (Daq_session * session, int direction, int chan);
-int read_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double * ret);
-int write_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double data);
+//comedi_range * get_range_info_comedi (Daq_session * session, int direction, int chan);
+//lsampl_t get_maxdata_comedi (Daq_session * session, int direction, int chan);
+//int read_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double * ret);
+//int write_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double data);
 
-int daq_open_device (void ** device) {
-	comedi_t * dsc;
+int daq_open_device (char * file) {
+	//comedi_t * dsc;
 
 	/**device = (comedi_t *) malloc (sizeof(comedi_t));
 	dsc = *device;*/
 
 	if (READ_FROM_FILE == 1) {
-        //f = fopen("data/2018y_10m_8d/18h_33m_12s_data.txt", "r");
-        f = fopen("data/19h_18m_46s_1.txt", "r");
+        f = fopen(file, "r");
 		char buf[999];
 		fgets(buf, sizeof(char) * 200, f);
+		double ret;
+		read_single_data_comedi (&ret);
+		read_single_data_comedi (&ret);
+		read_single_data_comedi (&ret);
 	}
-
+	/*
 	dsc = comedi_open("/dev/comedi0");
 	if(dsc == NULL)
 	{
 		comedi_perror("/dev/comedi0");
 		return ERR;
-	}
+	}*/
 
-	*device = dsc;
+	//*device = dsc;
 
 	return OK;
 }
 
-int daq_close_device (void ** device) {
-	comedi_t * dsc = *device;
+int daq_close_device () {
+	//comedi_t * dsc = *device;
 
 	if (READ_FROM_FILE == 1) fclose(f);
 
-	if (comedi_close(dsc) == -1) {
+	/*if (comedi_close(dsc) == -1) {
 		comedi_perror("Error with comedi_close");
 		return ERR;
-	}
+	}*/
 
 	return OK;
 }
 
 
-int daq_create_session (void  ** device, Daq_session ** session_ptr) {
+/*int daq_create_session (void  ** device, Daq_session ** session_ptr) {
 	Daq_session * session;
 	*session_ptr = (Daq_session *) malloc (sizeof(Daq_session));
 	session = *session_ptr;
@@ -86,7 +89,7 @@ int daq_create_session (void  ** device, Daq_session ** session_ptr) {
 	}
 
 	return OK;
-}
+}*/
 
 /*int get_range_comedi (comedi_t * device, int subdev, int chan, double min, double max, int unit) {
 	int range = comedi_find_range (device, subdev, chan, unit, min, max);
@@ -99,7 +102,7 @@ int daq_create_session (void  ** device, Daq_session ** session_ptr) {
 	return range;
 }*/
 
-comedi_range * get_range_info_comedi (Daq_session * session, int direction, int chan) {
+/*comedi_range * get_range_info_comedi (Daq_session * session, int direction, int chan) {
 	comedi_range * range_info;
 	int subdev;
 
@@ -114,9 +117,9 @@ comedi_range * get_range_info_comedi (Daq_session * session, int direction, int 
 	range_info = comedi_get_range(session->device, subdev, chan, session->range);
 
 	return range_info;
-}
+}*/
 
-lsampl_t get_maxdata_comedi (Daq_session * session, int direction, int chan) {
+/*lsampl_t get_maxdata_comedi (Daq_session * session, int direction, int chan) {
 	lsampl_t maxdata;
 	int subdev;
 
@@ -130,16 +133,16 @@ lsampl_t get_maxdata_comedi (Daq_session * session, int direction, int chan) {
 
 	maxdata = comedi_get_maxdata(session->device, subdev, chan);
 	return maxdata;
-}
+}*/
 
 
-int read_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double * ret) {
-	lsampl_t data;
-	double physical_value;
-	int retval;
+int read_single_data_comedi (double * ret) {
+	//lsampl_t data;
+	//double physical_value;
+	//int retval;
 
 	if (READ_FROM_FILE == 0) {
-		retval = comedi_data_read(session->device, session->in_subdev, chan, session->range, session->aref, &data);
+		/*retval = comedi_data_read(session->device, session->in_subdev, chan, session->range, session->aref, &data);
 		if(retval < 0)
 		{
 			comedi_perror("read");
@@ -153,7 +156,7 @@ int read_single_data_comedi (Daq_session * session, comedi_range * range_info, l
 			return -1;
 		} else {
 			*ret = physical_value;
-		}
+		}*/
 	} else if (READ_FROM_FILE == 1) {
 		char buf[999];
 		fgets(buf, sizeof(char) * 200, f);
@@ -167,7 +170,7 @@ int read_single_data_comedi (Daq_session * session, comedi_range * range_info, l
 			//printf("%p\n", elemento);
 			fflush(NULL);
 		}
-		*ret = atof(elemento);
+		ret[0] = atof(elemento);
 
 		while (elemento != NULL) {
 			elemento = strtok(NULL, " ");
@@ -178,7 +181,7 @@ int read_single_data_comedi (Daq_session * session, comedi_range * range_info, l
 }
 
 
-int write_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double data) {
+/*int write_single_data_comedi (Daq_session * session, comedi_range * range_info, lsampl_t maxdata, int chan, double data) {
 	lsampl_t comedi_value;
 
 	comedi_value = comedi_from_phys(data, range_info, maxdata);
@@ -188,9 +191,9 @@ int write_single_data_comedi (Daq_session * session, comedi_range * range_info, 
 	}
 
 	return comedi_data_write(session->device, session->out_subdev, chan, session->range, session->aref, comedi_value);
-}
+}*/
 
-int daq_read (Daq_session * session, int n_channels, int * channels, double * ret) {
+/*int daq_read (Daq_session * session, int n_channels, int * channels, double * ret) {
 	int i;
 	double aux;
 	comedi_range * range_info;
@@ -209,10 +212,10 @@ int daq_read (Daq_session * session, int n_channels, int * channels, double * re
     }
     
     return 0;
-}
+}*/
 
 
-int daq_write (Daq_session * session, int n_channels, int * channels, double * values) {
+/*int daq_write (Daq_session * session, int n_channels, int * channels, double * values) {
 	int i;
 	comedi_range * range_info;
 	lsampl_t maxdata;
@@ -234,4 +237,4 @@ int daq_write (Daq_session * session, int n_channels, int * channels, double * v
     //if (DEBUG == 1) syslog(LOG_INFO, "WRITE_DAQ: Ending");
     
     return 0;
-}
+}*/
