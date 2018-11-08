@@ -36,7 +36,7 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
     for (i=0; i<size_signal; i++){
 
         /*SLEEP & READ DATA*/
-        clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts_target, NULL);
+        //clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts_target, NULL);
         if (read_single_data_comedi (ret_values)!= 0) {
             return -1;
         }
@@ -51,7 +51,7 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
         }
         
         /*NEXT PERIOD*/
-        ts_add_time(&ts_target, 0, period); 
+        //ts_add_time(&ts_target, 0, period); 
     }
 
     /*RETURN*/

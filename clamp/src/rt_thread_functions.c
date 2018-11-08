@@ -458,16 +458,16 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
         if (i % s_points == 0) {
             
             /* Sleep */
-            clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts_target, NULL);
+            //clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts_target, NULL);
             
             /* Wake up and get times and latency */
-            clock_gettime(CLOCK_MONOTONIC, &ts_iter);
+            /*clock_gettime(CLOCK_MONOTONIC, &ts_iter);
             ts_substraction(&ts_target, &ts_iter, &ts_result);
             lat = ts_result.tv_sec * NSEC_PER_SEC + ts_result.tv_nsec;
             ts_substraction(&ts_start, &ts_iter, &ts_result);
             t_elapsed = (ts_result.tv_sec * NSEC_PER_SEC + ts_result.tv_nsec) * 0.000001;
 
-            ts_add_time(&ts_target, 0, args->period);
+            ts_add_time(&ts_target, 0, args->period);*/
 
             if (lp->interaction == TRUE) {
                 /* Calculate synapse from the model to the external neuron (scaled to external range) */
