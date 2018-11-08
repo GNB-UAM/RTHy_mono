@@ -25,7 +25,6 @@ int daq_open_device (char * file) {
 
 	/**device = (comedi_t *) malloc (sizeof(comedi_t));
 	dsc = *device;*/
-	    printf("%s\n", file);
 
 	if (READ_FROM_FILE == 1) {
         f = fopen(file, "r");
