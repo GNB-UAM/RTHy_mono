@@ -102,6 +102,7 @@ typedef struct {
     double step_v_to_r;				/**< Auxiliar parameter for exploration*/
     double step_r_to_v;				/**< Auxiliar parameter for exploration*/
     double auto_cal_val_1;			/**< Auxiliar parameter for exploration*/
+    char * file_offline;
 } rt_args;
 
 
@@ -206,6 +207,7 @@ typedef struct {
     double output_factor;			/**< Output voltage/current conversion factor due to the experimental setup*/
     char * filename;
     char * data_path;
+    char * file_offline;
 } clamp_args;
 
 #endif // TYPES_CLAMP_H__

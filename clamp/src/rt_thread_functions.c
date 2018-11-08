@@ -210,8 +210,8 @@ void * rt_thread(void * arg) {
     /****************************************************
     Open DAQ
     ****************************************************/
-    char file_offline[] = "data/19h_18m_46s_1.txt";
-    daq_open_device (file_offline);/*if (daq_open_device((void**) &dsc) != OK) {
+    //char file_offline[] = "data/19h_18m_46s_1.txt";
+    daq_open_device (args->file_offline);/*if (daq_open_device((void**) &dsc) != OK) {
         fprintf(stderr, "RT_THREAD: error opening device.\n");
 
         msg.id = -1;

@@ -160,7 +160,7 @@ int clamp (clamp_args * args) {
     r_args.sec_per_burst = args->sec_per_burst;
     r_args.check_drift = args->check_drift;
     r_args.auto_cal_val_1 = args->auto_cal_val_1;
-
+    r_args.file_offline = args->file_offline;
     w_args.filename = args->filename;
     w_args.msqid = msqid_nrt;
     w_args.model = args->model;
