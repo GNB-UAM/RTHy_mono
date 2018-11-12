@@ -23,6 +23,7 @@
 #define AUTOCAL_VAL_1 "autocal_val_1"
 #define DRIFT "drift"
 #define FILENAME "file"
+#define FILENAME_OUT "file_out"
 
 #define VARS "vars"
 #define PARAMS "params"
@@ -50,6 +51,7 @@ static int parse_clamp_output_channels (xmlDocPtr doc, xmlNodePtr cur, clamp_arg
 static int parse_clamp_input_factor (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args);
 static int parse_clamp_output_factor (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args);
 static int parse_clamp_file_name (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args);
+static int parse_clamp_file_out_name (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args);
 
 /* CLAMP PARSER */
 
@@ -128,6 +130,9 @@ int xml_clamp_parser (char * file, clamp_args * args) {
         }
         else if (xmlStrcmp(cur->name, (const xmlChar*) FILENAME) == 0) {
             ret = parse_clamp_file_name(doc, cur, args);
+        }
+        else if (xmlStrcmp(cur->name, (const xmlChar*) FILENAME_OUT) == 0) {
+            ret = parse_clamp_file_out_name(doc, cur, args);
         }
 
         if (ret == ERR) break;
@@ -388,6 +393,16 @@ static int parse_clamp_file_name (xmlDocPtr doc, xmlNodePtr cur, clamp_args * ar
     if ((!doc) || (!cur) || (!args)) return ERR;
 
     ret = parse_string(doc, cur, &args->file_offline, (const xmlChar*) VALUE);
+
+    return ret;
+}
+
+static int parse_clamp_file_out_name (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args) {
+    int ret = ERR;
+
+    if ((!doc) || (!cur) || (!args)) return ERR;
+
+    ret = parse_string(doc, cur, &args->filename_out, (const xmlChar*) VALUE);
 
     return ret;
 }

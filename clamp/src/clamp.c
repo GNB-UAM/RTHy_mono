@@ -44,7 +44,7 @@ int clamp (clamp_args * args) {
 
     char * filename_data = NULL;
     char * filename_log = NULL;
-
+    char * filename_out = NULL;
 
 	writer_args w_args;
 
@@ -104,13 +104,14 @@ int clamp (clamp_args * args) {
 
     asprintf(&filename_data, "%s_data.txt", args->filename);
     asprintf(&filename_log, "%s/log.txt", args->data_path);
+    asprintf(&filename_out, "%s", args->filename_out);
 
     if (init_file_selector() == ERR) {
         syslog(LOG_INFO, "Error starting file selector.");
         return ERR;
     }
 
-    if (add_file(filename_data, &(r_args.data_file_id)) == ERR) {
+    if (add_file(filename_out, &(r_args.data_file_id)) == ERR) {
         syslog(LOG_INFO, "Error opening data file.");
         return ERR;
     }
@@ -170,7 +171,6 @@ int clamp (clamp_args * args) {
     w_args.calibration = args->mode_auto_cal;
     w_args.sm_model_to_live = r_args.sm_model_to_live;
     w_args.sm_model_to_live = r_args.sm_model_to_live;
-
 
     create_writer_thread(&(writer), (void *) &w_args);
     create_rt_thread(&(rt), (void *) &r_args);

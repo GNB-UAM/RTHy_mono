@@ -25,13 +25,16 @@ class Interface(QtWidgets.QMainWindow):
 		# Buttons conectors
 		self.ui.pushButton_plot.clicked.connect(self.pyplot_call)
 		self.ui.pushButton_selectfile.clicked.connect(self.file_explorer)
-		self.ui.pushButton_selectlast.clicked.connect(self.get_last)
+		#self.ui.pushButton_selectlast.clicked.connect(self.get_last)
 		self.ui.pushButton_savenotes.clicked.connect(self.save_notes)
 		self.ui.pushButton_saveday.clicked.connect(self.save_day)
 		self.ui.pushButton_reload.clicked.connect(self.day_resume_reload)
 		self.ui.frecuency.valueChanged.connect(self.cal_time)
 		self.ui.edit_mode.clicked.connect(self.editable_on)
-		self.ui.push_resize.clicked.connect(self.size)
+		#self.ui.push_resize.clicked.connect(self.size)
+
+		self.ui.pushButton_selectlast.setDisabled(True)
+		self.ui.push_resize.setDisabled(True)
 
 	#########################
 	#   Plot program call   #
@@ -95,14 +98,14 @@ class Interface(QtWidgets.QMainWindow):
 		if self.route.find('s_data.txt') != -1:
 			# We want to stay in the same day
 			result = self.route.split('/')[-2]
-			self.route = QtWidgets.QFileDialog.getOpenFileName(self, 'Select file', 'data/'+result, 'Text files (*_data.txt);;All files (*)')[0]
+			self.route = QtWidgets.QFileDialog.getOpenFileName(self, 'Select file', 'data/'+result, 'All files (*)')[0]
 		else:
 			# No day choose yet
-			self.route = QtWidgets.QFileDialog.getOpenFileName(self, 'Select file', 'data', 'Text files (*_data.txt);;All files (*)')[0]
+			self.route = QtWidgets.QFileDialog.getOpenFileName(self, 'Select file', 'data', 'All files (*)')[0]
 		
 		if self.route != '':
 			self.filename = self.route.split('/')[-2] +'/'+ self.route.split('/')[-1]
-			self.fileday = '/'.join ( self.route.split('/')[:-1] ) + '/log.txt'
+			#self.fileday = '/'.join ( self.route.split('/')[:-1] ) + '/log.txt'
 		else:
 			self.filename = ''
 			self.fileday = ''
@@ -169,6 +172,7 @@ class Interface(QtWidgets.QMainWindow):
 		self.cal_time()
 		
 	def day_resume(self):
+		'''
 		tam = len (self.filenotes.split('/')[-1:][0]) + 1
 		self.day_route = self.route[:-tam]+'log.txt'
 		txt=''
@@ -184,6 +188,7 @@ class Interface(QtWidgets.QMainWindow):
 
 		self.ui.textEdit_resume.setStyleSheet("background-color: rgb(245, 245, 245);")
 		self.ui.textEdit_resume.verticalScrollBar().setValue(self.ui.textEdit_resume.verticalScrollBar().maximum())
+		'''
 
 	def day_resume_reload(self):
 		txt=''
@@ -250,6 +255,6 @@ class Interface(QtWidgets.QMainWindow):
 if __name__ == "__main__":
 	app = QtWidgets.QApplication(sys.argv)
 	myapp = Interface()
-	myapp.resize(510, 0)
+	myapp.resize(500, 0)
 	myapp.show()
 	sys.exit(app.exec_())

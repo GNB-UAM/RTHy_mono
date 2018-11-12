@@ -31,26 +31,21 @@
 	<freq val="10000"/>
 
 	<times>
-		<before val="5"/>
-		<duration val="10"/>
-		<after val="5"/>
+		<before val="10"/>
+		<duration val="180"/>
+		<after val="10"/>
 		<observation val="10"/>
 	</times>
 
-	<output_channels val="0,1"/>
-
+	<output_channels val="0"/>
 	<input_channels val="0"/>
-
-	<input_factor val="1000"/>
-
-	<output_factor val="1"/>
-
+	<input_factor val="100"/>
+	<output_factor val="10"/>
 	<imp val="0"/>
-
-	<drift val="0"/>
-
-	<sec_per_burst val="0.25"/>
+	<drift val="1"/>
+	<sec_per_burst val="-1"/>
 
 	<file val="data/19h_18m_46s_1.txt"/>
+	<file_out val="data/salida1.txt"/>
 
 </clamp>

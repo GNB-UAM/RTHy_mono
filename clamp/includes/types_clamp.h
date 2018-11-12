@@ -208,6 +208,7 @@ typedef struct {
     char * filename;
     char * data_path;
     char * file_offline;
+    char * filename_out;
 } clamp_args;
 
 #endif // TYPES_CLAMP_H__
