@@ -29,4 +29,22 @@ Date of fork:
 
 ## Changes
 
-blabla
+A) Read from file and no DAQ dependencies
+
+https://github.com/GNB-UAM/RTHy_mono/commit/79146f0674477987fe68cbb3cb5b3bb77416d702
+
+B) RT off
+
+https://github.com/GNB-UAM/RTHy_mono/commit/b1944226e4a522c7a52be24abe7ada32855437d6
+
+C) Source signal via parameter
+
+https://github.com/GNB-UAM/RTHy_mono/commit/398448d7d5519ec1c5f0267f696bb7a775cb88a1
+
+D) Plot fix (times are not valid now)
+
+https://github.com/GNB-UAM/RTHy_mono/commit/3d250a076928ba7dcd25b61a091a0d5522110858
+
+E) File output name also is a paremeter
+
+https://github.com/GNB-UAM/RTHy_mono/commit/a3aeab9fd3edad45d494b5fbc5bab52c73d398b8
