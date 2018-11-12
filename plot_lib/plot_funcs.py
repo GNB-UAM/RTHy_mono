@@ -135,8 +135,8 @@ def save_events(data1, data2, args):
 #   Internal lines plots  #
 ###########################
 def plot_line_voltage(data1, data2, args):
-	plt.plot(data1.time, data1.v_model_scaled, label="Model neuron", linewidth=0.8)
-	plt.plot(data1.time, data1.data_in[0], label="Living neuron", linewidth=0.8)
+	plt.plot(data1.v_model_scaled, label="Model neuron", linewidth=0.8)
+	plt.plot(data1.data_in[0], label="Living neuron", linewidth=0.8)
 	if args.drift==1:
 		plt.plot(data1.time, data1.min_window, "g", linewidth=0.8)
 		plt.plot(data1.time, data1.max_window, "g", linewidth=0.8)
@@ -144,13 +144,13 @@ def plot_line_voltage(data1, data2, args):
 	plt.legend(loc=1, framealpha=1.0)
 
 def plot_line_current(data1, data2, args):
-	plt.plot(data1.time, data1.c_viva, label="Current real to model", linewidth=0.8)
-	plt.plot(data1.time, data1.c_model, label="Current model to real", linewidth=0.8)
+	plt.plot(data1.c_viva, label="Current real to model", linewidth=0.8)
+	plt.plot(data1.c_model, label="Current model to real", linewidth=0.8)
 	plt.ylabel("Current")
 	plt.legend(loc=1, framealpha=1.0)
 
 def plot_line_extra(data1, data2, args):
-	plt.plot(data1.time, data1.extra_rec, label="Extra", linewidth=0.8)
+	plt.plot(data1.extra_rec, label="Extra", linewidth=0.8)
 	plt.ylabel("Voltage")
 	plt.legend(loc=1, framealpha=1.0)
 
