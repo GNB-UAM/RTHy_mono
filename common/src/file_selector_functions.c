@@ -79,7 +79,7 @@ int add_file (char * filename, unsigned short * index) {
 
 	*index = get_index_by_name(filename);
 	if (*index >= 32) {
-		__FS_files[__FS_file_index] = fopen(filename, "a");
+		__FS_files[__FS_file_index] = fopen(filename, "w");
 		asprintf(&(__FS_filenames[__FS_file_index]), "%s", filename);
 		*index = __FS_file_index;
 
