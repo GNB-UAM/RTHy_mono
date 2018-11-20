@@ -2,8 +2,8 @@
 
 #include <QMessageBox>
 #include <string>
-#include <QSound>
-#include <QMovie>
+//#include <QSound>
+//#include <QMovie>
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QEventLoop>
@@ -183,8 +183,8 @@ void RTHybrid::clampEnd() {
     ui->buttonStart->setEnabled(true);
     ui->buttonStop->setEnabled(false);
 
-    if(ui->checksound->isChecked())
-        QSound::play("resources/alarm_beep.wav");
+    //if(ui->checksound->isChecked())
+        //QSound::play("resources/alarm_beep.wav");
 
     QMessageBox msgBox;
     msgBox.setText("Finished");
