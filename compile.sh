@@ -11,7 +11,7 @@ done
 #	then sudo /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -spec linux-g++ CONFIG+=release CONFIG+=qml_release -o Makefile rthybrid.pro; 
 #	else sudo /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -spec linux-g++ CONFIG+=release CONFIG+=qml_release CONFIG+=isol_core CORE=$CORE_NUMBER -o Makefile rthybrid.pro; 
 #fi
-/usr/lib/x86_64-linux-gnu/qt5/bin/qmake -spec linux-g++ CONFIG+=release CONFIG+=qml_release -o Makefile rthybrid.pro; 
+qmake -spec linux-g++ CONFIG+=release CONFIG+=qml_release -o Makefile rthybrid.pro; 
 #sudo /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -spec linux-g++ CONFIG+=release CONFIG+=qml_release -o Makefile rthybrid.pro
 make clean
 make
