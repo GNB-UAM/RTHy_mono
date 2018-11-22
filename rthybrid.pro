@@ -30,34 +30,39 @@ isol_core {
     QMAKE_CFLAGS += -D__CORE__=$${CORE}
 }
 
-
-IPIPE = $$system(dmesg | grep -i xenomai)
-contains( IPIPE, Xenomai ): {
-    XEN_VERSION = $$system(/usr/xenomai/bin/xeno-config --version)
-    message("Compiling for Xenomai "$$XEN_VERSION)
-
-    QMAKE_LIBS += -lanalogy $(shell /usr/xenomai/bin/xeno-config --skin=posix --ldflags)
-    QMAKE_CFLAGS += $(shell /usr/xenomai/bin/xeno-config --skin=posix --cflags) -D__XENO__
-    QMAKE_CC = $(shell /usr/xenomai/bin/xeno-config --cc)
-
-    contains(XEN_VERSION, '.*2\.[0-9]\.[0-9].*') {
-        QMAKE_LIBS += -lrtdm
-    }
-
-    SOURCES += \ 
-        clamp/src/analogy_functions.c \
-        clamp/src/xddp_functions.c \
-
-} else {
-    KERNEL_VERSION = $$system(uname -r)
-    message("Compiling for Linux "$$KERNEL_VERSION)
-
-    QMAKE_LIBS += -lcomedi
+QMAKE_LIBS += -lcomedi
 
     SOURCES += \ 
         clamp/src/comedi_functions.c \
         clamp/src/queue_functions.c \
-}
+
+#IPIPE = $$system(dmesg | grep -i xenomai)
+#contains( IPIPE, Xenomai ): {
+#    XEN_VERSION = $$system(/usr/xenomai/bin/xeno-config --version)
+#    message("Compiling for Xenomai "$$XEN_VERSION)
+#
+#    QMAKE_LIBS += -lanalogy $(shell /usr/xenomai/bin/xeno-config --skin=posix --ldflags)
+#    QMAKE_CFLAGS += $(shell /usr/xenomai/bin/xeno-config --skin=posix --cflags) -D__XENO__
+#    QMAKE_CC = $(shell /usr/xenomai/bin/xeno-config --cc)
+#
+#    contains(XEN_VERSION, '.*2\.[0-9]\.[0-9].*') {
+#        QMAKE_LIBS += -lrtdm
+#    }
+#
+#    SOURCES += \ 
+#        clamp/src/analogy_functions.c \
+#        clamp/src/xddp_functions.c \
+#
+#} else {
+#    KERNEL_VERSION = $$system(uname -r)
+#    message("Compiling for Linux "$$KERNEL_VERSION)
+#
+#    QMAKE_LIBS += -lcomedi
+#
+#    SOURCES += \ 
+#        clamp/src/comedi_functions.c \
+#        clamp/src/queue_functions.c \
+#}
 
 
 
