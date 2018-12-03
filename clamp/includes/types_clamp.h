@@ -103,6 +103,7 @@ typedef struct {
     double step_r_to_v;				/**< Auxiliar parameter for exploration*/
     double auto_cal_val_1;			/**< Auxiliar parameter for exploration*/
     char * file_offline;
+    char * filename_out;
 } rt_args;
 
 

@@ -45,7 +45,7 @@ double * lectura_b = NULL;
 double * lectura_t = NULL;
 double ecm_result = 0;
 
-
+FILE* file_out = NULL;
 
 /************************
 RT THREAD MANAGEMENT
@@ -185,7 +185,7 @@ void * rt_thread(void * arg) {
 
     args = arg;
     id = pthread_self();
-    prepare_real_time(id);
+    //prepare_real_time(id);
 
 
     if (signal(SIGUSR1, rt_cleanup) == SIG_ERR) printf("Error catching SIGUSR1 at rt_thread.\n");
@@ -231,6 +231,8 @@ void * rt_thread(void * arg) {
 	    }
         pthread_exit(NULL);
     }*/
+    printf("%s\n", args->filename_out);
+    file_out = fopen (args->filename_out, "w");
 
     input_values = (double *) malloc (sizeof(double) * args->n_in_chan);
     output_values = (double *) malloc (sizeof(double) * args->n_out_chan);
@@ -271,10 +273,10 @@ void * rt_thread(void * arg) {
             free_pointers(1, &session);
             daq_close_device ((void**) &dsc);
 
-            msg.id = -1;
+            /*msg.id = -1;
 		    if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) {
 		        perror("Closing message not sent");
-		    }
+		    }*/
             pthread_exit(NULL);
         }
 
@@ -324,10 +326,10 @@ void * rt_thread(void * arg) {
     if (s_points == 0) s_points = 1;
 
 
-    msg.id = args->events_file_id;
+    //msg.id = args->events_file_id;
     sprintf(msg.data, "\n******* RTHybrid experiment %s ******* \nModel = %d \nSynapse = %d \nFiring rate = %.3f \n*************",
                         args->filename, args->nm.type, args->sm_live_to_model.type, external_firing_rate);
-    send_to_queue(args->msqid, RT_QUEUE, NO_BLOCK_QUEUE, &msg);
+    //send_to_queue(args->msqid, RT_QUEUE, NO_BLOCK_QUEUE, &msg);
 
 
     if (DEBUG == 1) syslog(LOG_INFO, "RT_THREAD: Scale and offset values set");
@@ -370,9 +372,11 @@ void * rt_thread(void * arg) {
     Experiment loops
     ****************************************************/
 
-    msg.id = args->data_file_id;
+    /*msg.id = args->data_file_id;
+    
+    if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;*/
     sprintf(msg.data, "%d %d", args->n_in_chan, args->n_out_chan);
-    if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;
+    fprintf(file_out, "%s\n", msg.data);
 
     clock_gettime(CLOCK_MONOTONIC, &ts_target);
     ts_assign(&ts_start,  ts_target);
@@ -409,14 +413,16 @@ void * rt_thread(void * arg) {
 
     if (DEBUG == 1) syslog(LOG_INFO, "RT_THREAD: Deviced closed");
 
-    msg.id = -1;
+    /*msg.id = -1;
     if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) {
         perror("Closing message not sent");
-    }
+    }*/
 
     if (DEBUG == 1) syslog(LOG_INFO, "RT_THREAD: Closing message sent");
 
     free_pointers(7, &(args->in_channels), &(args->out_channels), &lectura_a, &lectura_b, &lectura_t, &input_values, &output_values);
+
+    fclose(file_out);
 
     printf("RT_THREAD: End. Not sent messages: %d\n", lost_msg);
 
@@ -494,7 +500,8 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
                 sprintf(msg.data, "%.3f %ld %.3f %.3f %.3f %.3f", t_elapsed, lat, v_model_scaled, input_values[0], -c_model, -c_external_scaled);
             }
 
-            if (send_to_queue(args->msqid, RT_QUEUE, NO_BLOCK_QUEUE, &msg) == ERR) lost_msg++;
+            //if (send_to_queue(args->msqid, RT_QUEUE, NO_BLOCK_QUEUE, &msg) == ERR) lost_msg++;
+            fprintf(file_out, "%s\n", msg.data);
 
 
             /* Auto calibration */

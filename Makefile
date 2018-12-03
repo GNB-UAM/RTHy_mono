@@ -13,7 +13,7 @@ MAKEFILE      = Makefile
 CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -D_GNU_SOURCE -I/usr/include/libxml2 -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CFLAGS        = -pipe -D_GNU_SOURCE -I/usr/include/libxml2 -g -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -I/usr/include/libxml2 -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I. -I../../anaconda3/include/qt -I../../anaconda3/include/qt/QtWidgets -I../../anaconda3/include/qt/QtGui -I../../anaconda3/include/qt/QtCore -Imoc -Iui -I../../anaconda3/mkspecs/linux-g++
 QMAKE         = /home/manur/anaconda3/bin/qmake
@@ -53,7 +53,6 @@ OBJECTS_DIR   = obj/
 SOURCES       = clamp/src/comedi_functions.c \
 		clamp/src/queue_functions.c \
 		common/src/aux_functions.c \
-		common/src/file_selector_functions.c \
 		common/src/xml_parser_functions.c \
 		gui/rthybrid.cpp \
 		gui/rthybrid_xml_main.cpp \
@@ -65,7 +64,6 @@ SOURCES       = clamp/src/comedi_functions.c \
 		clamp/src/clamp.c \
 		clamp/src/rt_thread_functions.c \
 		clamp/src/time_functions.c \
-		clamp/src/writer_thread_functions.c \
 		clamp/src/xml_clamp_parser.c \
 		model_library/integration_methods.c \
 		model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp \
@@ -112,7 +110,6 @@ SOURCES       = clamp/src/comedi_functions.c \
 OBJECTS       = obj/comedi_functions.o \
 		obj/queue_functions.o \
 		obj/aux_functions.o \
-		obj/file_selector_functions.o \
 		obj/xml_parser_functions.o \
 		obj/rthybrid.o \
 		obj/rthybrid_xml_main.o \
@@ -124,7 +121,6 @@ OBJECTS       = obj/comedi_functions.o \
 		obj/clamp.o \
 		obj/rt_thread_functions.o \
 		obj/time_functions.o \
-		obj/writer_thread_functions.o \
 		obj/xml_clamp_parser.o \
 		obj/integration_methods.o \
 		obj/nm_gui_wang_1993.o \
@@ -346,8 +342,7 @@ DIST          = ../../anaconda3/mkspecs/features/spec_pre.prf \
 		../../anaconda3/mkspecs/features/exceptions.prf \
 		../../anaconda3/mkspecs/features/yacc.prf \
 		../../anaconda3/mkspecs/features/lex.prf \
-		rthybrid.pro common/includes/file_selector_functions.h \
-		common/includes/xml_parser_functions.h \
+		rthybrid.pro common/includes/xml_parser_functions.h \
 		common/includes/types.h \
 		gui/rthybrid.h \
 		gui/rthybrid_xml_main.h \
@@ -361,7 +356,6 @@ DIST          = ../../anaconda3/mkspecs/features/spec_pre.prf \
 		clamp/includes/rt_thread_functions.h \
 		clamp/includes/time_functions.h \
 		clamp/includes/types_clamp.h \
-		clamp/includes/writer_thread_functions.h \
 		clamp/includes/xml_clamp_parser.h \
 		moc/moc_predefs.h \
 		model_library/integration_methods.h \
@@ -399,7 +393,6 @@ DIST          = ../../anaconda3/mkspecs/features/spec_pre.prf \
 		model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.h clamp/src/comedi_functions.c \
 		clamp/src/queue_functions.c \
 		common/src/aux_functions.c \
-		common/src/file_selector_functions.c \
 		common/src/xml_parser_functions.c \
 		gui/rthybrid.cpp \
 		gui/rthybrid_xml_main.cpp \
@@ -411,7 +404,6 @@ DIST          = ../../anaconda3/mkspecs/features/spec_pre.prf \
 		clamp/src/clamp.c \
 		clamp/src/rt_thread_functions.c \
 		clamp/src/time_functions.c \
-		clamp/src/writer_thread_functions.c \
 		clamp/src/xml_clamp_parser.c \
 		model_library/integration_methods.c \
 		model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp \
@@ -834,8 +826,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../anaconda3/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents common/includes/file_selector_functions.h common/includes/xml_parser_functions.h common/includes/types.h gui/rthybrid.h gui/rthybrid_xml_main.h gui/clamplauncher.h clamp/includes/calibrate_functions_phase1.h clamp/includes/calibrate_functions_phase2.h clamp/includes/calibrate_functions_phase2_a.h clamp/includes/clamp.h clamp/includes/device_functions.h clamp/includes/queue_functions.h clamp/includes/rt_thread_functions.h clamp/includes/time_functions.h clamp/includes/types_clamp.h clamp/includes/writer_thread_functions.h clamp/includes/xml_clamp_parser.h moc/moc_predefs.h model_library/integration_methods.h model_library/neuron/Wang_1993/nm_gui_wang_1993.h model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.h model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.h model_library/neuron/Izhikevich_2003/nm_gui_izhikevich_2003.h model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.h model_library/neuron/Izhikevich_2003/nm_izhikevich_2003.h model_library/neuron/Hindmarsh_Rose_1986/nm_hindmarsh_rose_1986.h model_library/neuron/Rulkov_2002/nm_rulkov_2002.h model_library/neuron/Ghigliazza_Holmes_2004/nm_ghigliazza_holmes_2004.h model_library/neuron/Wang_1993/nm_wang_1993.h model_library/neuron/neuron_models_functions.h model_library/neuron/Empty/nm_empty.h model_library/synapse/Electrical/sm_gui_electrical.h model_library/synapse/Empty/sm_empty.h model_library/synapse/synapse_models_functions.h model_library/synapse/Electrical/sm_electrical.h model_library/synapse/Golowasch_et_al_1999/sm_golowasch_et_al_1999.h model_library/synapse/Golowasch_et_al_1999/sm_xml_golowasch_et_al_1999.h model_library/synapse/Electrical/sm_xml_electrical.h model_library/xml_models.h model_library/neuron/Ghigliazza_Holmes_2004/nm_xml_ghigliazza_holmes_2004.h model_library/neuron/Izhikevich_2003/nm_xml_izhikevich_2003.h model_library/neuron/Wang_1993/nm_xml_wang_1993.h model_library/neuron/Hindmarsh_Rose_1986/nm_xml_hindmarsh_rose_1986.h model_library/neuron/Rulkov_2002/nm_xml_rulkov_2002.h model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.h model_library/synapse/Destexhe_et_al_1994/sm_destexhe_et_al_1994.h model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.h model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.h model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.h model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.h model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.h $(DISTDIR)/
-	$(COPY_FILE) --parents clamp/src/comedi_functions.c clamp/src/queue_functions.c common/src/aux_functions.c common/src/file_selector_functions.c common/src/xml_parser_functions.c gui/rthybrid.cpp gui/rthybrid_xml_main.cpp gui/clamplauncher.cpp gui/main.cpp clamp/src/calibrate_functions_phase1.c clamp/src/calibrate_functions_phase2.c clamp/src/calibrate_functions_phase2_a.c clamp/src/clamp.c clamp/src/rt_thread_functions.c clamp/src/time_functions.c clamp/src/writer_thread_functions.c clamp/src/xml_clamp_parser.c model_library/integration_methods.c model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.cpp model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.cpp model_library/neuron/Izhikevich_2003/nm_gui_izhikevich_2003.cpp model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.cpp model_library/neuron/Izhikevich_2003/nm_izhikevich_2003.c model_library/neuron/Hindmarsh_Rose_1986/nm_hindmarsh_rose_1986.c model_library/neuron/Rulkov_2002/nm_rulkov_2002.c model_library/neuron/Ghigliazza_Holmes_2004/nm_ghigliazza_holmes_2004.c model_library/neuron/Wang_1993/nm_wang_1993.c model_library/neuron/neuron_models_functions.c model_library/neuron/Empty/nm_empty.c model_library/synapse/Electrical/sm_gui_electrical.cpp model_library/synapse/Empty/sm_empty.c model_library/synapse/synapse_models_functions.c model_library/synapse/Electrical/sm_electrical.c model_library/synapse/Golowasch_et_al_1999/sm_golowasch_et_al_1999.c model_library/synapse/Electrical/sm_xml_electrical.c model_library/synapse/Golowasch_et_al_1999/sm_xml_golowasch_et_al_1999.c model_library/neuron/Ghigliazza_Holmes_2004/nm_xml_ghigliazza_holmes_2004.c model_library/neuron/Izhikevich_2003/nm_xml_izhikevich_2003.c model_library/neuron/Wang_1993/nm_xml_wang_1993.c model_library/neuron/Hindmarsh_Rose_1986/nm_xml_hindmarsh_rose_1986.c model_library/neuron/Rulkov_2002/nm_xml_rulkov_2002.c model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.cpp model_library/synapse/Destexhe_et_al_1994/sm_destexhe_et_al_1994.c model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.cpp model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.c model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.cpp model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.c model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.c $(DISTDIR)/
+	$(COPY_FILE) --parents common/includes/xml_parser_functions.h common/includes/types.h gui/rthybrid.h gui/rthybrid_xml_main.h gui/clamplauncher.h clamp/includes/calibrate_functions_phase1.h clamp/includes/calibrate_functions_phase2.h clamp/includes/calibrate_functions_phase2_a.h clamp/includes/clamp.h clamp/includes/device_functions.h clamp/includes/queue_functions.h clamp/includes/rt_thread_functions.h clamp/includes/time_functions.h clamp/includes/types_clamp.h clamp/includes/xml_clamp_parser.h moc/moc_predefs.h model_library/integration_methods.h model_library/neuron/Wang_1993/nm_gui_wang_1993.h model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.h model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.h model_library/neuron/Izhikevich_2003/nm_gui_izhikevich_2003.h model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.h model_library/neuron/Izhikevich_2003/nm_izhikevich_2003.h model_library/neuron/Hindmarsh_Rose_1986/nm_hindmarsh_rose_1986.h model_library/neuron/Rulkov_2002/nm_rulkov_2002.h model_library/neuron/Ghigliazza_Holmes_2004/nm_ghigliazza_holmes_2004.h model_library/neuron/Wang_1993/nm_wang_1993.h model_library/neuron/neuron_models_functions.h model_library/neuron/Empty/nm_empty.h model_library/synapse/Electrical/sm_gui_electrical.h model_library/synapse/Empty/sm_empty.h model_library/synapse/synapse_models_functions.h model_library/synapse/Electrical/sm_electrical.h model_library/synapse/Golowasch_et_al_1999/sm_golowasch_et_al_1999.h model_library/synapse/Golowasch_et_al_1999/sm_xml_golowasch_et_al_1999.h model_library/synapse/Electrical/sm_xml_electrical.h model_library/xml_models.h model_library/neuron/Ghigliazza_Holmes_2004/nm_xml_ghigliazza_holmes_2004.h model_library/neuron/Izhikevich_2003/nm_xml_izhikevich_2003.h model_library/neuron/Wang_1993/nm_xml_wang_1993.h model_library/neuron/Hindmarsh_Rose_1986/nm_xml_hindmarsh_rose_1986.h model_library/neuron/Rulkov_2002/nm_xml_rulkov_2002.h model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.h model_library/synapse/Destexhe_et_al_1994/sm_destexhe_et_al_1994.h model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.h model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.h model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.h model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.h model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.h $(DISTDIR)/
+	$(COPY_FILE) --parents clamp/src/comedi_functions.c clamp/src/queue_functions.c common/src/aux_functions.c common/src/xml_parser_functions.c gui/rthybrid.cpp gui/rthybrid_xml_main.cpp gui/clamplauncher.cpp gui/main.cpp clamp/src/calibrate_functions_phase1.c clamp/src/calibrate_functions_phase2.c clamp/src/calibrate_functions_phase2_a.c clamp/src/clamp.c clamp/src/rt_thread_functions.c clamp/src/time_functions.c clamp/src/xml_clamp_parser.c model_library/integration_methods.c model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.cpp model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.cpp model_library/neuron/Izhikevich_2003/nm_gui_izhikevich_2003.cpp model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.cpp model_library/neuron/Izhikevich_2003/nm_izhikevich_2003.c model_library/neuron/Hindmarsh_Rose_1986/nm_hindmarsh_rose_1986.c model_library/neuron/Rulkov_2002/nm_rulkov_2002.c model_library/neuron/Ghigliazza_Holmes_2004/nm_ghigliazza_holmes_2004.c model_library/neuron/Wang_1993/nm_wang_1993.c model_library/neuron/neuron_models_functions.c model_library/neuron/Empty/nm_empty.c model_library/synapse/Electrical/sm_gui_electrical.cpp model_library/synapse/Empty/sm_empty.c model_library/synapse/synapse_models_functions.c model_library/synapse/Electrical/sm_electrical.c model_library/synapse/Golowasch_et_al_1999/sm_golowasch_et_al_1999.c model_library/synapse/Electrical/sm_xml_electrical.c model_library/synapse/Golowasch_et_al_1999/sm_xml_golowasch_et_al_1999.c model_library/neuron/Ghigliazza_Holmes_2004/nm_xml_ghigliazza_holmes_2004.c model_library/neuron/Izhikevich_2003/nm_xml_izhikevich_2003.c model_library/neuron/Wang_1993/nm_xml_wang_1993.c model_library/neuron/Hindmarsh_Rose_1986/nm_xml_hindmarsh_rose_1986.c model_library/neuron/Rulkov_2002/nm_xml_rulkov_2002.c model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.cpp model_library/synapse/Destexhe_et_al_1994/sm_destexhe_et_al_1994.c model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.cpp model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.c model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.cpp model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.c model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.c $(DISTDIR)/
 	$(COPY_FILE) --parents gui/rthybrid.ui model_library/neuron/Wang_1993/nm_gui_wang_1993.ui model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.ui model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.ui model_library/neuron/Izhikevich_2003/nm_gui_izhikevich_2003.ui model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.ui model_library/synapse/Electrical/sm_gui_electrical.ui model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.ui model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.ui model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.ui $(DISTDIR)/
 
 
@@ -1061,7 +1053,6 @@ moc/moc_rthybrid.cpp: ui/ui_rthybrid.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
 		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h \
 		../../anaconda3/include/qt/QtCore/QThread \
 		../../anaconda3/include/qt/QtCore/qthread.h \
 		gui/rthybrid.h \
@@ -1094,7 +1085,6 @@ moc/moc_clamplauncher.cpp: clamp/includes/clamp.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
 		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h \
 		../../anaconda3/include/qt/QtCore/QThread \
 		../../anaconda3/include/qt/QtCore/qthread.h \
 		../../anaconda3/include/qt/QtCore/qobject.h \
@@ -2229,10 +2219,6 @@ obj/queue_functions.o: clamp/src/queue_functions.c clamp/includes/queue_function
 obj/aux_functions.o: common/src/aux_functions.c common/includes/types.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/aux_functions.o common/src/aux_functions.c
 
-obj/file_selector_functions.o: common/src/file_selector_functions.c common/includes/file_selector_functions.h \
-		common/includes/types.h
-	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/file_selector_functions.o common/src/file_selector_functions.c
-
 obj/xml_parser_functions.o: common/src/xml_parser_functions.c common/includes/xml_parser_functions.h \
 		common/includes/types.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/xml_parser_functions.o common/src/xml_parser_functions.c
@@ -2427,7 +2413,6 @@ obj/rthybrid.o: gui/rthybrid.cpp gui/rthybrid.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
 		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h \
 		../../anaconda3/include/qt/QtCore/QThread \
 		../../anaconda3/include/qt/QtCore/qthread.h \
 		../../anaconda3/include/qt/QtWidgets/QMessageBox \
@@ -2486,8 +2471,7 @@ obj/rthybrid_xml_main.o: gui/rthybrid_xml_main.cpp gui/rthybrid_xml_main.h \
 		clamp/includes/calibrate_functions_phase1.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
-		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h
+		clamp/includes/calibrate_functions_phase2.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/rthybrid_xml_main.o gui/rthybrid_xml_main.cpp
 
 obj/clamplauncher.o: gui/clamplauncher.cpp gui/clamplauncher.h \
@@ -2516,7 +2500,6 @@ obj/clamplauncher.o: gui/clamplauncher.cpp gui/clamplauncher.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
 		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h \
 		../../anaconda3/include/qt/QtCore/QThread \
 		../../anaconda3/include/qt/QtCore/qthread.h \
 		../../anaconda3/include/qt/QtCore/qobject.h \
@@ -2757,7 +2740,6 @@ obj/main.o: gui/main.cpp gui/rthybrid.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
 		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h \
 		../../anaconda3/include/qt/QtCore/QThread \
 		../../anaconda3/include/qt/QtCore/qthread.h \
 		gui/rthybrid_xml_main.h
@@ -2838,8 +2820,7 @@ obj/clamp.o: clamp/src/clamp.c clamp/includes/clamp.h \
 		clamp/includes/calibrate_functions_phase1.h \
 		clamp/includes/device_functions.h \
 		clamp/includes/calibrate_functions_phase2_a.h \
-		clamp/includes/calibrate_functions_phase2.h \
-		clamp/includes/writer_thread_functions.h
+		clamp/includes/calibrate_functions_phase2.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/clamp.o clamp/src/clamp.c
 
 obj/rt_thread_functions.o: clamp/src/rt_thread_functions.c clamp/includes/rt_thread_functions.h \
@@ -2870,14 +2851,6 @@ obj/rt_thread_functions.o: clamp/src/rt_thread_functions.c clamp/includes/rt_thr
 
 obj/time_functions.o: clamp/src/time_functions.c clamp/includes/time_functions.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/time_functions.o clamp/src/time_functions.c
-
-obj/writer_thread_functions.o: clamp/src/writer_thread_functions.c clamp/includes/writer_thread_functions.h \
-		clamp/includes/queue_functions.h \
-		clamp/includes/types_clamp.h \
-		common/includes/types.h \
-		common/includes/file_selector_functions.h \
-		clamp/includes/time_functions.h
-	$(CC) -c $(CFLAGS) $(INCPATH) -o obj/writer_thread_functions.o clamp/src/writer_thread_functions.c
 
 obj/xml_clamp_parser.o: clamp/src/xml_clamp_parser.c clamp/includes/xml_clamp_parser.h \
 		common/includes/xml_parser_functions.h \

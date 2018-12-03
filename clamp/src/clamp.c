@@ -9,7 +9,7 @@ void clamp_cleanup () {
 
     syslog(LOG_INFO, "CLAMP: Ctrl+C");
 
-    if (kill_writer_thread(writer, SIGUSR2) != 0)  syslog(LOG_INFO, "Error sending SIGUSR2 at main");
+    //if (kill_writer_thread(writer, SIGUSR2) != 0)  syslog(LOG_INFO, "Error sending SIGUSR2 at main");
     if (kill_rt_thread(rt, SIGUSR1) != 0)  syslog(LOG_INFO, "Error sending SIGUSR1 at main");
 }
 
@@ -106,7 +106,7 @@ int clamp (clamp_args * args) {
     asprintf(&filename_log, "%s/log.txt", args->data_path);
     asprintf(&filename_out, "%s", args->filename_out);
 
-    if (init_file_selector() == ERR) {
+    /*if (init_file_selector() == ERR) {
         syslog(LOG_INFO, "Error starting file selector.");
         return ERR;
     }
@@ -119,7 +119,7 @@ int clamp (clamp_args * args) {
     if (add_file(filename_log, &(r_args.events_file_id)) == ERR) {
         syslog(LOG_INFO, "Error opening data file.");
         return ERR;
-    }
+    }*/
 
     //printf(" - File: %s\n", filename_data);
 
@@ -142,10 +142,10 @@ int clamp (clamp_args * args) {
     sigaddset(&set, SIGINT);
     if (pthread_sigmask(SIG_BLOCK, &set, NULL) != 0) syslog(LOG_INFO, "Error blocking SIGINT at main.\n");
 
-    if (open_queue(&msqid_rt, &msqid_nrt) != OK) {
+    /*if (open_queue(&msqid_rt, &msqid_nrt) != OK) {
         syslog(LOG_INFO, "Error opening rt queue.");
     	return ERR;
-    }
+    }*/
 
     syslog(LOG_INFO, "CLAMP: Queue opened");
 
@@ -162,7 +162,8 @@ int clamp (clamp_args * args) {
     r_args.check_drift = args->check_drift;
     r_args.auto_cal_val_1 = args->auto_cal_val_1;
     r_args.file_offline = args->file_offline;
-    w_args.filename = args->filename;
+    r_args.filename_out = args->filename_out;
+    /*w_args.filename = args->filename;
     w_args.msqid = msqid_nrt;
     w_args.model = args->model;
     w_args.freq = args->freq;
@@ -170,9 +171,9 @@ int clamp (clamp_args * args) {
     w_args.important = args->imp;
     w_args.calibration = args->mode_auto_cal;
     w_args.sm_model_to_live = r_args.sm_model_to_live;
-    w_args.sm_model_to_live = r_args.sm_model_to_live;
+    w_args.sm_model_to_live = r_args.sm_model_to_live;*/
 
-    create_writer_thread(&(writer), (void *) &w_args);
+    //create_writer_thread(&(writer), (void *) &w_args);
     create_rt_thread(&(rt), (void *) &r_args);
 
     syslog(LOG_INFO, "CLAMP: Threads created");
@@ -182,7 +183,7 @@ int clamp (clamp_args * args) {
 
     syslog(LOG_INFO, "CLAMP: Signals set");
 
-    join_writer_thread(writer, NULL);
+    //join_writer_thread(writer, NULL);
     join_rt_thread(rt, NULL);
 
     syslog(LOG_INFO, "CLAMP: Threads joined");
@@ -194,9 +195,9 @@ int clamp (clamp_args * args) {
      * Free and close the resources before the end
      */
 
-    if (msqid_nrt != NULL || msqid_rt != NULL) {
+    /*if (msqid_nrt != NULL || msqid_rt != NULL) {
         if (close_queue(&msqid_rt, &msqid_nrt) != OK) syslog(LOG_INFO, "Error closing queue.\n");
-    }
+    }*/
 
     syslog(LOG_INFO, "CLAMP: Queue closed");
 
@@ -211,10 +212,10 @@ int clamp (clamp_args * args) {
     syslog(LOG_INFO, "CLAMP: Pointers freed");
 
 
-    if (destroy_file_selector() == ERR) {
+    /*if (destroy_file_selector() == ERR) {
         syslog(LOG_INFO, "Error destroying file selector.");
         return ERR; 
-    }
+    }*/
 
     syslog(LOG_INFO, "CLAMP: File selector destroyed");
 

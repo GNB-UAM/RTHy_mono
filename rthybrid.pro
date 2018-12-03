@@ -17,7 +17,7 @@ UI_DIR = ui/
 QMAKE_CLEAN += $$TARGET
 
 QMAKE_LIBS += -lpthread -lrt -lm -lxml2
-QMAKE_CFLAGS += -D_GNU_SOURCE -I/usr/include/libxml2
+QMAKE_CFLAGS += -D_GNU_SOURCE -I/usr/include/libxml2 -g
 QMAKE_CXXFLAGS += -I/usr/include/libxml2
 
 #QMAKE_LIBS += -lpthread -lrt -lm $(shell xml2-config --libs)
@@ -81,7 +81,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     common/src/aux_functions.c \
-    common/src/file_selector_functions.c \
+    #common/src/file_selector_functions.c \
     common/src/xml_parser_functions.c \
     gui/rthybrid.cpp \
     gui/rthybrid_xml_main.cpp \
@@ -93,7 +93,7 @@ SOURCES += \
     clamp/src/clamp.c \
     clamp/src/rt_thread_functions.c \
     clamp/src/time_functions.c \
-    clamp/src/writer_thread_functions.c \
+    #clamp/src/writer_thread_functions.c \
     clamp/src/xml_clamp_parser.c \
     model_library/integration_methods.c \
     model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp \
@@ -129,7 +129,7 @@ SOURCES += \
     model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.c
 
 HEADERS += \
-    common/includes/file_selector_functions.h \
+    #common/includes/file_selector_functions.h \
     common/includes/xml_parser_functions.h \
     common/includes/types.h \
     gui/rthybrid.h \
@@ -144,7 +144,7 @@ HEADERS += \
     clamp/includes/rt_thread_functions.h \
     clamp/includes/time_functions.h \
     clamp/includes/types_clamp.h \
-    clamp/includes/writer_thread_functions.h \
+    #clamp/includes/writer_thread_functions.h \
     clamp/includes/xml_clamp_parser.h \
     moc/moc_predefs.h \
     model_library/integration_methods.h \
