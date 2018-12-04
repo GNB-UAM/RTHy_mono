@@ -16,6 +16,9 @@ MOC_DIR = moc/
 UI_DIR = ui/
 QMAKE_CLEAN += $$TARGET
 
+QMAKE_CC = /home/manurey/gcc-6.3.0/bin/gcc 
+QMAKE_CXX = /home/manurey/gcc-6.3.0/bin/g++
+QMAKE_LINK = /home/manurey/gcc-6.3.0/bin/g++
 QMAKE_LIBS += -lpthread -lrt -lm -lxml2
 QMAKE_CFLAGS += -D_GNU_SOURCE -I/usr/include/libxml2 -g
 QMAKE_CXXFLAGS += -I/usr/include/libxml2
@@ -30,7 +33,7 @@ isol_core {
     QMAKE_CFLAGS += -D__CORE__=$${CORE}
 }
 
-QMAKE_LIBS += -lcomedi
+#QMAKE_LIBS += -lcomedi
 
     SOURCES += \ 
         clamp/src/comedi_functions.c \
