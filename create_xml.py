@@ -1,15 +1,28 @@
 
-variable_a=['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
-variable_b=['0.2','0.3','0.4', '0.5', '0.6']
+variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
+variable_b = ['0.2','0.3','0.4', '0.5', '0.6']
+entrada    = 'data/19h_18m_46s_1.txt'
 
 f_list = open('name_list.txt', 'w')
+f_exec = open('launch.sh', 'w')
 
 for var_a in variable_a:
 	for var_b in variable_b:
 
+		# XML name
 		name = 'exp_'+var_a+'_'+var_b+'.xml'
-		f_list.write(name+'\n')
-		f = open(name, 'w', newline='\n')
+		salida = 'data/res_'+var_a+'_'+var_b+'.txt'
+
+		# Annotation
+		f_list.write('xml/'+name+'\n')
+		f = open('xml/'+name, 'w', newline='\n')
+
+		# Execute order
+		f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Enpiezo a las `date`\n")
+		f_exec.write("./RTHybrid -xml xml/"+name)
+		f_exec.write("/bin/echo Termino a las `date`\n' | qsub\n\n")
+
+		# XML struct
 		f.write('<clamp>\n\n')
 
 		f.write('	<neuron type="1">\n')
@@ -49,8 +62,11 @@ for var_a in variable_a:
 		f.write('	<drift val="1"/>\n')
 		f.write('	<sec_per_burst val="-1"/>\n\n')
 
-		f.write('	<file val="data/19h_18m_46s_1.txt"/>\n')
-		f.write('	<file_out val="data/salida1.txt"/>\n\n')
+		f.write('	<file val="' +entrada+ '"/>\n')
+		f.write('	<file_out val="' +salida+ '"/>\n\n')
 
 		f.write('</clamp>\n')
 		f.close()
+
+f_list.close()
+f_exec.close()
