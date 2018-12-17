@@ -1,7 +1,8 @@
 # Nuestro
 
 *.dat
-*.txt
+data/*
+data/19h_18m_46s_1.txt
 *.pyc
 *.pro.*
 
