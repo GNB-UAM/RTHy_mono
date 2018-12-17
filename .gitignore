@@ -9,7 +9,7 @@ data/19h_18m_46s_1.txt
 Makefile
 
 !rtbiomanager.pro
-!about.txt
+!about.txts
 
 ui_rthybrid.h
 moc_rthybrid.cpp
