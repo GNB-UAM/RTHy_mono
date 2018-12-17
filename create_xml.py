@@ -19,7 +19,7 @@ for var_a in variable_a:
 
 		# Execute order
 		f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Enpiezo a las `date`\n")
-		f_exec.write("./RTHybrid -xml xml/"+name)
+		f_exec.write("./RTHybrid -xml xml/"+name+"\n")
 		f_exec.write("/bin/echo Termino a las `date`\n' | qsub\n\n")
 
 		# XML struct
