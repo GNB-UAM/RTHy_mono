@@ -1,0 +1,37 @@
+<clamp>
+
+	<neuron type="1">
+		<vars>
+			<v val="30.24"/>
+			<u val="-5.5"/>
+		</vars>
+	</neuron>
+
+	<synapse_ltom type="1">
+		<g val="0.4"/>
+		<antiphase val="1"/>
+	</synapse_ltom>
+
+	<calib type="0"> </calib>
+
+	<freq val="10000"/>
+
+	<times>
+		<before val="10"/>
+		<duration val="180"/>
+		<after val="10"/>
+		<observation val="10"/>
+	</times>
+
+	<output_channels val="0"/>
+	<input_channels val="0"/>
+	<input_factor val="100"/>
+	<output_factor val="10"/>
+	<imp val="0"/>
+	<drift val="1"/>
+	<sec_per_burst val="-1"/>
+
+	<file val="data/19h_18m_46s_1.txt"/>
+	<file_out val="data/res_40_0.05.txt"/>
+
+</clamp>

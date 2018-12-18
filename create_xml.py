@@ -1,6 +1,6 @@
 
 variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
-variable_b = ['0.2','0.3','0.4', '0.5', '0.6']
+variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 entrada    = 'data/19h_18m_46s_1.txt'
 
 f_list = open('name_list.txt', 'w')
@@ -18,9 +18,9 @@ for var_a in variable_a:
 		f = open('xml/'+name, 'w', newline='\n')
 
 		# Execute order
-		f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Enpiezo a las `date`\n")
-		f_exec.write("./RTHybrid -xml xml/"+name+"\n")
-		f_exec.write("/bin/echo Termino a las `date`\n' | qsub\n\n")
+		f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+		f_exec.write("./RTHybrid -xml xml/"+name+"\n\n")
+		f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
 
 		# XML struct
 		f.write('<clamp>\n\n')
