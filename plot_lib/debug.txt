@@ -1,0 +1,7 @@
+Recorder in channels  = 1
+Recorder out channels = 1
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/data/res_20_0.1.txt -j 2 -fr 10000 -d 0 
+Recorder in channels  = 1
+Recorder out channels = 1
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/data/res_20_0.1.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/data/res_20_0.1.txt -j 2 -fr 10000 -d 0 
