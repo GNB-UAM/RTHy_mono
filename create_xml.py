@@ -40,9 +40,17 @@ for var_a in variable_a:
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
 
-		f.write('	<synapse_ltom type="1">\n')
-		f.write('		<g val="0.4"/>\n')
-		f.write('		<antiphase val="1"/>\n')
+		f.write('	<synapse_ltom type="2">\n')
+		f.write('		<g_slow val="'+var_b+'"/>')
+		f.write('		<vth_slow val="'+var_a+'"/>')
+		f.write('		<s_slow val="1.0"/>')
+		f.write('		<k1_slow val="14.0"/>')
+		f.write('		<k2_slow val="4.0"/>')
+
+		f.write('		<g_fast val="0.8"/>')
+		f.write('		<vth_fast val="25.0"/>')
+		f.write('		<s_fast val="5.0"/>')
+
 		f.write('	</synapse_ltom>\n\n')
 
 		#f.write('	<synapse_mtol type="1">\n')
