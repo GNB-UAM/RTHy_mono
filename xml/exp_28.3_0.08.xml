@@ -15,9 +15,15 @@
 		</params>
 	</neuron>
 
-	<synapse_ltom type="1">
-		<g val="0.4"/>
-		<antiphase val="1"/>
+	<synapse_ltom type="2">
+		<g_slow val="0.08"/>
+		<vth_slow val="28.3"/>
+		<s_slow val="1.0"/>
+		<k1_slow val="14.0"/>
+		<k2_slow val="4.0"/>
+		<g_fast val="0.8"/>
+		<vth_fast val="25.0"/>
+		<s_fast val="5.0"/>
 	</synapse_ltom>
 
 	<calib type="0"> </calib>

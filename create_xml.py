@@ -41,15 +41,15 @@ for var_a in variable_a:
 		f.write('	</neuron>\n\n')
 
 		f.write('	<synapse_ltom type="2">\n')
-		f.write('		<g_slow val="'+var_b+'"/>')
-		f.write('		<vth_slow val="'+var_a+'"/>')
-		f.write('		<s_slow val="1.0"/>')
-		f.write('		<k1_slow val="14.0"/>')
-		f.write('		<k2_slow val="4.0"/>')
+		f.write('		<g_slow val="'+var_b+'"/>\n')
+		f.write('		<vth_slow val="'+var_a+'"/>\n')
+		f.write('		<s_slow val="1.0"/>\n')
+		f.write('		<k1_slow val="14.0"/>\n')
+		f.write('		<k2_slow val="4.0"/>\n')
 
-		f.write('		<g_fast val="0.8"/>')
-		f.write('		<vth_fast val="25.0"/>')
-		f.write('		<s_fast val="5.0"/>')
+		f.write('		<g_fast val="0.8"/>\n')
+		f.write('		<vth_fast val="25.0"/>\n')
+		f.write('		<s_fast val="5.0"/>\n')
 
 		f.write('	</synapse_ltom>\n\n')
 
