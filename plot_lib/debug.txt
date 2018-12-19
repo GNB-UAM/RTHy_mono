@@ -16,3 +16,10 @@ Recorder out channels = 1
 python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.01.txt -j 2 -fr 10000 -d 0 
 python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.0.txt -j 2 -fr 10000 -d 0 
 python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_40_0.1.txt -j 2 -fr 10000 -d 0 
+Recorder in channels  = 1
+Recorder out channels = 1
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.01.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.0.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_40_0.1.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.0.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/prueba1/res_20_0.0.txt -j 2 -fr 10000 -d 0 

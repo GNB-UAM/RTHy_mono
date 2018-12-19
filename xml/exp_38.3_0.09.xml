@@ -21,7 +21,7 @@
 		<s_slow val="1.0"/>
 		<k1_slow val="14.0"/>
 		<k2_slow val="4.0"/>
-		<g_fast val="0.8"/>
+		<g_fast val="0.0"/>
 		<vth_fast val="25.0"/>
 		<s_fast val="5.0"/>
 	</synapse_ltom>

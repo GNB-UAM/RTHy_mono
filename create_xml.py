@@ -45,9 +45,9 @@ for var_a in variable_a:
 		f.write('		<vth_slow val="'+var_a+'"/>\n')
 		f.write('		<s_slow val="1.0"/>\n')
 		f.write('		<k1_slow val="14.0"/>\n')
-		f.write('		<k2_slow val="4.0"/>\n')
+		f.write('		<k2_slow val="4.0"/>\n\n')
 
-		f.write('		<g_fast val="0.8"/>\n')
+		f.write('		<g_fast val="0.0"/>\n')
 		f.write('		<vth_fast val="25.0"/>\n')
 		f.write('		<s_fast val="5.0"/>\n')
 
