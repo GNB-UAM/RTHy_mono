@@ -5,16 +5,17 @@ entrada    = 'data/19h_18m_46s_1.txt'
 
 f_list = open('name_list.txt', 'w')
 f_exec = open('launch.sh', 'w')
+f_plot = open('inv_list.sh', 'w')
 
 for var_a in variable_a:
 	for var_b in variable_b:
 
 		# XML name
-		name = 'exp_'+var_a+'_'+var_b+'.xml'
-		salida = 'data/res_'+var_a+'_'+var_b+'.txt'
+		name = 'exp_GH_'+var_a+'_'+var_b+'.xml'
+		salida = 'data/res_GH_'+var_a+'_'+var_b+'.txt'
 
 		# Annotation
-		f_list.write('xml/'+name+'\n')
+		f_list.write('xml_GH/'+name+'\n')
 		f = open('xml/'+name, 'w', newline='\n')
 
 		# Execute order
@@ -22,9 +23,16 @@ for var_a in variable_a:
 		f_exec.write("./RTHybrid -xml xml/"+name+"\n\n")
 		f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
 
+		# Invariant
+		f_plot.write("python plot_lib/invariante.py -f pruebaGH/res_GH_"+var_a+"_"+var_b+".txt -n1 "+var_a+" -n2 "+var_b+"\n")
+
+
 		# XML struct
 		f.write('<clamp>\n\n')
 
+
+		'''
+		# IZHIKEVICH
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -39,6 +47,42 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
+		'''
+
+		# G-H
+		f.write('	<neuron type="4">\n')
+		f.write('		<vars>\n')
+		f.write('			<v val="30.24"/>\n')
+		f.write('		</vars>\n')
+		f.write('		<params>\n')
+		f.write('			<gca val="4.4"/>\n')
+		f.write('			<eca val="120"/>\n')
+		f.write('			<vthca val="-1.2"/>\n')
+		f.write('			<kca val="0.11"/>\n')
+
+		f.write('			<gk val="9"/>\n')
+		f.write('			<ek val="-80"/>\n')
+		f.write('			<vthk val="2.0"/>\n')
+		f.write('			<kk val="0.2"/>\n')
+
+		f.write('			<gks val="0.25"/>\n')
+		f.write('			<vthks val="-27"/>\n')
+		f.write('			<kks val="0.8"/>\n')
+	
+		f.write('			<gl val="2.0"/>\n')
+		f.write('			<el val="-60"/>\n')
+
+		f.write('			<c val="1.2"/>\n')
+		f.write('			<epsilon val="4.9"/>\n')
+		f.write('			<delta val="0.052"/>\n')
+		f.write('			<i val="35.6"/>\n')
+
+		f.write('			<method val="3"/>\n')
+		f.write('		</params>\n')
+		f.write('	</neuron>\n')
+
+
+		# SYNAPSE
 
 		f.write('	<synapse_ltom type="2">\n')
 		f.write('		<g_slow val="'+var_b+'"/>\n')
@@ -86,3 +130,4 @@ for var_a in variable_a:
 
 f_list.close()
 f_exec.close()
+f_plot.close()

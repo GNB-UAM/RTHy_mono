@@ -32,8 +32,8 @@
 	</neuron>
 
 	<synapse_ltom type="2">
-		<g_fast val="0.8"/>
-		<vth_fast val="25.0"/>
+		<g_fast val="0.2"/>
+		<vth_fast val="60.0"/>
 		<s_fast val="5.0"/>
 		
 		<g_slow val="0.0"/>
@@ -48,11 +48,11 @@
 		<vth_fast val="0.0"/>
 		<s_fast val="0.0"/>
 
-		<g_slow val="0.08"/>
+		<g_slow val="0.2"/>
 		<vth_slow val="15.0"/>
 		<s_slow val="1.0"/>
 		<k1_slow val="14.0"/>
-		<k2_slow val="8.0"/>
+		<k2_slow val="4.0"/>
 	</synapse_mtol>
 
 	<calib type="0"></calib>
@@ -61,23 +61,26 @@
 
 	<times>
 		<before val="5"/>
-		<duration val="10"/>
+		<duration val="30"/>
 		<after val="5"/>
 		<observation val="10"/>
 	</times>
 
-	<output_channels val="0,1"/>
+	<output_channels val="0"/>
 
 	<input_channels val="0"/>
 
-	<input_factor val="1000"/>
+	<input_factor val="100"/>
 
-	<output_factor val="1"/>
+	<output_factor val="10"/>
 
 	<imp val="0"/>
 
 	<drift val="1"/>
 
-	<sec_per_burst val="0.33"/>
+	<sec_per_burst val="-1"/>
+
+	<file val="data/20h_27m_8s_data.txt"/>
+	<file_out val="data/test_GH_b4.txt"/>
 
 </clamp>

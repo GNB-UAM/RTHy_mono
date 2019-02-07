@@ -18,11 +18,15 @@ class arguments():
 		ap.add_argument("-j", "--jump",   required=False, default=0,        help="Plot less points")
 		ap.add_argument("-d", "--drift",  required=False, default=0,        help="Fix_drift activated")
 		ap.add_argument("-lat", "--latency",  required=False, default=0,        help="Plot latency")
+		ap.add_argument("-n1", required=False, default='No name')
+		ap.add_argument("-n2", required=False, default='No name')
 		args = vars(ap.parse_args())
 
 		# Parse and save arguments
 		self.file    = args["file"]
-		self.name    = args["name"] 
+		self.name    = str(args["name"]) 
+		self.n1    = '%.3f' % float(args["n1"])
+		self.n2    = '%.3f' % float(args["n2"])
 		self.title   = args["title"]
 		self.freq    = int(args["freq"])
 		self.jump    = int(args["jump"])+1
@@ -56,8 +60,8 @@ class DataStruct1():
 		#NUM CHANNELS
 		self.n_in_chan  = int(channels[0])
 		self.n_out_chan = int(channels[1]) 
-		print("Recorder in channels  = " + str(self.n_in_chan))
-		print("Recorder out channels = " + str(self.n_out_chan))
+		#print("Recorder in channels  = " + str(self.n_in_chan))
+		#print("Recorder out channels = " + str(self.n_out_chan))
 		file.close()
 
 		#READ DATA
@@ -65,6 +69,7 @@ class DataStruct1():
 		data = dataset.values
 
 		self.data_in = []
+		self.time_ms        = data[:,0][::args.jump]
 		self.time           = data[:,0][::args.jump] / 1000
 		self.lat            = data[:,1][::args.jump]
 		self.v_model_scaled = data[:,2][::args.jump]

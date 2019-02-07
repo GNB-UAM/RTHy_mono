@@ -64,6 +64,37 @@ def cal_coef_var(events, print_on=False):
 	return math.sqrt(var)/mean*100
 
 
+def clean_all_events(t_ms, events, plot_on=False):
+	new_t_first = []
+	new_t_last = []
+	new_events_1 = []
+	new_events_2 = []
+
+	aux_off=True
+
+	for i in range(len(t_ms)-1):
+		if t_ms[i+1]-t_ms[i] > 0.3: #ms
+			if aux_off==True:
+				aux_off=False
+			else:
+				# Para que no quede un last sin first
+				new_t_last.append(t_ms[i])
+				new_events_2.append(-20)
+			new_t_first.append(t_ms[i+1])
+			new_events_1.append(-20)
+			
+	#Plot
+	if plot_on==True:
+		plt.figure(figsize=(7,4))
+		plt.plot(t_ms, events, 'o', label="All")
+		plt.plot(new_t_first, new_events_1, 'o', label="First")
+		plt.plot(new_t_last, new_events_2, 'o', label="Last")
+		plt.legend(loc=1, framealpha=1.0)
+		plt.tight_layout()
+		plt.show()
+
+	return new_t_first, new_t_last
+
 def periodo(t, t_ms, v, freq, plot_on=False, all_events=False):
 	s_interval = 20
 	times, times_ms, events, minis, maxis = [], [], [], [], [] 
