@@ -25,8 +25,9 @@ class arguments():
 		# Parse and save arguments
 		self.file    = args["file"]
 		self.name    = str(args["name"]) 
-		self.n1    = '%.3f' % float(args["n1"])
-		self.n2    = '%.3f' % float(args["n2"])
+		if args["n1"]!='No name':
+			self.n1    = '%.3f' % float(args["n1"])
+			self.n2    = '%.3f' % float(args["n2"])
 		self.title   = args["title"]
 		self.freq    = int(args["freq"])
 		self.jump    = int(args["jump"])+1
