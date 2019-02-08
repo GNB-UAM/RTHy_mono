@@ -39,7 +39,7 @@ for var_a in variable_a:
 
 
 		# Invariant
-		f_plot.write("python plot_lib/invariante.py -f pruebaGH/res_GH_"+var_a+"_"+var_b+".txt -n1 "+var_a+" -n2 "+var_b+"\n")
+		f_plot.write("python plot_lib/invariante.py -f data/res_GH_"+var_a+"_"+var_b+".txt -n1 "+var_a+" -n2 "+var_b+"\n")
 
 
 		# XML struct
@@ -142,6 +142,8 @@ for var_a in variable_a:
 
 		f.write('</clamp>\n')
 		f.close()
+
+f_exec.write("'\n\n")
 
 f_list.close()
 f_exec.close()
