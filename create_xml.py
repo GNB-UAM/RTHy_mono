@@ -10,6 +10,8 @@ f_list = open('name_list.txt', 'w')
 f_exec = open('launch.sh', 'w')
 f_plot = open('inv_list.sh', 'w')
 
+contador_qsub = 0
+f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 for var_a in variable_a:
 	for var_b in variable_b:
 		var_a = "{0:.2f}".format(float(var_a))
@@ -24,9 +26,17 @@ for var_a in variable_a:
 		f = open('xml/'+name, 'w', newline='\n')
 
 		# Execute order
-		f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+		
 		f_exec.write("./RTHybrid -xml xml/"+name+"\n\n")
-		f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
+		
+
+		if contador_qsub == 19:
+			contador_qsub = 0
+			f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
+			f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+		else:
+			contador_qsub += 1
+
 
 		# Invariant
 		f_plot.write("python plot_lib/invariante.py -f pruebaGH/res_GH_"+var_a+"_"+var_b+".txt -n1 "+var_a+" -n2 "+var_b+"\n")
