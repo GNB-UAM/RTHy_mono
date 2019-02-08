@@ -1,6 +1,9 @@
 
-variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
-variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
+variable_a = [x * 1.0  for x in range(20, 80)]
+variable_b = [x * 0.05 for x in range(0,  20)]
+
+#variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
+#variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 entrada    = 'data/19h_18m_46s_1.txt'
 
 f_list = open('name_list.txt', 'w')
@@ -9,13 +12,15 @@ f_plot = open('inv_list.sh', 'w')
 
 for var_a in variable_a:
 	for var_b in variable_b:
+		var_a = "{0:.2f}".format(float(var_a))
+		var_b = "{0:.2f}".format(float(var_b))
 
 		# XML name
 		name = 'exp_GH_'+var_a+'_'+var_b+'.xml'
 		salida = 'data/res_GH_'+var_a+'_'+var_b+'.txt'
 
 		# Annotation
-		f_list.write('xml_GH/'+name+'\n')
+		f_list.write('xml/'+name+'\n')
 		f = open('xml/'+name, 'w', newline='\n')
 
 		# Execute order

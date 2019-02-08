@@ -1,1 +1,6 @@
 python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_20_0.07.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_20_0.07.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_31.6_0.1.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_20_0.07.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_31.6_0.1.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono2/pruebaGH/res_GH_40_0.1.txt -j 2 -fr 10000 -d 0 

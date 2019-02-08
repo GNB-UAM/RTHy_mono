@@ -1,0 +1,62 @@
+<clamp>
+
+	<neuron type="4">
+		<vars>
+			<v val="30.24"/>
+		</vars>
+		<params>
+			<gca val="4.4"/>
+			<eca val="120"/>
+			<vthca val="-1.2"/>
+			<kca val="0.11"/>
+			<gk val="9"/>
+			<ek val="-80"/>
+			<vthk val="2.0"/>
+			<kk val="0.2"/>
+			<gks val="0.25"/>
+			<vthks val="-27"/>
+			<kks val="0.8"/>
+			<gl val="2.0"/>
+			<el val="-60"/>
+			<c val="1.2"/>
+			<epsilon val="4.9"/>
+			<delta val="0.052"/>
+			<i val="35.6"/>
+			<method val="3"/>
+		</params>
+	</neuron>
+	<synapse_ltom type="2">
+		<g_slow val="0"/>
+		<vth_slow val="40"/>
+		<s_slow val="1.0"/>
+		<k1_slow val="14.0"/>
+		<k2_slow val="4.0"/>
+
+		<g_fast val="0.25"/>
+		<vth_fast val="42.00"/>
+		<s_fast val="5.0"/>
+	</synapse_ltom>
+
+	<calib type="0"> </calib>
+
+	<freq val="10000"/>
+
+	<times>
+		<before val="10"/>
+		<duration val="180"/>
+		<after val="10"/>
+		<observation val="10"/>
+	</times>
+
+	<output_channels val="0"/>
+	<input_channels val="0"/>
+	<input_factor val="100"/>
+	<output_factor val="10"/>
+	<imp val="0"/>
+	<drift val="1"/>
+	<sec_per_burst val="-1"/>
+
+	<file val="data/19h_18m_46s_1.txt"/>
+	<file_out val="data/res_GH_42.00_0.25.txt"/>
+
+</clamp>
