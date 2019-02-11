@@ -14,19 +14,20 @@ import plot_analysis as pa
 args  = aux.arguments()
 data1 = aux.DataStruct1(args)
 
-#version = 'one_test'
-version = 'multiple'
+version = 'one_test'
+#version = 'multiple'
 result_file = 'result.txt'
 
 ########
 # EXTRAER EVENTOS
 ########
+t_ignore = args.freq * 12
 
-times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time, data1.time_ms, data1.v_model_scaled, args.freq, all_events=True, plot_on=False)
+times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.v_model_scaled[t_ignore:], args.freq, all_events=True, plot_on=False)
 t_model_first, t_model_last = pa.clean_all_events(times, events)
 
 
-times, living_times_ms, events, minis, maxis = pa.periodo(data1.time, data1.time_ms, data1.data_in[0],     args.freq, all_events=True, plot_on=False)
+times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.data_in[0][t_ignore:],     args.freq, all_events=True, plot_on=False)
 t_living_first, t_living_last = pa.clean_all_events(times, events)
 
 #######
