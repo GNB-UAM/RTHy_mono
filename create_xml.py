@@ -1,46 +1,53 @@
+##########################
+##########################
 
 variable_a = [x * 1.0  for x in range(20, 80)]
 variable_b = [x * 0.05 for x in range(0,  20)]
-
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
-entrada    = 'data/19h_18m_46s_1.txt'
 
-f_list = open('name_list.txt', 'w')
+entrada    = 'data/2018y_2m_20d/19h_18m_46s_1.txt'
+salida     = 'data_out/GH_1/res_GH_'#+something
+xml        = 'xml_out/GH_1/xml_GH_'#+something
+file_R2 = 'salida_14feb19_'
+
 f_exec = open('launch.sh', 'w')
-f_plot = open('inv_list.sh', 'w')
-
+num_qsub = 0
 contador_qsub = 0
 f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+
+tam = len(variable_a)*len(variable_b)
+tam_i = 0
+
 for var_a in variable_a:
 	for var_b in variable_b:
+		tam_i +=1
+
 		var_a = "{0:.2f}".format(float(var_a))
 		var_b = "{0:.2f}".format(float(var_b))
 
 		# XML name
-		name = 'exp_GH_'+var_a+'_'+var_b+'.xml'
-		salida = 'data/res_GH_'+var_a+'_'+var_b+'.txt'
+		name = xml+var_a+'_'+var_b+'.xml'
+		salida_file = salida+var_a+'_'+var_b+'.txt'
 
 		# Annotation
-		f_list.write('xml/'+name+'\n')
-		f = open('xml/'+name, 'w', newline='\n')
+		f = open(name, 'w', newline='\n')
 
 		# Execute order
-		
-		f_exec.write("./RTHybrid -xml xml/"+name+"\n\n")
+		f_exec.write("./RTHybrid -xml "+name+"\n\n")
+
+		# Invariant
+		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
 
 		if contador_qsub == 19:
 			contador_qsub = 0
+			num_qsub+=1
 			f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
-			f_exec.write("echo -e '#!/bin/bash\n#$ -N OB\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+			if tam_i < tam:
+				f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHybrid_mono\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 		else:
 			contador_qsub += 1
-
-
-		# Invariant
-		f_plot.write("python plot_lib/invariante.py -f data/res_GH_"+var_a+"_"+var_b+".txt -n1 "+var_a+" -n2 "+var_b+"\n")
-
 
 		# XML struct
 		f.write('<clamp>\n\n')
@@ -138,13 +145,9 @@ for var_a in variable_a:
 		f.write('	<sec_per_burst val="-1"/>\n\n')
 
 		f.write('	<file val="' +entrada+ '"/>\n')
-		f.write('	<file_out val="' +salida+ '"/>\n\n')
+		f.write('	<file_out val="' +salida_file+ '"/>\n\n')
 
 		f.write('</clamp>\n')
 		f.close()
 
-f_exec.write("'\n\n")
-
-f_list.close()
 f_exec.close()
-f_plot.close()
