@@ -3,6 +3,7 @@
 data_in/*
 *.pyc
 *.pro.*
+result/*/*.txt
 
 Makefile
 
