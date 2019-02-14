@@ -56,7 +56,7 @@
 	<drift val="1"/>
 	<sec_per_burst val="-1"/>
 
-	<file val="data/2018y_2m_20d/19h_18m_46s_1.txt"/>
+	<file val="data_in/2018y_2m_20d/19h_18m_46s_1.txt"/>
 	<file_out val="data_out/GH_1/res_GH_61.00_0.35.txt"/>
 
 </clamp>
