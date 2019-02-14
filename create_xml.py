@@ -45,7 +45,7 @@ for var_a in variable_a:
 			num_qsub+=1
 			f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
 			if tam_i < tam:
-				f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHybrid_mono\n#$ -cwd\n#$ -o OB.$JOB_ID.out\n#$ -e OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+				f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHybrid_mono\n#$ -cwd\n#$ -o jobs/OB.$JOB_ID.out\n#$ -e jobs/OB.$JOB_ID.err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 		else:
 			contador_qsub += 1
 
