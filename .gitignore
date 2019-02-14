@@ -1,6 +1,6 @@
 # Nuestro
 
-data/*
+data_in/*
 res*/
 *.pyc
 *.pro.*
