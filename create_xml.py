@@ -7,8 +7,8 @@ variable_b = [x * 0.05 for x in range(0,  20)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 entrada    = 'data/2018y_2m_20d/19h_18m_46s_1.txt'
+xml        = 'xml_in/GH_1/xml_GH_'#+something
 salida     = 'data_out/GH_1/res_GH_'#+something
-xml        = 'xml_out/GH_1/xml_GH_'#+something
 file_R2 = 'salida_14feb19_'
 
 f_exec = open('launch.sh', 'w')
