@@ -9,7 +9,7 @@ except:
 	print("")
 
 num = len([1 for x in list(os.scandir(folder)) if x.is_file()])
-f = open('total.txt', 'w')
+f = open(folder+'total.txt', 'w')
 
 i = 0
 while i<num:
