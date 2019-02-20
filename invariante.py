@@ -18,12 +18,12 @@ args  = aux.arguments()
 data1 = aux.DataStruct1(args)
 t_ignore = args.freq * 12
 
-#version = 'one_test'
-version = 'multiple'
+version = 'one_test'
+#version = 'multiple'
 
 plot_val = False
 if version == 'one_test':
-	plot_val = False
+	plot_val = True
 
 ########
 # EXTRAER EVENTOS
