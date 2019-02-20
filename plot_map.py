@@ -3,11 +3,13 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
+fichero = 'result/GH_1/salida_14feb19.txt'
+
 variable_a = [x * 1.0  for x in range(20, 80)]
 variable_b = [x * 0.05 for x in range(0,  20)]
 eje_x = len(variable_a)
 eje_y = len(variable_b)
-data = np.genfromtxt("result.txt",delimiter=" ")
+data = np.genfromtxt(fichero,delimiter="\t")
 #print(data[:,2])
 
 z = np.reshape(data[:,3], (eje_x,eje_y))

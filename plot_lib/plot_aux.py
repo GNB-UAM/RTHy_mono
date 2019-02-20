@@ -70,6 +70,7 @@ class DataStruct1():
 		data = dataset.values
 
 		self.data_in = []
+
 		self.time_ms        = data[:,0][::args.jump]
 		self.time           = data[:,0][::args.jump] / 1000
 		self.lat            = data[:,1][::args.jump]
@@ -80,7 +81,21 @@ class DataStruct1():
 
 		if (self.n_in_chan > 1):
 			self.extra_rec = data[:,6][::args.jump]
+		
 
+class DataStruct_Irene():
+	# IRENE
+	def __init__(self, args):
+		filename   = args.file
+		dataset = pd.read_csv(filename, delimiter=' ', header=1+args.start, nrows=args.end - args.start)
+		data = dataset.values
+		self.data_in = []
+		self.v_model_scaled = data[:,2][::args.jump]
+		self.data_in.append(data[:,1][::args.jump])
+		t_max = len(self.v_model_scaled) * 1/10000
+		self.time           = np.linspace(0, t_max, len(self.v_model_scaled))
+		t_max = len(self.v_model_scaled) * 1/(10000/1000)
+		self.time_ms        = np.linspace(0, t_max, len(self.v_model_scaled))
 
 class DataStruct2():
 	def __init__(self, args):

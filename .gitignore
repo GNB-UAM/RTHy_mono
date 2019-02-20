@@ -1,6 +1,7 @@
 # Nuestro
 
 data_in/*
+data_out/*/*
 *.pyc
 *.pro.*
 result/*/*.txt
