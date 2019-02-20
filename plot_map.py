@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-fichero = 'result/GH_2/salida_20feb19.txt'
+fichero = 'result/GH_3/total.txt'
 
-variable_a = [x * 1.0  for x in range(20, 80)]
+variable_a = [x * 1.0  for x in range(10, 80)]
 variable_b = [x * 0.05 for x in range(0,  20)]
 eje_x = len(variable_a)
 eje_y = len(variable_b)

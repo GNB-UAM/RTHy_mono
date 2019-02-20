@@ -1,7 +1,7 @@
 import os
 
 folder = 'result/GH_3/'
-file_name = folder+'salida_20feb19'
+file_name = folder+'parcial'
 
 try:
 	os.remove(file_name+'.txt')
@@ -9,7 +9,7 @@ except:
 	print("")
 
 num = len([1 for x in list(os.scandir(folder)) if x.is_file()])
-f = open(file_name+'.txt', 'w')
+f = open('total.txt', 'w')
 
 i = 0
 while i<num:
