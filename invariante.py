@@ -19,26 +19,26 @@ data1 = aux.DataStruct1(args)
 t_ignore = args.freq * 12
 
 #version = 'one_test'
-version = 'multiple'
+#version = 'multiple'
 
-plot_val = False
-if version == 'one_test':
-	plot_val = False
+verbose = False
+if args.plot_inv==True:
+	verbose = False
 
 ########
 # EXTRAER EVENTOS
 ########
-times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.v_model_scaled[t_ignore:], args.freq, all_events=True, plot_on=plot_val)
-t_model_first, t_model_last = pa.clean_all_events(times, events, plot_on=plot_val)
+times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.v_model_scaled[t_ignore:], args.freq, all_events=True, plot_on=verbose)
+t_model_first, t_model_last = pa.clean_all_events(times, events, plot_on=verbose)
 
 
-times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.data_in[0][t_ignore:],     args.freq, all_events=True, plot_on=plot_val)
-t_living_first, t_living_last = pa.clean_all_events(times, events, plot_on=plot_val)
+times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.data_in[0][t_ignore:],     args.freq, all_events=True, plot_on=verbose)
+t_living_first, t_living_last = pa.clean_all_events(times, events, plot_on=verbose)
 
 #######
 # PLOT
 #######
-if plot_val==True:
+if args.plot_inv==True:
 	v1 = data1.v_model_scaled[t_ignore:]
 	t1 = np.linspace(0,len(v1), len(v1))
 	t1 = t1 / args.freq
@@ -59,9 +59,7 @@ if plot_val==True:
 #######
 # NO MOLA EL ORDEN DE EVENTOS
 #######
-
-if version=='one_test':
-	print('Events model vs living: ' + str(len(t_model_first)) + ' VS ' + str(len(t_living_first)))
+print('Events model vs living: ' + str(len(t_model_first)) + ' VS ' + str(len(t_living_first)))
 
 #######
 # ORDEN DE EVENTOS
@@ -110,15 +108,14 @@ delay_plot = delay
 print(args.n1 + ' and ' + args.n2)
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(periodoLP, PDtoLP_plot)
-print( "Blue:    R2={:.2f}".format(r_value **2*100) + "%    m={:.3f}".format(slope )        )
+print( "Blue:    R2={:.2f}".format(r_value **2*100) + "%    m={:.3f}".format(slope ) )
 slope2, intercept2, r_value2, p_value2, std_err2 = stats.linregress(periodoLP, delay_plot)
-print( "Red:     R2={:.2f}".format(r_value2**2*100) + "%    m={:.3f}".format(slope2) + "\n" )
-#print( "Blue: $R^2$={:.2f}".format(r_value**2*100) + "% m="+slope)
+print( "Red:     R2={:.2f}".format(r_value2**2*100) + "%    m={:.3f}".format(slope2) )
 
 #######
 # PLOT
 #######
-if version=='one_test':
+if args.plot_inv==True:
 	#early = 15
 	plt.scatter(periodoLP, PDtoLP_plot, label="With 1stLP to 1stDP", c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5)
 	plt.plot(periodoLP, intercept + slope*np.asarray(periodoLP), alpha=0.5)
@@ -132,8 +129,7 @@ if version=='one_test':
 	plt.tight_layout()
 	plt.colorbar()
 	plt.show()
-
-if version=='multiple':
+else:
 	f_plot = open(args.name, 'a')
 	f_plot.write(args.n1 + ' ' + args.n2 + ' {:.5f}'.format(r_value**2*100) + ' {:.5f}'.format(r_value2**2*100) + '\n')
 	f_plot.close()

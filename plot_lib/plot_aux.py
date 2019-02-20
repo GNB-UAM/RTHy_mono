@@ -20,6 +20,7 @@ class arguments():
 		ap.add_argument("-lat", "--latency",  required=False, default=0,        help="Plot latency")
 		ap.add_argument("-n1", required=False, default='No name')
 		ap.add_argument("-n2", required=False, default='No name')
+		ap.add_argument("-plot", required=False, default=False, action='store_true')
 		args = vars(ap.parse_args())
 
 		# Parse and save arguments
@@ -34,6 +35,7 @@ class arguments():
 		self.drift   = int(args["drift"])
 		self.start   = int(args["start"]) * self.freq
 		self.lat     = int(args["latency"])
+		self.plot_inv = args["plot"]
 
 		# End is a special case
 		if(args["end"]!=None):

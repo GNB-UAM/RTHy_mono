@@ -1,6 +1,6 @@
 import os
 
-folder = 'result/GH_2/'
+folder = 'result/GH_3/'
 file_name = folder+'salida_20feb19'
 
 try:
