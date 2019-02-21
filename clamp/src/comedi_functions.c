@@ -165,7 +165,7 @@ int read_single_data_comedi (double * ret) {
 		elemento = strtok(buf, " ");
 		//printf("%p %p\n", elemento, buf);
 		int i;
-        for (i=1; i<=8; i++){ //8 antiguos
+        for (i=1; i<=3; i++){ //8 antiguos
 			elemento = strtok(NULL, " ");
 			//printf("%p\n", elemento);
 			fflush(NULL);
