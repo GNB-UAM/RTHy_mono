@@ -1,13 +1,13 @@
 ##########################
 ##########################
 
-variable_a = [x * 1.0  for x in range(10, 80)]
-variable_b = [x * 0.05 for x in range(0,  30)]
+variable_a = [x * 1.0  for x in range(40, 80)]
+variable_b = [x * 0.05 for x in range(5,  20)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = 'GH_4'
-entrada    = 'data_in/2017y_12m_5d/19h_26m_29s_1.txt'
+exp_code = 'GH_5'
+entrada    = 'data_in/2019y_2m_21d/17h_44m_20s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_GH_'#+something
 salida     = 'data_out/'+exp_code+'/res_GH_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
