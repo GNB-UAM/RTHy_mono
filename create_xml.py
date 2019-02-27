@@ -143,7 +143,7 @@ for var_a in variable_a:
 		f.write('	<output_factor val="10"/>\n')
 		f.write('	<imp val="0"/>\n')
 		f.write('	<drift val="1"/>\n')
-		f.write('	<sec_per_burst val="-1"/>\n\n')
+		f.write('	<sec_per_burst val="0.4"/>\n\n') #-1
 
 		f.write('	<file val="' +entrada+ '"/>\n')
 		f.write('	<file_out val="' +salida_file+ '"/>\n\n')
