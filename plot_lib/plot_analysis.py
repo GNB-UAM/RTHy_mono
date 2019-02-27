@@ -73,7 +73,7 @@ def clean_all_events(t_ms, events, plot_on=False):
 	aux_off=True
 
 	for i in range(len(t_ms)-1):
-		if t_ms[i+1]-t_ms[i] > 0.3: #ms
+		if t_ms[i+1]-t_ms[i] > 0.1: #ms
 			if aux_off==True:
 				aux_off=False
 			else:
@@ -96,7 +96,7 @@ def clean_all_events(t_ms, events, plot_on=False):
 	return new_t_first, new_t_last
 
 def periodo(t, t_ms, v, freq, plot_on=False, all_events=False):
-	s_interval = 20
+	s_interval = 3
 	times, times_ms, events, minis, maxis = [], [], [], [], [] 
 	up = None
 
@@ -133,7 +133,7 @@ def periodo_internal(t, t_ms, v, base_time, freq, up, all_events, plot_on=False)
 
 	########PARA COGER TODOS
 	if all_events==True:
-		porcentaje_min = 0.65
+		porcentaje_min = 0.7
 
 	# max & min
 	min_v = min(v)

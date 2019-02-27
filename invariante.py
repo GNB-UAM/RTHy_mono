@@ -16,7 +16,7 @@ import plot_analysis as pa
 args  = aux.arguments()
 
 data1 = aux.DataStruct1(args)
-t_ignore = 0#args.freq * 12
+t_ignore = args.freq * 12
 t_ignore_fin = args.freq * 6
 
 #version = 'one_test'
