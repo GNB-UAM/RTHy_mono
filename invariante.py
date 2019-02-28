@@ -16,8 +16,10 @@ import plot_analysis as pa
 args  = aux.arguments()
 
 data1 = aux.DataStruct1(args)
-t_ignore = args.freq * 12
-t_ignore_fin = args.freq * 12
+t_ignore = args.freq * 20
+t_ignore_fin = len(data1.time)- args.freq*12
+print(t_ignore)
+print(t_ignore_fin)
 
 #version = 'one_test'
 #version = 'multiple'
@@ -29,21 +31,21 @@ if args.plot_inv==True:
 ########
 # EXTRAER EVENTOS
 ########
-times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.v_model_scaled[t_ignore:], args.freq, all_events=True, plot_on=verbose)
+times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:t_ignore_fin], data1.time_ms[t_ignore:t_ignore_fin], data1.v_model_scaled[t_ignore:t_ignore_fin], args.freq, all_events=True, plot_on=verbose)
 t_model_first, t_model_last = pa.clean_all_events(times, events, plot_on=verbose)
 
 
-times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:], data1.time_ms[t_ignore:], data1.data_in[0][t_ignore:],     args.freq, all_events=True, plot_on=verbose)
+times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:t_ignore_fin], data1.time_ms[t_ignore:t_ignore_fin], data1.data_in[0][t_ignore:t_ignore_fin],     args.freq, all_events=True, plot_on=verbose)
 t_living_first, t_living_last = pa.clean_all_events(times, events, plot_on=verbose)
 
 #######
 # PLOT
 #######
 if args.plot_inv==True:
-	v1 = data1.v_model_scaled[t_ignore:]
+	v1 = data1.v_model_scaled[t_ignore:t_ignore_fin]
 	t1 = np.linspace(0,len(v1), len(v1))
 	t1 = t1 / args.freq
-	v2 = data1.data_in[0][t_ignore:]
+	v2 = data1.data_in[0][t_ignore:t_ignore_fin]
 	t2 = np.linspace(0,len(v2), len(v2))
 	t2 = t2 / args.freq
 	plt.plot(t1, v1, label='Model')
