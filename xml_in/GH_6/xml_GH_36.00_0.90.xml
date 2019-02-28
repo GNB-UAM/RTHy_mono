@@ -54,7 +54,7 @@
 	<output_factor val="10"/>
 	<imp val="0"/>
 	<drift val="1"/>
-	<sec_per_burst val="0.4"/>
+	<sec_per_burst val="0.7"/>
 
 	<file val="data_in/2019y_2m_28d/17h_38m_15s_data.txt"/>
 	<file_out val="data_out/GH_6/res_GH_36.00_0.90.txt"/>

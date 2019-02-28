@@ -17,7 +17,7 @@ args  = aux.arguments()
 
 data1 = aux.DataStruct1(args)
 t_ignore = args.freq * 12
-t_ignore_fin = args.freq * 6
+t_ignore_fin = args.freq * 12
 
 #version = 'one_test'
 #version = 'multiple'
