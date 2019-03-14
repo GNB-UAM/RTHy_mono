@@ -6,8 +6,8 @@ variable_b = [x * 0.05 for x in range(5, 15)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = 'GH_7'
-entrada    = 'data_in/2019y_2m_28d/17h_38m_15s_data.txt'
+exp_code = 'IZ_1'
+entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_GH_'#+something
 salida     = 'data_out/'+exp_code+'/res_GH_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
