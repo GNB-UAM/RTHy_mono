@@ -1,12 +1,12 @@
 ##########################
 ##########################
 
-variable_a = [x * 1.0  for x in range(20, 80)]
-variable_b = [x * 0.05 for x in range(5, 20)]
+variable_a = [x * 1.0  for x in range(25, 75)]
+variable_b = [x * 0.05 for x in range(5, 15)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = 'GH_6'
+exp_code = 'GH_7'
 entrada    = 'data_in/2019y_2m_28d/17h_38m_15s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_GH_'#+something
 salida     = 'data_out/'+exp_code+'/res_GH_'#+something
@@ -40,7 +40,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		if contador_qsub == 24:
+		if contador_qsub == 30:
 			contador_qsub = 0
 			num_qsub+=1
 			f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
@@ -53,8 +53,6 @@ for var_a in variable_a:
 		# XML struct
 		f.write('<clamp>\n\n')
 
-
-		'''
 		# IZHIKEVICH
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
@@ -70,9 +68,9 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
-
+		
 		# G-H
+		'''
 		f.write('	<neuron type="4">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -103,7 +101,7 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n')
-
+		'''
 
 		# SYNAPSE
 
