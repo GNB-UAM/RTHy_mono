@@ -3,10 +3,14 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-fichero = 'result/GH_6/total.txt'
+fichero = 'result/IZ_1/total.txt'
 
-variable_a = [x * 1.0  for x in range(20, 80)]
-variable_b = [x * 0.05 for x in range(5,  20)]
+variable_a = [x * 1.0  for x in range(25, 75)]
+variable_b = [x * 0.05 for x in range(5, 15)]
+
+print(len(variable_a))
+print(len(variable_b))
+
 eje_x = len(variable_a)
 eje_y = len(variable_b)
 data = np.genfromtxt(fichero,delimiter="\t")

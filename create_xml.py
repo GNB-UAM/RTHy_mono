@@ -35,12 +35,12 @@ for var_a in variable_a:
 		f = open(name, 'w', newline='\n')
 
 		# Execute order
-		f_exec.write("./RTHybrid -xml "+name+"\n\n")
+		f_exec.write("./RTHybrid -xml "+name+"\n")
 
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		if contador_qsub == 30:
+		if contador_qsub == 25:
 			contador_qsub = 0
 			num_qsub+=1
 			f_exec.write("/bin/echo Termino a las `date`\n\n' | qsub\n\n")
