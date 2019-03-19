@@ -62,7 +62,19 @@ if args.plot_inv==True:
 #######
 # NO MOLA EL ORDEN DE EVENTOS
 #######
+fail = False
 print('Events model vs living: ' + str(len(t_model_first)) + ' VS ' + str(len(t_living_first)))
+if abs(len(t_model_first) - len(t_living_first)) > 3:
+	fail = True
+
+if fail == True:
+	f_plot = open(args.name, 'a')
+	# n1 n2 r_azul r_rojo s_azul s_roja rara_azul rara_roja srara_azul srara_roja
+	f_plot.write(args.n1 + ' ' + args.n2 + ' 0' + ' 0' + ' 0' + ' 0' +  ' 0' + ' 0' + ' 0' + ' 0' + '\n')
+	f_plot.close()
+	print("Fail interaction")
+	exit()
+
 
 #######
 # ORDEN DE EVENTOS
@@ -73,7 +85,7 @@ while t_model_first[indexPD] < t_living_first[0]:
 size = len(t_living_first)
 if size > len(t_model_first)-indexPD:
 	size = len(t_model_first)-indexPD
-#indexPD = 0
+
 #######
 # INTERVALOS
 #######

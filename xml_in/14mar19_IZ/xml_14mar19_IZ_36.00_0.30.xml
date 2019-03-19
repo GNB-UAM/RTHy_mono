@@ -47,6 +47,6 @@
 	<sec_per_burst val="0.7"/>
 
 	<file val="data_in/2019y_3m_14d/17h_25m_23s_data.txt"/>
-	<file_out val="data_out/14mar19_IZ/res_GH_14mar19_IZ_36.00_0.30.txt"/>
+	<file_out val="data_out/14mar19_IZ/res_14mar19_IZ_36.00_0.30.txt"/>
 
 </clamp>

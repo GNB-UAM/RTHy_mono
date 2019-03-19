@@ -6,13 +6,13 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = '14mar19_GH'
+exp_code = '14mar19_IZ'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
 
-f_exec = open('launch2.sh', 'w')
+f_exec = open('launch.sh', 'w')
 num_qsub = 0
 contador_qsub = 0
 f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
@@ -54,7 +54,7 @@ for var_a in variable_a:
 		f.write('<clamp>\n\n')
 
 		# IZHIKEVICH
-		'''
+		
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -69,10 +69,10 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 		
 		# G-H
-		
+		'''
 		f.write('	<neuron type="4">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -103,7 +103,7 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n')
-		
+		'''
 
 		# SYNAPSE
 
