@@ -9,7 +9,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 exp_code = '14mar19_GH'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
-salida     = 'data_out/'+exp_code+'/res_GH_'+exp_code+'_'#+something
+salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
 
 f_exec = open('launch2.sh', 'w')
