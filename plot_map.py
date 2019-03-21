@@ -37,8 +37,8 @@ cmap = cmap.from_list('Custom cmap', cmaplist, cmap.N)
 ax = plt.gca()
 plt.rc('font', size=20)
 
-#im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=100)
-im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=z.max())
+im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=100)
+#im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=z.max())
 
 vars_a = []
 jump_a = 2

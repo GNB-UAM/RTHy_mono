@@ -41,6 +41,55 @@ t_living_first, t_living_last = pa.clean_all_events(times, events, plot_on=verbo
 #######
 # PLOT
 #######
+if args.plot_inv==True and True==False:
+	v1 = data1.v_model_scaled[t_ignore:t_ignore_fin]
+	t1 = np.linspace(0,len(v1), len(v1))
+	t1 = t1 / args.freq
+	v2 = data1.data_in[0][t_ignore:t_ignore_fin]
+	t2 = np.linspace(0,len(v2), len(v2))
+	t2 = t2 / args.freq
+	plt.plot(t1, v1, label='Model')
+	plt.plot(t2, v2, label='Living')
+	plt.plot(t_model_first, np.linspace(-25,-25,len(t_model_first)), 'o', label="F-model")
+	plt.plot(t_model_last, np.linspace(-25,-25,len(t_model_last)), 'o', label="L-model")
+	plt.plot(t_living_first, np.linspace(-25,-25,len(t_living_first)), 'o', label="F-living")
+	plt.plot(t_living_last, np.linspace(-25,-25,len(t_living_last)), 'o', label="L-living")
+	plt.tight_layout()
+	plt.legend(loc=1, framealpha=1.0)
+	plt.show()
+
+#######
+# ORDEN DE EVENTOS
+#######
+indexPD = 0
+while t_model_first[indexPD] < t_living_first[0]:
+	indexPD+=1
+size = len(t_living_first)
+if size > len(t_model_first)-indexPD:
+	size = len(t_model_first)-indexPD
+
+#######
+# NO MOLA EL ORDEN DE EVENTOS
+#######
+fail = False
+aux_1 = len(t_model_first) - indexPD
+aux_2 = len(t_living_first)
+print('Events model vs living: ' + str(aux_1) + ' VS ' + str(aux_2) )
+if abs(aux_1 - aux_2) > aux_1*0.1: #% de fallo admitido
+	fail = True
+
+if fail == True:
+	f_plot = open(args.name, 'a')
+	# n1 n2 r_azul r_rojo s_azul s_roja rara_azul rara_roja srara_azul srara_roja
+	f_plot.write(args.n1 + ' ' + args.n2 + ' 0' + ' 0' + ' 0' + ' 0' +  ' 0' + ' 0' + ' 0' + ' 0' + '\n')
+	f_plot.close()
+	print("Fail interaction")
+	if args.plot_inv==False:
+		exit()
+
+#######
+# PLOT
+#######
 if args.plot_inv==True:
 	v1 = data1.v_model_scaled[t_ignore:t_ignore_fin]
 	t1 = np.linspace(0,len(v1), len(v1))
@@ -58,64 +107,35 @@ if args.plot_inv==True:
 	plt.legend(loc=1, framealpha=1.0)
 	plt.show()
 
-
-#######
-# NO MOLA EL ORDEN DE EVENTOS
-#######
-fail = False
-print('Events model vs living: ' + str(len(t_model_first)) + ' VS ' + str(len(t_living_first)))
-if abs(len(t_model_first) - len(t_living_first)) > 3:
-	fail = True
-
-if fail == True:
-	f_plot = open(args.name, 'a')
-	# n1 n2 r_azul r_rojo s_azul s_roja rara_azul rara_roja srara_azul srara_roja
-	f_plot.write(args.n1 + ' ' + args.n2 + ' 0' + ' 0' + ' 0' + ' 0' +  ' 0' + ' 0' + ' 0' + ' 0' + '\n')
-	f_plot.close()
-	print("Fail interaction")
-	exit()
-
-
-#######
-# ORDEN DE EVENTOS
-#######
-indexPD = 0
-while t_model_first[indexPD] < t_living_first[0]:
-	indexPD+=1
-size = len(t_living_first)
-if size > len(t_model_first)-indexPD:
-	size = len(t_model_first)-indexPD
-
 #######
 # INTERVALOS
 #######
+periodoLP      =  []
+durationModel  =  []
+PDtoLP         =  []
+PDtoLP_raro    =  []
+delay          =  []
+delay_raro     =  []
 
-### Periodo viva LP
-periodoLP = []
+ml = 0 # model less
 for i in range(size-1):
-	periodoLP.append(t_living_first[i+1] - t_living_first[i])
 
-### Periodo modelo
-durationModel = []
-for i in range(size-1):
-	durationModel.append(t_model_last[i] - t_model_first[i])
+	# El modelo no disparo
+	if t_living_first[i] < t_model_first[i-ml]:
+		# El modelo no disparo, no hacemos nada
+		ml+=1
 
-### First to first
-PDtoLP = []
-PDtoLP_raro = []
-for i in range(size-1):
-	PDtoLP.append(t_model_first[i+indexPD] - t_living_first[i] )
-	PDtoLP_raro.append(t_living_first[i+1] - t_model_first[i+indexPD])
+	else:
+		# Calculo intervalos
+		periodoLP.append     ( t_living_first [i+1]          - t_living_first [i]    )
+		durationModel.append ( t_model_last   [i-ml]         - t_model_first  [i-ml] )
+		PDtoLP.append        ( t_model_first  [i+indexPD-ml] - t_living_first [i]    ) 
+		delay.append         ( t_model_first  [i+indexPD-ml] - t_living_last  [i]    ) 
 
-### delay
-delay = []
-delay_raro = []
-for i in range(size-1):
-	delay.append(t_model_first[i+indexPD] - t_living_last[i])
-	delay_raro.append(t_living_first[i+1] - t_model_last[i+indexPD])
+		PDtoLP_raro.append   ( t_living_first [i+1]       - t_model_first  [i+indexPD-ml] )
+		delay_raro.append    ( t_living_first [i+1]       - t_model_last   [i+indexPD-ml] )
 
-PDtoLP_plot = PDtoLP
-delay_plot = delay
+print("Model inhibido = " + str(ml))
 
 #######
 # R2
@@ -147,11 +167,12 @@ if args.plot_inv==True:
 	plt.scatter(periodoLP, delay, label=label, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Reds'))
 	plt.colorbar()
 
+	'''
 	plt.scatter(periodoLP, durationModel, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Greens'))
 	plt.colorbar()
-
 	plt.xlabel("Period")
 	plt.ylabel("")
+	'''
 
 	plt.title("Invariant")
 	plt.legend(loc=1, framealpha=1.0)
@@ -160,6 +181,7 @@ if args.plot_inv==True:
 
 	############
 
+	'''
 	plt.plot(periodoLP, intercept3 + slope3*np.asarray(periodoLP), alpha=0.5)
 	label = '1stLP to 1stDP    R²={:.2f}'.format(r_value3 **2*100) + '%    m={:.3f}'.format(slope3 )
 	plt.scatter(periodoLP, PDtoLP_raro, label=label, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Blues'))
@@ -175,11 +197,12 @@ if args.plot_inv==True:
 
 	plt.xlabel("Period")
 	plt.ylabel("")
-
+	
 	plt.title("Invariant")
 	plt.legend(loc=1, framealpha=1.0)
 	plt.tight_layout()
 	plt.show()
+	'''
 
 else:
 	f_plot = open(args.name, 'a')

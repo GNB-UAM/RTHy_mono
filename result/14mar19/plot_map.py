@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-fichero = 'totalIZ.txt'
+fichero = 'totalIZB.txt'
 #fichero = 'totalGH.txt'
 
 variable_a = [x * 1.0  for x in range(10, 50)]
@@ -31,7 +31,7 @@ cmap = plt.cm.jet
 # extract all colors from the .jet map
 cmaplist = [cmap(i) for i in range(cmap.N)]
 # force the first color entry to be grey
-#cmaplist[0] = (.5,.5,.5,1.0)
+cmaplist[0] = (.5,.5,.5,1.0)
 # create the new map
 cmap = cmap.from_list('Custom cmap', cmaplist, cmap.N)
 
@@ -71,7 +71,7 @@ plt.yticks(range(eje_y), vars_b)
 plt.xlabel('Vth_fast(%)', size=18, labelpad=20)
 plt.ylabel('Conductance (g)', size=18, labelpad=20)
 
-plt.title('GH Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
+plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
 
 ax.xaxis.set_tick_params(rotation=60)
 
