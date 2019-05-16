@@ -99,6 +99,7 @@ SOURCES += \
     #clamp/src/writer_thread_functions.c \
     clamp/src/xml_clamp_parser.c \
     model_library/integration_methods.c \
+    model_library/neuron/neuron_models_aux_functions.c \
     model_library/neuron/Wang_1993/nm_gui_wang_1993.cpp \
     model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.cpp \
     model_library/neuron/Hindmarsh_Rose_1986/nm_gui_hindmarsh_rose_1986.cpp \
@@ -129,7 +130,10 @@ SOURCES += \
     model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.c \
     model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.cpp \
     model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.c \
-    model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.c
+    model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.c \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_komendantov_kononenko_1996.c \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_xml_komendantov_kononenko_1996.c \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_gui_komendantov_kononenko_1996.cpp
 
 HEADERS += \
     #common/includes/file_selector_functions.h \
@@ -182,7 +186,11 @@ HEADERS += \
     model_library/synapse/Destexhe_et_al_1994/sm_xml_destexhe_et_al_1994.h \
     model_library/synapse/Greenberg_Manor_2005/sm_greenberg_manor_2005.h \
     model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.h \
-    model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.h
+    model_library/synapse/Greenberg_Manor_2005/sm_xml_greenberg_manor_2005.h \
+    model_library/neuron/neuron_models_aux_functions.h \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_komendantov_kononenko_1996.h \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_xml_komendantov_kononenko_1996.h \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_gui_komendantov_kononenko_1996.h
 
 FORMS += \
     gui/rthybrid.ui \
@@ -194,4 +202,5 @@ FORMS += \
     model_library/synapse/Electrical/sm_gui_electrical.ui \
     model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.ui \
     model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.ui \
-    model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.ui
+    model_library/synapse/Greenberg_Manor_2005/sm_gui_greenberg_manor_2005.ui \
+    model_library/neuron/Komendantov_Kononenko_1996/nm_gui_komendantov_kononenko_1996.ui
