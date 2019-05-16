@@ -2,7 +2,7 @@
 #include "ui_nm_gui_rulkov_2002.h"
 
 NM_GUI_Rulkov_2002::NM_GUI_Rulkov_2002(clamp_args * args, QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::NM_GUI_Rulkov_2002)
 {
     this->settings = new QSettings("RTHybrid", "NM_Rulkov_2002");
@@ -50,7 +50,7 @@ void NM_GUI_Rulkov_2002::saveSettings() {
 }
 
 void NM_GUI_Rulkov_2002::loadSettings() {
-    if (settings->value("X", -9999).toInt() == -1) return; //No settings saved yet
+    if (settings->value("X", -9999).toInt() == -9999) return; //No settings saved yet
 
     ui->doubleRlkXIni->setValue(settings->value("X").toDouble());
     ui->doubleRlkYIni->setValue(settings->value("Y").toDouble());

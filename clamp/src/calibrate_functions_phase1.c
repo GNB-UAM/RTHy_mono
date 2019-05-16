@@ -53,7 +53,7 @@ int ini_recibido (double *min_rel_real, double *min_abs_real, double *max_abs_re
         /*NEXT PERIOD*/
         //ts_add_time(&ts_target, 0, period); 
     }
-
+    
     /*RETURN*/
     range = max_abs - min_abs;
     *min_abs_real = min_abs;

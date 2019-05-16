@@ -165,6 +165,7 @@ void * rt_thread(void * arg) {
     /* Calibration variables */
     double external_firing_rate;
     int s_points;
+    double dt = -1;
 
     int calib_chan = 0;
 
@@ -325,10 +326,9 @@ void * rt_thread(void * arg) {
 
     if (s_points == 0) s_points = 1;
 
-
     //msg.id = args->events_file_id;
-    sprintf(msg.data, "\n******* RTHybrid experiment %s ******* \nModel = %d \nSynapse = %d \nFiring rate = %.3f \n*************",
-                        args->filename, args->nm.type, args->sm_live_to_model.type, external_firing_rate);
+    sprintf(msg.data, "\n%s\nModel=%d\nSynapse=%d\nFiring rate=%.3f\npts/burst=%.3f\n",
+                        args->filename, args->nm.type, args->sm_live_to_model.type, external_firing_rate, args->nm.pts_burst);
     //send_to_queue(args->msqid, RT_QUEUE, NO_BLOCK_QUEUE, &msg);
 
 
@@ -361,9 +361,9 @@ void * rt_thread(void * arg) {
     Initialize synapse models
     ****************************************************/
 
-    args->sm_model_to_live.set_online_parameters(&(args->sm_model_to_live), scale_virtual_to_real, offset_virtual_to_real, min_abs_model, max_abs_model);
-    args->sm_live_to_model.set_online_parameters(&(args->sm_live_to_model), scale_real_to_virtual, offset_real_to_virtual, min_abs_real, max_abs_real);
-    args->sm_live_to_model_scaled.set_online_parameters(&(args->sm_live_to_model_scaled), scale_real_to_virtual, offset_real_to_virtual, min_abs_real, max_abs_real);
+    args->sm_model_to_live.set_online_parameters(&(args->sm_model_to_live), scale_virtual_to_real, offset_virtual_to_real, min_abs_model, max_abs_model, dt);
+    args->sm_live_to_model.set_online_parameters(&(args->sm_live_to_model), scale_real_to_virtual, offset_real_to_virtual, min_abs_real, max_abs_real, dt);
+    args->sm_live_to_model_scaled.set_online_parameters(&(args->sm_live_to_model_scaled), scale_real_to_virtual, offset_real_to_virtual, min_abs_real, max_abs_real, dt);
 
     if (DEBUG == 1) syslog(LOG_INFO, "RT_THREAD: Syn struct created");
 
@@ -372,11 +372,9 @@ void * rt_thread(void * arg) {
     Experiment loops
     ****************************************************/
 
-    /*msg.id = args->data_file_id;
-    
-    if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;*/
+    //msg.id = args->data_file_id;
     sprintf(msg.data, "%d %d", args->n_in_chan, args->n_out_chan);
-    fprintf(file_out, "%s\n", msg.data);
+    //if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;
 
     clock_gettime(CLOCK_MONOTONIC, &ts_target);
     ts_assign(&ts_start,  ts_target);
@@ -569,14 +567,16 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
                 drift_counter++;
             }
 
-            if (lp->interaction == TRUE) {
-                /* Calculate the input synapse (scaled to the external range) */
-                args->sm_live_to_model_scaled.calibrate = SYN_CALIB_POST;
-                args->sm_live_to_model_scaled.func(args->nm.vars[0], input_values[0], &(args->sm_live_to_model_scaled), &c_external_scaled);
-            }
+            
         }
 
         if (lp->interaction == TRUE) {
+            /* Calculate the input synapse (scaled to the external range) */
+            args->sm_live_to_model_scaled.calibrate = SYN_CALIB_POST;
+            args->sm_live_to_model_scaled.func(args->nm.vars[0], input_values[0], &(args->sm_live_to_model_scaled), &c_external_scaled);
+        /*}
+
+        if (lp->interaction == TRUE) {*/
             /* Calculate synapse from the external neuron to the model (scaled to model range) */
             args->sm_live_to_model.calibrate = SYN_CALIB_PRE;
             args->sm_live_to_model.func(args->nm.vars[0], input_values[0], &(args->sm_live_to_model), &c_external);
@@ -584,5 +584,11 @@ void experiment_loop (struct Loop_params * lp, int s_points) {
 
         /* Calculate neuron model */
         args->nm.func(args->nm, c_external);
+
+        if (lp->interaction == TRUE) {
+            /* Calculate synapse from the model to the external neuron (scaled to external range) */
+            args->sm_model_to_live.calibrate = SYN_CALIB_PRE;
+            args->sm_model_to_live.func(input_values[0], args->nm.vars[0], &(args->sm_model_to_live), &c_model);
+        }
     }
 }

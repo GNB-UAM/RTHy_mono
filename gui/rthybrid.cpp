@@ -13,6 +13,7 @@
 #include "model_library/neuron/Rulkov_2002/nm_gui_rulkov_2002.h"
 #include "model_library/neuron/Ghigliazza_Holmes_2004/nm_gui_ghigliazza_holmes_2004.h"
 #include "model_library/neuron/Wang_1993/nm_gui_wang_1993.h"
+#include "model_library/neuron/Komendantov_Kononenko_1996/nm_gui_komendantov_kononenko_1996.h"
 
 #include "model_library/synapse/Electrical/sm_gui_electrical.h"
 #include "model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.h"
@@ -26,6 +27,8 @@ RTHybrid::RTHybrid(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(this->width(),this->height());
+
+    this->settings = new QSettings("RTHybrid", "RTHybrid");
 
     this->args.vars = NULL;
     this->args.params = NULL;
@@ -50,6 +53,8 @@ RTHybrid::RTHybrid(QWidget *parent) :
     QPixmap pixmapTarget = QPixmap("resources/neuron/living.png");
     pixmapTarget = pixmapTarget.scaled(121, 121, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->label_interaction_living->setPixmap(pixmapTarget);
+
+    loadSettings();
 }
 
 RTHybrid::~RTHybrid()
@@ -69,13 +74,14 @@ void RTHybrid::closeEvent (QCloseEvent *event)
         } else {
             if (kill(cl->getPid(), SIGINT) < 0) perror("Error killing clamp thread");
             free_pointers(4, &(this->args.vars), &(this->args.params), &(this->args.syn_args_live_to_model), &(this->args.syn_args_model_to_live));
+            saveSettings();
             event->accept();
         }
     } else {
         free_pointers(4, &(this->args.vars), &(this->args.params), &(this->args.syn_args_live_to_model), &(this->args.syn_args_model_to_live));
+        saveSettings();
         event->accept();
     }
-
 
 }
 
@@ -87,6 +93,8 @@ void RTHybrid::on_buttonStart_clicked()
     struct tm tm;
     char * path = NULL;
     char * hour = NULL;
+
+    saveSettings();
 
     args.input_channels = NULL;
     args.output_channels = NULL;
@@ -196,6 +204,59 @@ void RTHybrid::on_buttonStop_clicked()
 {
     if (kill(cl->getPid(), SIGINT) < 0) perror("Error killing clamp thread");
     //free_pointers(4, &(this->args.vars), &(this->args.params), &(this->args.syn_args_live_to_model), &(this->args.syn_args_model_to_live)); //Ya no se libera aqui
+}
+
+
+void RTHybrid::saveSettings() {
+    settings->setValue("frequency", ui->intFreq->value());
+    settings->setValue("observation_time", ui->intTimeObservation->value());
+    settings->setValue("duration_time", ui->intTime->value());
+    settings->setValue("before_time", ui->intTimeBefore->value());
+    settings->setValue("after_time", ui->intTimeBefore->value());
+
+    settings->setValue("input_channels", ui->textChannelInput->toPlainText());
+    settings->setValue("output_channels", ui->textChannelOutput->toPlainText());
+
+    settings->setValue("input_factor", ui->doubleInputFactor->value());
+    settings->setValue("output_factor", ui->doubleOutputFactor->value());
+
+    settings->setValue("drift", ui->checkDrift->isChecked());
+    settings->setValue("sec_per_burst", ui->doubleSecPerBurst->value());
+    settings->setValue("auto_detect", ui->autoDetect->isChecked());
+    settings->setValue("end_sound", ui->checksound->isChecked());
+
+    /* Los modelos tendrían que abrir sus ventanas para inicializarse al cargar
+     *
+     * settings->setValue("neuron_model", ui->combo_neuron->currentIndex());
+    settings->setValue("synapse_model_ltom", ui->combo_synLtoM->currentIndex());
+    settings->setValue("synapse_model_mtol", ui->combo_synMtoL->currentIndex());*/
+}
+
+void RTHybrid::loadSettings() {
+    if (settings->value("frequency", -1).toInt() == -1) return; //No settings saved yet
+
+    ui->intFreq->setValue(settings->value("frequency").toInt());
+    ui->intTimeObservation->setValue(settings->value("observation_time").toInt());
+    ui->intTime->setValue(settings->value("duration_time").toInt());
+    ui->intTimeBefore->setValue(settings->value("before_time").toInt());
+    ui->intTimeAfter->setValue(settings->value("after_time").toInt());
+
+    ui->textChannelInput->setPlainText(settings->value("input_channels").toString()); // No hace falta al parecer comprobar si hay texto para que se inhabiliten/habiliten los campos y check boxes
+    ui->textChannelOutput->setPlainText(settings->value("output_channels").toString());
+
+    ui->doubleInputFactor->setValue(settings->value("input_factor").toDouble());
+    ui->doubleOutputFactor->setValue(settings->value("output_factor").toDouble());
+
+    ui->checkDrift->setChecked(settings->value("drift").toBool());
+    ui->doubleSecPerBurst->setValue(settings->value("sec_per_burst").toDouble());
+    ui->autoDetect->setChecked(settings->value("auto_detect").toBool());
+    ui->checksound->setChecked(settings->value("end_sound").toBool());
+
+    if (ui->autoDetect->isChecked()) {
+        ui->doubleSecPerBurst->setEnabled(false);
+    } else {
+        ui->doubleSecPerBurst->setEnabled(true);
+    }
 }
 
 
@@ -313,6 +374,15 @@ std::string RTHybrid::neuron_models_switch(int index) {
         res = "resources/neuron/wang_1993.png";
         free_pointers(2, &(this->args.vars), &(this->args.params));
         NM_GUI_Wang_1993 * nm = new NM_GUI_Wang_1993(&(this->args));
+        nm->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint);
+        nm->show();
+        break;
+    }
+    case NM_KOMENDANTOV_KONONENKO_1996:
+    {
+        res = "resources/neuron/wang_1993.png";
+        free_pointers(2, &(this->args.vars), &(this->args.params));
+        NM_GUI_Komendantov_Kononenko_1996 * nm = new NM_GUI_Komendantov_Kononenko_1996(&(this->args));
         nm->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint);
         nm->show();
         break;
@@ -460,6 +530,20 @@ void RTHybrid::synapse_models_graphics_ltom(int model_ltom, void * syn_args_ltom
 
         break;
     }
+    case SM_DESTEXHE_ET_AL_1994:
+    {
+        sm_destexhe_et_al_1994_args * aux_syn_args = (sm_destexhe_et_al_1994_args *) syn_args_ltom;
+
+        if (aux_syn_args->g[SM_DESTEXHE_ET_AL_1994_G] != 0.0) {
+            res = "resources/synapse/destexhe_et_al_1994_ltom.png";
+        }
+
+        pixmapTarget = QPixmap(res.c_str());
+        pixmapTarget = pixmapTarget.scaled(261, 61, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        ui->label_interaction_syn_living_to_model->setPixmap(pixmapTarget);
+
+        break;
+    }
     case SM_GREENBERG_MANOR_2005:
     {
         sm_greenberg_manor_2005_args * aux_syn_args = (sm_greenberg_manor_2005_args *) syn_args_ltom;
@@ -556,6 +640,20 @@ void RTHybrid::synapse_models_graphics_mtol(int model_mtol, void * syn_args_mtol
         pixmapTarget = pixmapTarget.scaled(261, 61, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         ui->label_interaction_syn_model_to_living->setPixmap(pixmapTarget);
         legend = "resources/synapse/golowasch_et_al_1999_legend.png";
+
+        break;
+    }
+    case SM_DESTEXHE_ET_AL_1994:
+    {
+        sm_destexhe_et_al_1994_args * aux_syn_args = (sm_destexhe_et_al_1994_args *) syn_args_mtol;
+
+        if (aux_syn_args->g[SM_DESTEXHE_ET_AL_1994_G] != 0.0) {
+            res = "resources/synapse/destexhe_et_al_1994_mtol.png";
+        }
+
+        pixmapTarget = QPixmap(res.c_str());
+        pixmapTarget = pixmapTarget.scaled(261, 61, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        ui->label_interaction_syn_model_to_living->setPixmap(pixmapTarget);
 
         break;
     }

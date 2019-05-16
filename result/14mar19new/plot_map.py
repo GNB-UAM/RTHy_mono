@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-#fichero = 'totalIZB.txt'
-fichero = 'totalGH.txt'
+fichero = 'total.txt'
 
 variable_a = [x * 1.0  for x in range(10, 50)]
 variable_b = [x * 0.05 for x in range(0, 20)]
@@ -24,6 +23,9 @@ z = z.transpose()
 print('Blue = '+ str(max(data[:,2])) +'%')
 print('Red  = '+ str(max(data[:,3])) +'%')
 
+data[:,2] = data[:,2] / 100.0
+data[:,3] = data[:,3] / 100.0 
+
 # define the colormap
 cmap = plt.cm.jet
 #cmap = plt.cm.binary
@@ -36,10 +38,10 @@ cmaplist[0] = (.5,.5,.5,1.0)
 cmap = cmap.from_list('Custom cmap', cmaplist, cmap.N)
 
 ax = plt.gca()
-plt.rc('font', size=20)
+plt.rc('font', size=32)
 
-#im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=100)
-im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=z.max())
+im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=1)
+#im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=z.max())
 
 vars_a = []
 jump_a = 2
@@ -64,14 +66,15 @@ for var_b in variable_b:
 		vars_b.append('')
 	count_b+=1
 
-plt.tick_params(labelsize=15)
+plt.tick_params(labelsize=26)
 plt.xticks(range(eje_x), vars_a)
 plt.yticks(range(eje_y), vars_b)
 
-plt.xlabel('Vth_fast(%)', size=18, labelpad=20)
-plt.ylabel('Conductance (g)', size=18, labelpad=20)
+plt.xlabel('Vth_fast(%)', size=28, labelpad=20)
+plt.ylabel('Conductance (g)', size=28, labelpad=20)
 
-plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
+#plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
+plt.title('$R^2$ Coefficient', pad=20)
 
 ax.xaxis.set_tick_params(rotation=60)
 

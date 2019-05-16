@@ -10,9 +10,7 @@ extern "C" {
 #ifndef NM_WANG_1993_H
 #define NM_WANG_1993_H
 
-#include <math.h>
 #include "../../../clamp/includes/types_clamp.h"
-#include "../../integration_methods.h"
 
 
 /** @name Wang
@@ -47,7 +45,7 @@ extern "C" {
 
 void wang_1993 (neuron_model nm, double syn);
 
-void wang_set_pts_burst (double pts_live, neuron_model * nm);
+double wang_set_pts_burst (double pts_live, neuron_model * nm);
 
 void wang_init (neuron_model * nm, double * vars, double * params);
 
