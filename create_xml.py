@@ -74,10 +74,10 @@ for var_a in variable_a:
 		# K-K
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
-		f.write('			<v val="-55.0"/>\n')
+		f.write('			<V val="-55.0"/>\n')
 		f.write('		</vars>\n')
 		f.write('		<params>\n')
-		f.write('			<i         val="0"/>\n')
+		f.write('			<i         val="0.0"/>\n')
 		f.write('			<Cm        val="0.02"/>\n')
 
 		f.write('			<g_na      val="0.0231"/>\n')

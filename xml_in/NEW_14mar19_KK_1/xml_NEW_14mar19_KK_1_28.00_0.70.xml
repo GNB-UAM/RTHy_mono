@@ -2,10 +2,10 @@
 
 	<neuron type="6">
 		<vars>
-			<v val="-55.0"/>
+			<V val="-55.0"/>
 		</vars>
 		<params>
-			<i         val="0"/>
+			<i         val="0.0"/>
 			<Cm        val="0.02"/>
 			<g_na      val="0.0231"/>
 			<g_k       val="0.25"/>
