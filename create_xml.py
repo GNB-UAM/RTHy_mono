@@ -6,7 +6,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = '14mar19_IZnew_2'
+exp_code = 'NEW_14mar19_KK_1'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -54,7 +54,7 @@ for var_a in variable_a:
 		f.write('<clamp>\n\n')
 
 		# IZHIKEVICH
-		
+		'''
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -67,6 +67,38 @@ for var_a in variable_a:
 		f.write('			<d val="2.0"/>\n')	
 		f.write('			<i val="10.0"/>\n')	
 		f.write('			<method val="3"/>\n')	
+		f.write('		</params>\n')
+		f.write('	</neuron>\n\n')
+		'''
+
+		# K-K
+		f.write('	<neuron type="6">\n')
+		f.write('		<vars>\n')
+		f.write('			<v val="-55.0"/>\n')
+		f.write('		</vars>\n')
+		f.write('		<params>\n')
+		f.write('			<i         val="0"/>\n')
+		f.write('			<Cm        val="0.02"/>\n')
+
+		f.write('			<g_na      val="0.0231"/>\n')
+		f.write('			<g_k       val="0.25"/>\n')
+		f.write('			<g_b       val="0.165"/>\n')
+		f.write('			<g_na_v    val="0.11"/>\n')
+		f.write('			<V_k       val="-70.0"/>\n')
+		f.write('			<V_b       val="-58.0"/>\n')
+		f.write('			<V_na      val="40.0"/>\n')
+		
+		f.write('			<g_na_ttx  val="400.0"/>\n')
+		f.write('			<g_ca      val="1.5"/>\n')
+		f.write('			<k_beta    val="15000.0"/>\n')
+		f.write('			<g_k_tea   val="10.0"/>\n')
+		f.write('			<V_ca      val="150.0"/>\n')
+		f.write('			<beta      val="0.00004"/>\n')
+		f.write('			<g_ca_ca   val="0.02"/>\n')
+		f.write('			<k_s       val="50.0"/>\n')
+		f.write('			<rho       val="0.002"/>\n')	
+		
+		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
 		
@@ -111,8 +143,8 @@ for var_a in variable_a:
 		f.write('		<g_slow val="0"/>\n')
 		f.write('		<vth_slow val="40"/>\n')
 		f.write('		<s_slow val="1.0"/>\n')
-		f.write('		<k1_slow val="14.0"/>\n')
-		f.write('		<k2_slow val="4.0"/>\n\n')
+		f.write('		<k1_slow val="1.0"/>\n')
+		f.write('		<k2_slow val="0.03"/>\n\n')
 
 		f.write('		<g_fast val="'+var_b+'"/>\n')
 		f.write('		<vth_fast val="'+var_a+'"/>\n')

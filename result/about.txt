@@ -1,0 +1,8 @@
+
+17/05/2019
+- Empezamos a tener un registro más exacto de los resultados en este diario
+- El programa ya integra con igual paso neurona y sinapsis
+
+* NEW_14mar19_IZ_1
+Hay invariante
+* NEW_14mar19_KK_1
