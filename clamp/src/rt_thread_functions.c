@@ -372,9 +372,10 @@ void * rt_thread(void * arg) {
     Experiment loops
     ****************************************************/
 
-    msg.id = args->data_file_id;
+    //msg.id = args->data_file_id;
     sprintf(msg.data, "%d %d", args->n_in_chan, args->n_out_chan);
-    if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;
+    fprintf(file_out, "%s\n", msg.data);
+    //if (send_to_queue(args->msqid, RT_QUEUE, BLOCK_QUEUE, &msg) == ERR) lost_msg++;
 
     clock_gettime(CLOCK_MONOTONIC, &ts_target);
     ts_assign(&ts_start,  ts_target);
