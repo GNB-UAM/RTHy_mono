@@ -1,6 +1,6 @@
 import os
 
-folder = 'result/14mar19_IZnew/'
+folder = 'result/14mar19_IZnew_2/'
 file_name = folder+'parcial'
 
 try:
