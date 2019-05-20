@@ -7,9 +7,10 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 exp_code = 'NEW_14mar19_KK_2'
+exp_code2 = 'NEW_14mar19_KK_1'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
-salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
+salida     = 'data_out/'+exp_code2+'/res_'+exp_code2+'_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
 
 f_exec = open('launch.sh', 'w')
