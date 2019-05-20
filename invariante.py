@@ -18,6 +18,7 @@ args  = aux.arguments()
 data1 = aux.DataStruct1(args)
 t_ignore = args.freq * 20
 t_ignore_fin = len(data1.time)- args.freq*12
+t_ignore_fin = len(data1.time)- args.freq*30
 print(t_ignore)
 print(t_ignore_fin)
 
