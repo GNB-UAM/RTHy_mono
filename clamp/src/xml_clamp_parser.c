@@ -164,37 +164,40 @@ int xml_clamp_parser (char * file, clamp_args * args) {
 
 
 static int parse_clamp_nm (xmlDocPtr doc, xmlNodePtr cur, clamp_args * args) {
-	int ret = ERR;
+    int ret = ERR;
 
-	if ((!doc) || (!cur) || (!args)) return ERR;
+    if ((!doc) || (!cur) || (!args)) return ERR;
 
-	if (parse_int(doc, cur, &args->model, (const xmlChar*) TYPE) != OK) return ERR;
+    if (parse_int(doc, cur, &args->model, (const xmlChar*) TYPE) != OK) return ERR;
 
 
-	switch(args->model) {
+    switch(args->model) {
         case NM_EMPTY:
             ret = OK;
             break;
         case NM_IZHIKEVICH_2003:
             ret = parse_nm_izhikevich_2003(doc, cur->xmlChildrenNode, args);
-			break;
+            break;
         case NM_HINDMARSH_ROSE_1986:
             ret = parse_nm_hindmarsh_rose_1986(doc, cur->xmlChildrenNode, args);
-			break;
+            break;
         case NM_RULKOV_2002:
             ret = parse_nm_rulkov_2002(doc, cur->xmlChildrenNode, args);
-			break;
+            break;
         case NM_GHIGLIAZZA_HOLMES_2004:
             ret = parse_nm_ghigliazza_holmes_2004(doc, cur->xmlChildrenNode, args);
-			break;
+            break;
         case NM_WANG_1993:
             ret = parse_nm_wang_1993(doc, cur->xmlChildrenNode, args);
             break;
-		default:
-			return ERR;
-	}
+        case NM_KOMENDANTOV_KONONENKO_1996:
+            ret = parse_nm_komendantov_kononenko_1996(doc, cur->xmlChildrenNode, args);
+            break;
+        default:
+            return ERR;
+    }
 
-	return ret;
+    return ret;
 }
 
 
