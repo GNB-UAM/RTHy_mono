@@ -18,7 +18,7 @@ args  = aux.arguments()
 data1 = aux.DataStruct1(args)
 t_ignore = args.freq * 20
 t_ignore_fin = len(data1.time)- args.freq*12
-t_ignore_fin = len(data1.time)- args.freq*30
+t_ignore_fin = len(data1.time)- args.freq*32
 print(t_ignore)
 print(t_ignore_fin)
 
@@ -39,25 +39,51 @@ t_model_first, t_model_last = pa.clean_all_events(times, events, plot_on=verbose
 times, living_times_ms, events, minis, maxis = pa.periodo(data1.time[t_ignore:t_ignore_fin], data1.time_ms[t_ignore:t_ignore_fin], data1.data_in[0][t_ignore:t_ignore_fin],     args.freq, all_events=True, plot_on=verbose)
 t_living_first, t_living_last = pa.clean_all_events(times, events, plot_on=verbose)
 
+fail = False
+
 #######
 # PLOT
 #######
-if args.plot_inv==True and True==False:
+if args.plot_inv==True:
 	v1 = data1.v_model_scaled[t_ignore:t_ignore_fin]
+	c1 = data1.c_viva[t_ignore:t_ignore_fin]
 	t1 = np.linspace(0,len(v1), len(v1))
 	t1 = t1 / args.freq
+
 	v2 = data1.data_in[0][t_ignore:t_ignore_fin]
+	c2 = data1.c_model[t_ignore:t_ignore_fin]
 	t2 = np.linspace(0,len(v2), len(v2))
 	t2 = t2 / args.freq
+
+	plt.figure()
+
+	ax1 = plt.subplot(2, 1, 1)
 	plt.plot(t1, v1, label='Model')
 	plt.plot(t2, v2, label='Living')
-	plt.plot(t_model_first, np.linspace(-25,-25,len(t_model_first)), 'o', label="F-model")
-	plt.plot(t_model_last, np.linspace(-25,-25,len(t_model_last)), 'o', label="L-model")
-	plt.plot(t_living_first, np.linspace(-25,-25,len(t_living_first)), 'o', label="F-living")
-	plt.plot(t_living_last, np.linspace(-25,-25,len(t_living_last)), 'o', label="L-living")
-	plt.tight_layout()
+	plt.plot(t_model_first,  np.linspace(-25, -25, len(t_model_first)),  'o',  label="F-model" )
+	plt.plot(t_model_last,   np.linspace(-25, -25, len(t_model_last)),   'o',  label="L-model" )
+	plt.plot(t_living_first, np.linspace(-25, -25, len(t_living_first)), 'o',  label="F-living")
+	plt.plot(t_living_last,  np.linspace(-25, -25, len(t_living_last)),  'o',  label="L-living")
 	plt.legend(loc=1, framealpha=1.0)
+	
+	ax2 = plt.subplot(2, 1, 2, sharex=ax1)
+	plt.plot(t1, c1, label="Current real to model", linewidth=0.8)
+	plt.plot(t2, c2, label="Current model to real", linewidth=0.8)
+	plt.ylabel("Current")
+	plt.legend(loc=1, framealpha=1.0)
+
+	plt.tight_layout()
+	
 	plt.show()
+
+	#####################
+	# INHIBICION EXTREMA
+	#####################
+	if  0.5*(max(v2)- min(v2)) > (max(v1)- min(v1)):
+		print("Fail interaction - 1")
+		fail = True
+		if args.plot_inv==False:
+			exit()
 
 #######
 # ORDEN DE EVENTOS
@@ -72,41 +98,34 @@ if size > len(t_model_first)-indexPD:
 #######
 # NO MOLA EL ORDEN DE EVENTOS
 #######
-fail = False
 aux_1 = len(t_model_first) - indexPD
 aux_2 = len(t_living_first)
 print('Events model vs living: ' + str(aux_1) + ' VS ' + str(aux_2) )
 if abs(aux_1 - aux_2) > aux_1*0.1: #% de fallo admitido
+	print("Fail interaction - 2")
 	fail = True
 
+#######
+# NO HAY SPIKES
+#######
+
+for i in range(20):
+	if t_model_first[i]==t_model_last[i]:
+		print("Fail interaction - 3")
+		fail = True
+		break
+
+
+#######
+# ALGUN FAIL +
+#######
 if fail == True:
 	f_plot = open(args.name, 'a')
 	# n1 n2 r_azul r_rojo s_azul s_roja rara_azul rara_roja srara_azul srara_roja
 	f_plot.write(args.n1 + ' ' + args.n2 + ' 0' + ' 0' + ' 0' + ' 0' +  ' 0' + ' 0' + ' 0' + ' 0' + '\n')
 	f_plot.close()
-	print("Fail interaction")
 	if args.plot_inv==False:
 		exit()
-
-#######
-# PLOT
-#######
-if args.plot_inv==True:
-	v1 = data1.v_model_scaled[t_ignore:t_ignore_fin]
-	t1 = np.linspace(0,len(v1), len(v1))
-	t1 = t1 / args.freq
-	v2 = data1.data_in[0][t_ignore:t_ignore_fin]
-	t2 = np.linspace(0,len(v2), len(v2))
-	t2 = t2 / args.freq
-	plt.plot(t1, v1, label='Model')
-	plt.plot(t2, v2, label='Living')
-	plt.plot(t_model_first, np.linspace(-25,-25,len(t_model_first)), 'o', label="F-model")
-	plt.plot(t_model_last, np.linspace(-25,-25,len(t_model_last)), 'o', label="L-model")
-	plt.plot(t_living_first, np.linspace(-25,-25,len(t_living_first)), 'o', label="F-living")
-	plt.plot(t_living_last, np.linspace(-25,-25,len(t_living_last)), 'o', label="L-living")
-	plt.tight_layout()
-	plt.legend(loc=1, framealpha=1.0)
-	plt.show()
 
 #######
 # INTERVALOS
@@ -136,7 +155,7 @@ for i in range(size-1):
 		PDtoLP_raro.append   ( t_living_first [i+1]       - t_model_first  [i+indexPD-ml] )
 		delay_raro.append    ( t_living_first [i+1]       - t_model_last   [i+indexPD-ml] )
 
-print("Model inhibido = " + str(ml))
+print("Model jump = " + str(ml))
 
 #######
 # R2
