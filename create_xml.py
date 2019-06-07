@@ -6,9 +6,12 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-exp_code = 'NEW_6jun19_KK_1'
-#exp_code2 = 'NEW_6jun19_KK_1'
-entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
+#exp_code = 'NEW_6jun19_KK_1'
+exp_code = 'NEW_14mar19_KK_3'
+
+#entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
+entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
+
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
@@ -149,7 +152,7 @@ for var_a in variable_a:
 
 		f.write('		<g_fast val="'+var_b+'"/>\n')
 		f.write('		<vth_fast val="'+var_a+'"/>\n')
-		f.write('		<s_fast val="5.0"/>\n')
+		f.write('		<s_fast val="10.0"/>\n')
 
 		f.write('	</synapse_ltom>\n\n')
 
