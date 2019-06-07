@@ -152,7 +152,7 @@ for var_a in variable_a:
 
 		f.write('		<g_fast val="'+var_b+'"/>\n')
 		f.write('		<vth_fast val="'+var_a+'"/>\n')
-		f.write('		<s_fast val="10.0"/>\n')
+		f.write('		<s_fast val="5.0"/>\n')
 
 		f.write('	</synapse_ltom>\n\n')
 

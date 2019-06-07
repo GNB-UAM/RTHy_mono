@@ -3,6 +3,16 @@
 - Empezamos a tener un registro más exacto de los resultados en este diario
 - El programa ya integra con igual paso neurona y sinapsis
 
+Parametros por omisión:
+s=5
+
 * NEW_14mar19_IZ_1
 Hay invariante
 * NEW_14mar19_KK_1
+Hay invariante
+* NEW_14mar19_3
+Version con s=10
+Hay invatiante pero mucho menos
+
+* NEW_6jun19_KK_1
+No hay invariante

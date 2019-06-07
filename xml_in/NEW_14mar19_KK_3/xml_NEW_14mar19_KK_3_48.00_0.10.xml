@@ -36,7 +36,7 @@
 
 		<g_fast val="0.10"/>
 		<vth_fast val="48.00"/>
-		<s_fast val="10.0"/>
+		<s_fast val="5.0"/>
 	</synapse_ltom>
 
 	<calib type="0"> </calib>
