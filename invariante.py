@@ -101,7 +101,7 @@ if size > len(t_model_first)-indexPD:
 aux_1 = len(t_model_first) - indexPD
 aux_2 = len(t_living_first)
 print('Events model vs living: ' + str(aux_1) + ' VS ' + str(aux_2) )
-if abs(aux_1 - aux_2) > aux_1*0.1: #% de fallo admitido
+if abs(aux_1 - aux_2) > aux_1*0.3: #% de fallo admitido
 	print("Fail interaction - 2")
 	fail = True
 
