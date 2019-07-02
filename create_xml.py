@@ -39,10 +39,10 @@ for var_a in variable_a:
 		f = open(name, 'w', newline='\n')
 
 		# Execute order
-		f_exec.write("./RTHybrid -xml "+name+"\n")
+		f_exec.write("nohup ./RTHybrid -xml "+name+" && ")
 
 		# Invariant
-		f_exec.write("nohup python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt &\n\n")
+		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt &\n\n")
 		
 		jobs_per_job = 15  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
