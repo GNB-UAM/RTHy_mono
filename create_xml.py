@@ -46,7 +46,7 @@ for var_a in variable_a:
 		f_exec.write("BACK_PID_"+str(contador_qsub)+"=$!\n\n")
 
 		
-		jobs_per_job = 15  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 			contador_qsub = 0
 			num_qsub+=1
