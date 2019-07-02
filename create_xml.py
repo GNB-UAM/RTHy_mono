@@ -42,9 +42,10 @@ for var_a in variable_a:
 		f_exec.write("./RTHybrid -xml "+name+"\n")
 
 		# Invariant
-		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
+		f_exec.write("nohup python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt &\n\n")
 		
-		if contador_qsub == 15-1: # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio // -1 porque se cuenta con el cero
+		jobs_per_job = 15  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		if contador_qsub == jobs_per_job-1:
 			contador_qsub = 0
 			num_qsub+=1
 			f_exec.write("/bin/echo Termino a las `date`' | qsub\n\n")
@@ -188,3 +189,6 @@ for var_a in variable_a:
 		f.close()
 
 f_exec.close()
+
+print("Creados "+str(num_qsub)+" trabajos")
+print(str(jobs_per_job) + " tareas por trabajo")
