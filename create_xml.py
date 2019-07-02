@@ -43,17 +43,18 @@ for var_a in variable_a:
 
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt &\n")
-		f_exec.write("BACK_PID_"+str(contador_qsub)+"=$!\n\n")
-
+		f_exec.write("BACK_PID_"+str(num_qsub)+"_"+str(contador_qsub)+"=$!\n\n")
 		
 		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
+			
+			for ii in range(jobs_per_job):
+				f_exec.write("wait $BACK_PID_"+str(num_qsub)+"_"+str(ii)+"\n")
+
 			contador_qsub = 0
 			num_qsub+=1
-			for ii in range(jobs_per_job):
-				f_exec.write("wait $BACK_PID_"+str(ii)+"\n")
-
 			f_exec.write("\n/bin/echo Termino a las `date`' | qsub\n\n")
+
 			if tam_i < tam:
 				f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
 
