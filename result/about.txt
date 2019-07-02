@@ -8,9 +8,11 @@ s=5
 
 * NEW_14mar19_IZ_1
 Hay invariante
+
 * NEW_14mar19_KK_1
 Hay invariante
-* NEW_14mar19_3
+
+* NEW_14mar19_4
 Version con s=10
 Hay invatiante pero mucho menos
 

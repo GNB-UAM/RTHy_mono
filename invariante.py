@@ -181,12 +181,12 @@ if args.plot_inv==True:
 	label = '1stLP to 1stDP    R²={:.2f}'.format(r_value **2*100) + '%    m={:.3f}'.format(slope )
 	plt.scatter(periodoLP, PDtoLP, label=label, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Blues'))
 	plt.colorbar()
-
+	'''
 	plt.plot(periodoLP, intercept2 + slope2*np.asarray(periodoLP), alpha=0.5)
 	label = 'With delay          R²={:.2f}'.format(r_value2 **2*100) + '%    m={:.3f}'.format(slope2 )
 	plt.scatter(periodoLP, delay, label=label, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Reds'))
 	plt.colorbar()
-
+	'''
 	'''
 	plt.scatter(periodoLP, durationModel, c=np.linspace(0, len(periodoLP), len(periodoLP)), s=5, cmap=plt.get_cmap('Greens'))
 	plt.colorbar()
