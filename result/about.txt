@@ -1,9 +1,3 @@
-
-17/05/2019
-- Empezamos a tener un registro más exacto de los resultados en este diario
-- El programa ya integra con igual paso neurona y sinapsis
-
-Parametros por omisión:
 s=5
 
 * NEW_14mar19_IZ_1
