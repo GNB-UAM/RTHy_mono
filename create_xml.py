@@ -2,8 +2,8 @@
 ##########################
 
 # V threshold versus g
-variable_a = [x * 1.0  for x in range(15, 60)]
-variable_b = [x * 0.05 for x in range(0, 20)]
+#variable_a = [x * 1.0  for x in range(15, 60)]
+#variable_b = [x * 0.05 for x in range(0, 20)]
 
 # S % versus g
 variable_a = [x * 1.0  for x in range(1, 21)]
@@ -50,7 +50,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 5  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -167,7 +167,7 @@ for var_a in variable_a:
 		#f.write('		<vth_fast val="'+var_a+'"/>\n')
 		f.write('		<vth_fast val="32.0"/>\n')
 
-		f.write('		<s_fast val="'+var_b+'"/>\n')
+		f.write('		<s_fast val="'+var_a+'"/>\n')
 		#f.write('		<s_fast val="5.0"/>\n')
 		# ~~~~~~~~
 
