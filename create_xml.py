@@ -13,7 +13,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 #exp_code = 'NEW_6jun19_KK_1'
-exp_code = 'Exp0003'
+exp_code = 'Exp0004'
 
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
@@ -50,7 +50,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 5  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -67,7 +67,7 @@ for var_a in variable_a:
 		f.write('<clamp>\n\n')
 
 		# IZHIKEVICH
-		'''
+		
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -82,10 +82,10 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 
 		# K-K
-		
+		'''
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
 		f.write('			<V val="-55.0"/>\n')
@@ -115,7 +115,7 @@ for var_a in variable_a:
 		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		
+		'''
 		
 		# G-H
 		'''

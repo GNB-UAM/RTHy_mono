@@ -38,7 +38,6 @@ cmaplist[0] = (.5,.5,.5,1.0)
 cmap = cmap.from_list('Custom cmap', cmaplist, cmap.N)
 
 ax = plt.gca()
-plt.rc('font', size=32)
 
 im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=1)
 #im = plt.imshow(z, origin='lower', cmap=cmap, vmin=0, vmax=z.max())
@@ -66,15 +65,17 @@ for var_b in variable_b:
 		vars_b.append('')
 	count_b+=1
 
-plt.tick_params(labelsize=26)
+plt.rc('font', size=18)
+
+plt.tick_params(labelsize=18)
 plt.xticks(range(eje_x), vars_a)
 plt.yticks(range(eje_y), vars_b)
 
-plt.xlabel('$\%_{Vth}$', size=32, labelpad=20)
+plt.xlabel('$\%_{s}$', size=32, labelpad=20)
 plt.ylabel('$g_{syn} (μS)$', size=32, labelpad=20)
 
 #plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
-plt.title('Model neuron: Komendantov and Kononenko, 1996', pad=20)
+plt.title('Komendantov and Kononenko, 1996', pad=30, size=32)
 
 ax.xaxis.set_tick_params(rotation=60)
 
