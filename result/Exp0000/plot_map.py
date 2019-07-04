@@ -70,18 +70,18 @@ plt.tick_params(labelsize=26)
 plt.xticks(range(eje_x), vars_a)
 plt.yticks(range(eje_y), vars_b)
 
-plt.xlabel('Vth_fast(%)', size=28, labelpad=20)
-plt.ylabel('Conductance (g)', size=28, labelpad=20)
+plt.xlabel('$\%_{Vth}$', size=32, labelpad=20)
+plt.ylabel('$g_{syn} (μS)$', size=32, labelpad=20)
 
 #plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
-plt.title('$R^2$ Coefficient', pad=20)
+plt.title('Model neuron: Komendantov and Kononenko, 1996', pad=20)
 
 ax.xaxis.set_tick_params(rotation=60)
 
 divider = make_axes_locatable(ax)
 cax = divider.append_axes("right", size="3%", pad=0.2)
 cbar = plt.colorbar(im, cax=cax)
-cbar.ax.set_ylabel('$R^2$', rotation=270, labelpad=40)
+cbar.ax.set_ylabel('$R^2$ Coefficient', rotation=270, labelpad=40, size=32)
 
 #plt.tight_layout()
 plt.show()

@@ -1,13 +1,19 @@
 ##########################
 ##########################
 
+# V threshold versus g
 variable_a = [x * 1.0  for x in range(15, 60)]
 variable_b = [x * 0.05 for x in range(0, 20)]
+
+# S % versus g
+variable_a = [x * 1.0  for x in range(1, 21)]
+variable_b = [x * 0.05 for x in range(0, 20)]
+
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 #exp_code = 'NEW_6jun19_KK_1'
-exp_code = 'Exp0002'
+exp_code = 'Exp0003'
 
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
@@ -44,7 +50,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 5  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -79,7 +85,7 @@ for var_a in variable_a:
 		'''
 
 		# K-K
-		'''
+		
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
 		f.write('			<V val="-55.0"/>\n')
@@ -109,10 +115,10 @@ for var_a in variable_a:
 		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 		
 		# G-H
-		
+		'''
 		f.write('	<neuron type="4">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -143,7 +149,7 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n')
-		
+		'''
 
 		# SYNAPSE
 
@@ -154,9 +160,16 @@ for var_a in variable_a:
 		f.write('		<k1_slow val="1.0"/>\n')
 		f.write('		<k2_slow val="0.03"/>\n\n')
 
+		# ~~~~~~~~
 		f.write('		<g_fast val="'+var_b+'"/>\n')
-		f.write('		<vth_fast val="'+var_a+'"/>\n')
-		f.write('		<s_fast val="5.0"/>\n')
+		#f.write('		<g_fast val="0.2"/>\n')
+
+		#f.write('		<vth_fast val="'+var_a+'"/>\n')
+		f.write('		<vth_fast val="32.0"/>\n')
+
+		f.write('		<s_fast val="'+var_b+'"/>\n')
+		#f.write('		<s_fast val="5.0"/>\n')
+		# ~~~~~~~~
 
 		f.write('	</synapse_ltom>\n\n')
 
