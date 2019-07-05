@@ -17,7 +17,7 @@ variable_b = [x * 1.0  for x in range(1, 21)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 #exp_code = 'NEW_6jun19_KK_1'
-exp_code = 'Exp0005'
+exp_code = 'Exp0006'
 
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
