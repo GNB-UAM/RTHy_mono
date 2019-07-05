@@ -71,10 +71,10 @@ plt.xticks(range(eje_x), vars_a)
 plt.yticks(range(eje_y), vars_b)
 
 plt.xlabel('$\%_{Vth}$', size=32, labelpad=20)
-plt.ylabel('$$\%_{s}$', size=32, labelpad=20)
+plt.ylabel('$\%_{s}$', size=32, labelpad=20)
 
 #plt.title('IZ Neuron; Golowasch fast synapse to model; Max $R^2$ = '+str(int(z.max()))+'%', pad=20)
-plt.title('Model neuron: Komendantov and Kononenko, 1996', pad=20)
+plt.title('Komendantov and Kononenko, 1996', pad=20)
 
 ax.xaxis.set_tick_params(rotation=60)
 
