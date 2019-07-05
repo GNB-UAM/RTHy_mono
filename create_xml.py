@@ -9,6 +9,10 @@
 variable_a = [x * 1.0  for x in range(1, 21)]
 variable_b = [x * 0.05 for x in range(0, 20)]
 
+# V threshold versus s
+variable_a = [x * 1.0  for x in range(15, 60)]
+variable_b = [x * 1.0  for x in range(1, 21)]
+
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
@@ -85,7 +89,7 @@ for var_a in variable_a:
 		'''
 
 		# K-K
-		'''
+		
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
 		f.write('			<V val="-55.0"/>\n')
@@ -115,10 +119,10 @@ for var_a in variable_a:
 		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 		
 		# G-H
-		
+		'''
 		f.write('	<neuron type="4">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -149,7 +153,7 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n')
-		
+		'''
 
 		# SYNAPSE
 
@@ -161,13 +165,13 @@ for var_a in variable_a:
 		f.write('		<k2_slow val="0.03"/>\n\n')
 
 		# ~~~~~~~~
-		f.write('		<g_fast val="'+var_b+'"/>\n')
-		#f.write('		<g_fast val="0.2"/>\n')
+		#f.write('		<g_fast val="'+var_b+'"/>\n')
+		f.write('		<g_fast val="0.2"/>\n')
 
-		#f.write('		<vth_fast val="'+var_a+'"/>\n')
-		f.write('		<vth_fast val="32.0"/>\n')
+		f.write('		<vth_fast val="'+var_a+'"/>\n')
+		#f.write('		<vth_fast val="32.0"/>\n')
 
-		f.write('		<s_fast val="'+var_a+'"/>\n')
+		f.write('		<s_fast val="'+var_b+'"/>\n')
 		#f.write('		<s_fast val="5.0"/>\n')
 		# ~~~~~~~~
 
