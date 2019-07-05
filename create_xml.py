@@ -26,7 +26,9 @@ xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
 file_R2 = 'result/'+exp_code+'/parcial_'
 
-f_exec = open('launch.sh', 'w')
+f_exec = open('launch_'+exp_code+'.sh', 'w')
+print(exp_code)
+
 num_qsub = 0
 contador_qsub = 0
 f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
