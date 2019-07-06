@@ -1,0 +1,50 @@
+<clamp>
+
+	<neuron type="2">
+		<vars>
+			<x val="-0.712841"/>
+			<y val="-1.936880"/>
+			<z val="3.165680"/>
+		</vars>
+		<params>
+			<r val="0.0021"/>
+			<s val="4.0"/>
+			<i val="3.281"/>
+		<method val="3"/>
+		</params>
+	</neuron>
+	<synapse_ltom type="2">
+		<g_slow val="0"/>
+		<vth_slow val="40"/>
+		<s_slow val="1.0"/>
+		<k1_slow val="1.0"/>
+		<k2_slow val="0.03"/>
+
+		<g_fast val="0.2"/>
+		<vth_fast val="53.00"/>
+		<s_fast val="16.00"/>
+	</synapse_ltom>
+
+	<calib type="0"> </calib>
+
+	<freq val="10000"/>
+
+	<times>
+		<before val="10"/>
+		<duration val="180"/>
+		<after val="10"/>
+		<observation val="10"/>
+	</times>
+
+	<output_channels val="0"/>
+	<input_channels val="0"/>
+	<input_factor val="100"/>
+	<output_factor val="10"/>
+	<imp val="0"/>
+	<drift val="1"/>
+	<sec_per_burst val="0.7"/>
+
+	<file val="data_in/2019y_3m_14d/17h_25m_23s_data.txt"/>
+	<file_out val="data_out/Exp0017/res_Exp0017_53.00_16.00.txt"/>
+
+</clamp>

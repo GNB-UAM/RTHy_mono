@@ -6,8 +6,8 @@
 #variable_b = [x * 0.05 for x in range(0, 20)]
 
 # S % versus g
-variable_a = [x * 1.0  for x in range(1, 21)]
-variable_b = [x * 0.05 for x in range(0, 20)]
+#variable_a = [x * 1.0  for x in range(1, 21)]
+#variable_b = [x * 0.05 for x in range(0, 20)]
 
 # V threshold versus s
 variable_a = [x * 1.0  for x in range(15, 60)]
@@ -16,11 +16,13 @@ variable_b = [x * 1.0  for x in range(1, 21)]
 #variable_a = ['40','38.3','36.5', '35', '33.3', '31.6', '30', '28.3', '26.6', '25', '23.3', '21.6', '20']
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
-#exp_code = 'NEW_6jun19_KK_1'
-exp_code = 'Exp0008'
+exp_code = 'Exp0017'
 
-#entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
+# Senal 1
 entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
+
+# Senal 2
+#entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -56,7 +58,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 20  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -90,7 +92,7 @@ for var_a in variable_a:
 		f.write('	</neuron>\n\n')
 		'''
 
-		# K-K
+		# K-K standar
 		'''
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
@@ -122,9 +124,42 @@ for var_a in variable_a:
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
 		'''
+
+		# K-K chaotic
+		'''
+		f.write('	<neuron type="6">\n')
+		f.write('		<vars>\n')
+		f.write('			<V val="-55.0"/>\n')
+		f.write('		</vars>\n')
+		f.write('		<params>\n')
+		f.write('			<i         val="0.0"/>\n')
+		f.write('			<Cm        val="0.02"/>\n')
+
+		f.write('			<g_na      val="0.02"/>\n')
+		f.write('			<g_k       val="0.25"/>\n')
+		f.write('			<g_b       val="0.18"/>\n')
+		f.write('			<g_na_v    val="0.13"/>\n')
+		f.write('			<V_k       val="-70.0"/>\n')
+		f.write('			<V_b       val="-58.0"/>\n')
+		f.write('			<V_na      val="40.0"/>\n')
+		
+		f.write('			<g_na_ttx  val="400.0"/>\n')
+		f.write('			<g_ca      val="1.0"/>\n')
+		f.write('			<k_beta    val="15000.0"/>\n')
+		f.write('			<g_k_tea   val="10.0"/>\n')
+		f.write('			<V_ca      val="150.0"/>\n')
+		f.write('			<beta      val="0.00004"/>\n')
+		f.write('			<g_ca_ca   val="0.01"/>\n')
+		f.write('			<k_s       val="50.0"/>\n')
+		f.write('			<rho       val="0.002"/>\n')	
+		
+		f.write('			<method    val="3"/>\n')
+		f.write('		</params>\n')
+		f.write('	</neuron>\n\n')
+		'''
 		
 		# G-H
-		
+		'''
 		f.write('	<neuron type="4">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -153,6 +188,42 @@ for var_a in variable_a:
 		f.write('			<i val="35.6"/>\n')
 
 		f.write('			<method val="3"/>\n')
+		f.write('		</params>\n')
+		f.write('	</neuron>\n')
+        '''
+
+		# H-R
+		'''
+		f.write('	<neuron type="2">\n')
+		f.write('		<vars>\n')
+		f.write('			<x val="-0.712841"/>\n')
+		f.write('			<y val="-1.936880"/>\n')
+		f.write('			<z val="3.165680"/>\n')
+		f.write('		</vars>\n')
+		f.write('		<params>\n')
+		f.write('			<r val="0.0021"/>\n')
+		f.write('			<s val="4.0"/>\n')
+		f.write('			<i val="3.0"/>\n')
+
+		f.write('		<method val="3"/>\n')
+		f.write('		</params>\n')
+		f.write('	</neuron>\n')
+		'''
+
+		# H-R chaotic
+		
+		f.write('	<neuron type="2">\n')
+		f.write('		<vars>\n')
+		f.write('			<x val="-0.712841"/>\n')
+		f.write('			<y val="-1.936880"/>\n')
+		f.write('			<z val="3.165680"/>\n')
+		f.write('		</vars>\n')
+		f.write('		<params>\n')
+		f.write('			<r val="0.0021"/>\n')
+		f.write('			<s val="4.0"/>\n')
+		f.write('			<i val="3.281"/>\n')
+
+		f.write('		<method val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n')
 		
