@@ -1,0 +1,4 @@
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono/data_out/Exp0009/res_Exp0009_32.00_0.15.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono/data_out/Exp0009/res_Exp0009_32.00_0.15.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono/data_out/Exp0009/res_Exp0009_15.00_0.00.txt -j 2 -fr 10000 -d 0 
+python3 plot_lib/plot.py -f /home/manur/Desktop/RTHy_mono/data_out/Exp0012/res_Exp0012_15.00_0.90.txt -j 2 -fr 10000 -d 0 
