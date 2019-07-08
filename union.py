@@ -1,7 +1,12 @@
 import os
+import argparse
 
-#folder = 'result/NEW_6jun19_KK_1/'
-folder = 'result/Exp0005/'
+ap = argparse.ArgumentParser()
+ap.add_argument("-f", "--folder",   required=True,  help="folder")
+args = vars(ap.parse_args())
+folder = args['folder']
+#folder = 'result/Exp0005/'
+
 file_name = folder+'parcial'
 
 try:
