@@ -196,7 +196,7 @@ if args.plot_inv==True:
 
 	plt.title("Invariant")
 	plt.legend(loc=1, framealpha=1.0)
-	plt.tight_layout()
+	#plt.tight_layout()
 	plt.show()
 
 	############
