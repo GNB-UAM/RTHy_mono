@@ -16,9 +16,9 @@ MOC_DIR = moc/
 UI_DIR = ui/
 QMAKE_CLEAN += $$TARGET
 
-QMAKE_CC = /home/manurey/gcc-6.3.0/bin/gcc 
-QMAKE_CXX = /home/manurey/gcc-6.3.0/bin/g++
-QMAKE_LINK = /home/manurey/gcc-6.3.0/bin/g++
+QMAKE_CC = /usr/local/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.3.0-2mjtpyry7hpsvau6ehtc6geatnjxq43h/bin/gcc 
+QMAKE_CXX = /usr/local/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.3.0-2mjtpyry7hpsvau6ehtc6geatnjxq43h/bin/g++
+QMAKE_LINK = /usr/local/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.3.0-2mjtpyry7hpsvau6ehtc6geatnjxq43h/bin/g++
 QMAKE_LIBS += -lpthread -lrt -lm -lxml2
 QMAKE_CFLAGS += -D_GNU_SOURCE -I/usr/include/libxml2 -g
 QMAKE_CXXFLAGS += -I/usr/include/libxml2
