@@ -37,7 +37,16 @@ print(exp_code)
 
 num_qsub = 0
 contador_qsub = 0
-f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
+
+order_command = "echo -e '#!/bin/bash\n"
+order_name    = "#SBATCH --job-name=RTHy_mono\n"
+order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
+order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
+order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
+order_start   = "/bin/echo Enpiezo a las `date`\n\n"
+
+f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
+#f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 
 tam = len(variable_a)*len(variable_b)
 tam_i = 0
@@ -67,10 +76,19 @@ for var_a in variable_a:
 
 			contador_qsub = 0
 			num_qsub+=1
-			f_exec.write("/bin/echo Termino a las `date`' | qsub\n\n")
+			f_exec.write("/bin/echo Termino a las `date`' | sbatch\n\n")
+			#f_exec.write("/bin/echo Termino a las `date`' | qsub\n\n")
 
 			if tam_i < tam:
-				f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
+				order_command = "echo -e '#!/bin/bash\n"
+				order_name    = "#SBATCH --job-name=RTHy_mono\n"
+				order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
+				order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
+				order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
+				order_start   = "/bin/echo Enpiezo a las `date`\n\n"
+
+				f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
+				#f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
 
 		else:
 			contador_qsub += 1
