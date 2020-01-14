@@ -43,7 +43,7 @@ order_name    = "#SBATCH --job-name=RTHy_mono\n"
 order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
 order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
 order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
-order_start   = "/bin/echo Enpiezo a las `date`\n\n"
+order_start   = "/bin/echo Empiezo a las `date`\n\n"
 
 f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
 #f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
@@ -85,7 +85,7 @@ for var_a in variable_a:
 				order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
 				order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
 				order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
-				order_start   = "/bin/echo Enpiezo a las `date`\n\n"
+				order_start   = "/bin/echo Empiezo a las `date`\n\n"
 
 				f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
 				#f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
