@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-fichero = 'result/IZ_1/total.txt'
+fichero = 'result/test2020/total.txt'
 
-variable_a = [x * 1.0  for x in range(25, 75)]
-variable_b = [x * 0.05 for x in range(5, 15)]
+variable_a = [x * 1.0  for x in range(0, 45)]
+variable_b = [x * 1.0  for x in range(1, 21)]
 
 print(len(variable_a))
 print(len(variable_b))
