@@ -14,8 +14,7 @@ nodos=(
 )
 
 for nodo in "${nodos[@]}"; do
-    ssh "$nodo"
-    echo "$nodo" >> nodos.txt
-    cat /proc/cpuinfo | grep "model name" >> nodos.txt
+	echo "$nodo" >> nodos.txt
+    ssh "$nodo" cat /proc/cpuinfo | grep "model name" >> nodos.txt
     echo "" >> nodos.txt
 done
