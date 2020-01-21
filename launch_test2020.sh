@@ -2,7 +2,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_0.out
 #SBATCH --error  jobs/RTHY_mono_test2020_0.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -72,7 +72,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_1.out
 #SBATCH --error  jobs/RTHY_mono_test2020_1.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -142,7 +142,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_2.out
 #SBATCH --error  jobs/RTHY_mono_test2020_2.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -212,7 +212,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_3.out
 #SBATCH --error  jobs/RTHY_mono_test2020_3.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -282,7 +282,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_4.out
 #SBATCH --error  jobs/RTHY_mono_test2020_4.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -352,7 +352,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_5.out
 #SBATCH --error  jobs/RTHY_mono_test2020_5.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -422,7 +422,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_6.out
 #SBATCH --error  jobs/RTHY_mono_test2020_6.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -492,7 +492,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_7.out
 #SBATCH --error  jobs/RTHY_mono_test2020_7.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -562,7 +562,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_8.out
 #SBATCH --error  jobs/RTHY_mono_test2020_8.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -632,7 +632,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_9.out
 #SBATCH --error  jobs/RTHY_mono_test2020_9.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -702,7 +702,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_10.out
 #SBATCH --error  jobs/RTHY_mono_test2020_10.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -772,7 +772,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_11.out
 #SBATCH --error  jobs/RTHY_mono_test2020_11.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -842,7 +842,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_12.out
 #SBATCH --error  jobs/RTHY_mono_test2020_12.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -912,7 +912,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_13.out
 #SBATCH --error  jobs/RTHY_mono_test2020_13.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -982,7 +982,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_14.out
 #SBATCH --error  jobs/RTHY_mono_test2020_14.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1052,7 +1052,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_15.out
 #SBATCH --error  jobs/RTHY_mono_test2020_15.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1122,7 +1122,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_16.out
 #SBATCH --error  jobs/RTHY_mono_test2020_16.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1192,7 +1192,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_17.out
 #SBATCH --error  jobs/RTHY_mono_test2020_17.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1262,7 +1262,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_18.out
 #SBATCH --error  jobs/RTHY_mono_test2020_18.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1332,7 +1332,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_19.out
 #SBATCH --error  jobs/RTHY_mono_test2020_19.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1402,7 +1402,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_20.out
 #SBATCH --error  jobs/RTHY_mono_test2020_20.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1472,7 +1472,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_21.out
 #SBATCH --error  jobs/RTHY_mono_test2020_21.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1542,7 +1542,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_22.out
 #SBATCH --error  jobs/RTHY_mono_test2020_22.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1612,7 +1612,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_23.out
 #SBATCH --error  jobs/RTHY_mono_test2020_23.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1682,7 +1682,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_24.out
 #SBATCH --error  jobs/RTHY_mono_test2020_24.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1752,7 +1752,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_25.out
 #SBATCH --error  jobs/RTHY_mono_test2020_25.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1822,7 +1822,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_26.out
 #SBATCH --error  jobs/RTHY_mono_test2020_26.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1892,7 +1892,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_27.out
 #SBATCH --error  jobs/RTHY_mono_test2020_27.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -1962,7 +1962,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_28.out
 #SBATCH --error  jobs/RTHY_mono_test2020_28.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2032,7 +2032,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_29.out
 #SBATCH --error  jobs/RTHY_mono_test2020_29.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2102,7 +2102,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_30.out
 #SBATCH --error  jobs/RTHY_mono_test2020_30.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2172,7 +2172,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_31.out
 #SBATCH --error  jobs/RTHY_mono_test2020_31.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2242,7 +2242,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_32.out
 #SBATCH --error  jobs/RTHY_mono_test2020_32.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2312,7 +2312,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_33.out
 #SBATCH --error  jobs/RTHY_mono_test2020_33.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2382,7 +2382,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_34.out
 #SBATCH --error  jobs/RTHY_mono_test2020_34.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2452,7 +2452,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_35.out
 #SBATCH --error  jobs/RTHY_mono_test2020_35.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2522,7 +2522,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_36.out
 #SBATCH --error  jobs/RTHY_mono_test2020_36.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2592,7 +2592,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_37.out
 #SBATCH --error  jobs/RTHY_mono_test2020_37.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2662,7 +2662,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_38.out
 #SBATCH --error  jobs/RTHY_mono_test2020_38.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2732,7 +2732,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_39.out
 #SBATCH --error  jobs/RTHY_mono_test2020_39.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2802,7 +2802,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_40.out
 #SBATCH --error  jobs/RTHY_mono_test2020_40.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2872,7 +2872,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_41.out
 #SBATCH --error  jobs/RTHY_mono_test2020_41.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -2942,7 +2942,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_42.out
 #SBATCH --error  jobs/RTHY_mono_test2020_42.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -3012,7 +3012,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_43.out
 #SBATCH --error  jobs/RTHY_mono_test2020_43.err
-#SBATCH -w node07
+#SBATCH -w nodo07
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
@@ -3082,7 +3082,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_test2020_44.out
 #SBATCH --error  jobs/RTHY_mono_test2020_44.err
-#SBATCH -w node06
+#SBATCH -w nodo06
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
