@@ -44,8 +44,9 @@ order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".
 order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
 order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 order_start   = "/bin/echo Empiezo a las `date`\n\n"
+order_node    = "#SBATCH -w node06\n"
 
-f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
+f_exec.write( order_command + order_name + order_output + order_err + order_node + order_host + order_start )
 #f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 
 tam = len(variable_a)*len(variable_b)
@@ -71,7 +72,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 20  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -86,8 +87,12 @@ for var_a in variable_a:
 				order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
 				order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 				order_start   = "/bin/echo Empiezo a las `date`\n\n"
+				if num_qsub%2 == 0:
+					order_node    = "#SBATCH -w node06\n"
+				else:
+					order_node    = "#SBATCH -w node07\n"
 
-				f_exec.write( order_command + order_name + order_output + order_err + order_host + order_start )
+				f_exec.write( order_command + order_name + order_output + order_err + order_node + order_host + order_start )
 				#f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
 
 		else:
