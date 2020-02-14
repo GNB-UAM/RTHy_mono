@@ -2,11 +2,25 @@
 
 nodos=(
     nodo01
+    nodo02
     nodo03
     nodo04
     nodo05
     nodo06
-    nodo07
+    nodo08
+    nodo09
+    nodo10
+    nodo11
+    nodo12
+    nodo13
+    nodo14
+    nodo15
+    nodo16
+    nodo17
+    nodo18
+    nodo19
+    nodo20
+    nodo21
     nodo22
     nodo23
     nodo24
