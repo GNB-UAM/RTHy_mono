@@ -7,6 +7,7 @@ nodos=(
     nodo04
     nodo05
     nodo06
+    nodo07
     nodo08
     nodo09
     nodo10
