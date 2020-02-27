@@ -206,11 +206,11 @@ int read_single_data_comedi (double * ret) {
 			fflush(NULL);
 		}
 		ret[0] = atof(elemento);
-
+printf("Read type %s\n", elemento);
 		while (elemento != NULL) {
 			elemento = strtok(NULL, " ");
 		}
-		printf("Read type %s\n", elemento);
+		
 	}
 
 	return 0;
