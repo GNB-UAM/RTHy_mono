@@ -146,6 +146,8 @@ int read_single_data_comedi (double * ret) {
 	//double physical_value;
 	//int retval;
 
+	printf("Read type %d\n", READ_FROM_FILE);
+
 	if (READ_FROM_FILE == 0) {
 		/*retval = comedi_data_read(session->device, session->in_subdev, chan, session->range, session->aref, &data);
 		if(retval < 0)
