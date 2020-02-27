@@ -210,7 +210,7 @@ int read_single_data_comedi (double * ret) {
 		while (elemento != NULL) {
 			elemento = strtok(NULL, " ");
 		}
-		printf("Read type %d\n", elemento);
+		printf("Read type %s\n", elemento);
 	}
 
 	return 0;
