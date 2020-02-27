@@ -211,6 +211,7 @@ int read_single_data_comedi (double * ret) {
 			elemento = strtok(NULL, " ");
 		}
 	}
+	printf("Read type %d\n", elemento);
 
 	return 0;
 }
