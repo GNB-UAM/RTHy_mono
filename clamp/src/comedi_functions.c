@@ -1,7 +1,11 @@
 #include "../includes/device_functions.h"
 //#include <comedilib.h>
 
-#define READ_FROM_FILE 1
+/***********
+1 = RTHYBRID
+2 = ADDCLAMP
+************/
+#define READ_FROM_FILE 2
 
 /*struct _Daq_session{
 	comedi_t * device;
@@ -26,7 +30,7 @@ int daq_open_device (char * file) {
 	/**device = (comedi_t *) malloc (sizeof(comedi_t));
 	dsc = *device;*/
 
-	if (READ_FROM_FILE == 1) {
+	if (READ_FROM_FILE != 0) {
         f = fopen(file, "r");
 		char buf[999];
 		fgets(buf, sizeof(char) * 200, f);
@@ -35,6 +39,7 @@ int daq_open_device (char * file) {
 		read_single_data_comedi (&ret);
 		read_single_data_comedi (&ret);
 	}
+
 	/*
 	dsc = comedi_open("/dev/comedi0");
 	if(dsc == NULL)
@@ -51,7 +56,7 @@ int daq_open_device (char * file) {
 int daq_close_device () {
 	//comedi_t * dsc = *device;
 
-	if (READ_FROM_FILE == 1) fclose(f);
+	if (READ_FROM_FILE != 0) fclose(f);
 
 	/*if (comedi_close(dsc) == -1) {
 		comedi_perror("Error with comedi_close");
@@ -157,7 +162,35 @@ int read_single_data_comedi (double * ret) {
 		} else {
 			*ret = physical_value;
 		}*/
-	} else if (READ_FROM_FILE == 1) {
+	}
+
+	/***********
+	PARA RTHYBRID
+	************/
+	if (READ_FROM_FILE == 1) {
+		char buf[999];
+		fgets(buf, sizeof(char) * 200, f);
+		//printf("%s\n", buf);
+		char * elemento;
+		elemento = strtok(buf, " ");
+		//printf("%p %p\n", elemento, buf);
+		int i;
+        for (i=1; i<=3; i++){ //8 antiguos
+			elemento = strtok(NULL, " ");
+			//printf("%p\n", elemento);
+			fflush(NULL);
+		}
+		ret[0] = atof(elemento);
+
+		while (elemento != NULL) {
+			elemento = strtok(NULL, " ");
+		}
+	}
+
+	/***********
+	PARA ADDCLAMP
+	************/
+	if (READ_FROM_FILE == 2) {
 		char buf[999];
 		fgets(buf, sizeof(char) * 200, f);
 		//printf("%s\n", buf);
