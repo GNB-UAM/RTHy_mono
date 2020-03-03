@@ -29,7 +29,8 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 
 # senal 3
-entrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
+#qentrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
+entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -105,7 +106,7 @@ for var_a in variable_a:
 		f.write('<clamp>\n\n')
 
 		# IZHIKEVICH
-		'''
+		
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -120,10 +121,10 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 
 		# K-K standar
-		
+		'''
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
 		f.write('			<V val="-55.0"/>\n')
@@ -153,7 +154,7 @@ for var_a in variable_a:
 		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		
+		'''
 
 		# K-K chaotic
 		'''

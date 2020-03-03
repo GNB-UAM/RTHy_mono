@@ -1,0 +1,52 @@
+<clamp>
+
+	<neuron type="1">
+		<vars>
+			<v val="30.24"/>
+			<u val="-5.5"/>
+		</vars>
+		<params>
+			<a val="0.02"/>
+			<b val="0.2"/>
+			<c val="-50.0"/>
+			<d val="2.0"/>
+			<i val="10.0"/>
+			<method val="3"/>
+		</params>
+	</neuron>
+
+	<synapse_ltom type="2">
+		<g_slow val="0"/>
+		<vth_slow val="40"/>
+		<s_slow val="1.0"/>
+		<k1_slow val="1.0"/>
+		<k2_slow val="0.03"/>
+
+		<g_fast val="0.6"/>
+		<vth_fast val="58.00"/>
+		<s_fast val="0.40"/>
+	</synapse_ltom>
+
+	<calib type="0"> </calib>
+
+	<freq val="10000"/>
+
+	<times>
+		<before val="10"/>
+		<duration val="180"/>
+		<after val="10"/>
+		<observation val="10"/>
+	</times>
+
+	<output_channels val="0"/>
+	<input_channels val="0"/>
+	<input_factor val="100"/>
+	<output_factor val="10"/>
+	<imp val="0"/>
+	<drift val="1"/>
+	<sec_per_burst val="0.7"/>
+
+	<file val="data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt"/>
+	<file_out val="data_out/17-Dec-2019-Uno/res_17-Dec-2019-Uno_58.00_0.40.txt"/>
+
+</clamp>
