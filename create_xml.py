@@ -29,8 +29,9 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
 
 # senal 3
-#qentrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
-entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
+#entrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
+#entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
+entrada    =  'data_in/10-Sep-2019/16h42m53s-10-Sep-2019.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -46,11 +47,12 @@ order_command = "echo -e '#!/bin/bash\n"
 order_name    = "#SBATCH --job-name=RTHy_mono\n"
 order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
 order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
+order_part    = "#SBATCH --partition=fast"
 order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 order_start   = "/bin/echo Empiezo a las `date`\n\n"
 order_node    = "#SBATCH -w nodo06\n"
 
-f_exec.write( order_command + order_name + order_output + order_err + order_node + order_host + order_start )
+f_exec.write( order_command + order_name + order_output + order_err + order_node + order_part + order_host + order_start )
 #f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
 
 tam = len(variable_a)*len(variable_b)
@@ -76,7 +78,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 20  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0
@@ -89,6 +91,7 @@ for var_a in variable_a:
 				order_name    = "#SBATCH --job-name=RTHy_mono\n"
 				order_output  = "#SBATCH --output jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n"
 				order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n"
+				order_part    = "#SBATCH --partition=fast"
 				order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 				order_start   = "/bin/echo Empiezo a las `date`\n\n"
 				if num_qsub%2 == 0:
@@ -96,7 +99,7 @@ for var_a in variable_a:
 				else:
 					order_node    = "#SBATCH -w nodo07\n"
 
-				f_exec.write( order_command + order_name + order_output + order_err + order_node + order_host + order_start )
+				f_exec.write( order_command + order_name + order_output + order_err + order_node + order_part + order_host + order_start )
 				#f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n/bin/echo Estoy corriendo en el nodo  `hostname`\n/bin/echo Empiezo a las `date`\n\n")
 
 		else:
