@@ -3,7 +3,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_0.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_0.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_15.00_0.00.xml
@@ -43,7 +44,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_1.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_1.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_15.00_0.50.xml
@@ -83,7 +85,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_2.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_2.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_16.00_0.00.xml
@@ -123,7 +126,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_3.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_3.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_16.00_0.50.xml
@@ -163,7 +167,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_4.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_4.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_17.00_0.00.xml
@@ -203,7 +208,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_5.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_5.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_17.00_0.50.xml
@@ -243,7 +249,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_6.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_6.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_18.00_0.00.xml
@@ -283,7 +290,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_7.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_7.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_18.00_0.50.xml
@@ -323,7 +331,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_8.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_8.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_19.00_0.00.xml
@@ -363,7 +372,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_9.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_9.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_19.00_0.50.xml
@@ -403,7 +413,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_10.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_10.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_20.00_0.00.xml
@@ -443,7 +454,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_11.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_11.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_20.00_0.50.xml
@@ -483,7 +495,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_12.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_12.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_21.00_0.00.xml
@@ -523,7 +536,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_13.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_13.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_21.00_0.50.xml
@@ -563,7 +577,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_14.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_14.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_22.00_0.00.xml
@@ -603,7 +618,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_15.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_15.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_22.00_0.50.xml
@@ -643,7 +659,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_16.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_16.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_23.00_0.00.xml
@@ -683,7 +700,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_17.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_17.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_23.00_0.50.xml
@@ -723,7 +741,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_18.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_18.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_24.00_0.00.xml
@@ -763,7 +782,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_19.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_19.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_24.00_0.50.xml
@@ -803,7 +823,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_20.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_20.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_25.00_0.00.xml
@@ -843,7 +864,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_21.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_21.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_25.00_0.50.xml
@@ -883,7 +905,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_22.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_22.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_26.00_0.00.xml
@@ -923,7 +946,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_23.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_23.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_26.00_0.50.xml
@@ -963,7 +987,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_24.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_24.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_27.00_0.00.xml
@@ -1003,7 +1028,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_25.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_25.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_27.00_0.50.xml
@@ -1043,7 +1069,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_26.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_26.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_28.00_0.00.xml
@@ -1083,7 +1110,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_27.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_27.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_28.00_0.50.xml
@@ -1123,7 +1151,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_28.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_28.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_29.00_0.00.xml
@@ -1163,7 +1192,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_29.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_29.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_29.00_0.50.xml
@@ -1203,7 +1233,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_30.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_30.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_30.00_0.00.xml
@@ -1243,7 +1274,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_31.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_31.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_30.00_0.50.xml
@@ -1283,7 +1315,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_32.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_32.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_31.00_0.00.xml
@@ -1323,7 +1356,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_33.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_33.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_31.00_0.50.xml
@@ -1363,7 +1397,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_34.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_34.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_32.00_0.00.xml
@@ -1403,7 +1438,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_35.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_35.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_32.00_0.50.xml
@@ -1443,7 +1479,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_36.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_36.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_33.00_0.00.xml
@@ -1483,7 +1520,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_37.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_37.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_33.00_0.50.xml
@@ -1523,7 +1561,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_38.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_38.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_34.00_0.00.xml
@@ -1563,7 +1602,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_39.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_39.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_34.00_0.50.xml
@@ -1603,7 +1643,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_40.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_40.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_35.00_0.00.xml
@@ -1643,7 +1684,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_41.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_41.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_35.00_0.50.xml
@@ -1683,7 +1725,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_42.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_42.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_36.00_0.00.xml
@@ -1723,7 +1766,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_43.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_43.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_36.00_0.50.xml
@@ -1763,7 +1807,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_44.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_44.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_37.00_0.00.xml
@@ -1803,7 +1848,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_45.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_45.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_37.00_0.50.xml
@@ -1843,7 +1889,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_46.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_46.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_38.00_0.00.xml
@@ -1883,7 +1930,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_47.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_47.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_38.00_0.50.xml
@@ -1923,7 +1971,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_48.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_48.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_39.00_0.00.xml
@@ -1963,7 +2012,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_49.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_49.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_39.00_0.50.xml
@@ -2003,7 +2053,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_50.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_50.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_40.00_0.00.xml
@@ -2043,7 +2094,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_51.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_51.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_40.00_0.50.xml
@@ -2083,7 +2135,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_52.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_52.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_41.00_0.00.xml
@@ -2123,7 +2176,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_53.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_53.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_41.00_0.50.xml
@@ -2163,7 +2217,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_54.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_54.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_42.00_0.00.xml
@@ -2203,7 +2258,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_55.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_55.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_42.00_0.50.xml
@@ -2243,7 +2299,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_56.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_56.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_43.00_0.00.xml
@@ -2283,7 +2340,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_57.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_57.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_43.00_0.50.xml
@@ -2323,7 +2381,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_58.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_58.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_44.00_0.00.xml
@@ -2363,7 +2422,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_59.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_59.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_44.00_0.50.xml
@@ -2403,7 +2463,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_60.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_60.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_45.00_0.00.xml
@@ -2443,7 +2504,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_61.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_61.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_45.00_0.50.xml
@@ -2483,7 +2545,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_62.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_62.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_46.00_0.00.xml
@@ -2523,7 +2586,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_63.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_63.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_46.00_0.50.xml
@@ -2563,7 +2627,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_64.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_64.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_47.00_0.00.xml
@@ -2603,7 +2668,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_65.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_65.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_47.00_0.50.xml
@@ -2643,7 +2709,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_66.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_66.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_48.00_0.00.xml
@@ -2683,7 +2750,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_67.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_67.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_48.00_0.50.xml
@@ -2723,7 +2791,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_68.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_68.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_49.00_0.00.xml
@@ -2763,7 +2832,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_69.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_69.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_49.00_0.50.xml
@@ -2803,7 +2873,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_70.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_70.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_50.00_0.00.xml
@@ -2843,7 +2914,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_71.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_71.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_50.00_0.50.xml
@@ -2883,7 +2955,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_72.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_72.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_51.00_0.00.xml
@@ -2923,7 +2996,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_73.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_73.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_51.00_0.50.xml
@@ -2963,7 +3037,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_74.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_74.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_52.00_0.00.xml
@@ -3003,7 +3078,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_75.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_75.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_52.00_0.50.xml
@@ -3043,7 +3119,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_76.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_76.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_53.00_0.00.xml
@@ -3083,7 +3160,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_77.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_77.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_53.00_0.50.xml
@@ -3123,7 +3201,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_78.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_78.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_54.00_0.00.xml
@@ -3163,7 +3242,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_79.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_79.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_54.00_0.50.xml
@@ -3203,7 +3283,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_80.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_80.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_55.00_0.00.xml
@@ -3243,7 +3324,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_81.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_81.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_55.00_0.50.xml
@@ -3283,7 +3365,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_82.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_82.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_56.00_0.00.xml
@@ -3323,7 +3406,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_83.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_83.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_56.00_0.50.xml
@@ -3363,7 +3447,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_84.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_84.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_57.00_0.00.xml
@@ -3403,7 +3488,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_85.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_85.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_57.00_0.50.xml
@@ -3443,7 +3529,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_86.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_86.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_58.00_0.00.xml
@@ -3483,7 +3570,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_87.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_87.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_58.00_0.50.xml
@@ -3523,7 +3611,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_88.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_88.err
 #SBATCH -w nodo06
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_59.00_0.00.xml
@@ -3563,7 +3652,8 @@ echo -e '#!/bin/bash
 #SBATCH --output jobs/RTHY_mono_10-Sep-2019-Uno_89.out
 #SBATCH --error  jobs/RTHY_mono_10-Sep-2019-Uno_89.err
 #SBATCH -w nodo07
-#SBATCH --partition=fast/bin/echo Estoy corriendo en el nodo `hostname`
+#SBATCH --partition=fast
+/bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`
 
 ./RTHybrid -xml xml_in/10-Sep-2019-Uno/xml_10-Sep-2019-Uno_59.00_0.50.xml
