@@ -123,7 +123,7 @@ if abs(aux_1 - aux_2) > aux_1*0.15: #% de fallo admitido
 for i in range(20):
 	if t_model_first[i]==t_model_last[i]:
 		print("Fail interaction - 3")
-		fail = True
+		#fail = True
 		break
 
 #######
