@@ -32,6 +32,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #entrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
 #entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
 entrada    =  'data_in/10-Sep-2019/16h42m53s-10-Sep-2019.txt'
+entrada    =  'data_in/22-Oct-2019/16h17m41s-22-Oct-2019.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
