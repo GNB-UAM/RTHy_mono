@@ -23,9 +23,12 @@ for individuo in population:
 
 # Fitness function (execute simulation and save R2)
 for individuo in population:
-	name = xml.create_xml(individuo.var_a, individuo.var_b)
+	name, salida = xml.create_xml(individuo.var_a, individuo.var_b)
 	print(name)
 	os.system("./RTHybrid -xml "+name)
+	os.system("python invariante.py -f "+salida+" -n1 "+individuo.var_a+" -n2 "+individuo.var_b+" -n "+"result.txt")
+
+	
 
 # Selection and elite
 

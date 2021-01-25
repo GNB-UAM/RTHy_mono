@@ -228,4 +228,4 @@ def create_xml(var_a, var_b):
 	f.write('</clamp>\n')
 	f.close()	
 
-	return name
+	return name, salida
