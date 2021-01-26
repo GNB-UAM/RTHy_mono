@@ -27,7 +27,7 @@ for individuo in population:
 	print(name)
 	os.system("./RTHybrid -xml "+name)
 	r2 = os.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
-	print("Salida es "+r2)
+	print("Salida es "+str(r2))
 
 	
 # Selection and elite
