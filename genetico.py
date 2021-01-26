@@ -29,7 +29,7 @@ for individuo in population:
 	name, salida = xml.create_xml(individuo.var_a, individuo.var_b)
 	print(name)
 	os.system("./RTHybrid -xml "+name)
-	s.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
+	os.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
 	with open('result.txt', 'r') as result:
 		last_line = f.read().splitlines()[-1]
 		individuo.r2 = last_line[2]
