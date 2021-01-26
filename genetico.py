@@ -16,7 +16,7 @@ population = []
 population_new = []
 for i in range(population_n):
 	population.append(Individuo(i))
-	population.append(0)
+	population_new.append(Individuo(i))
 
 for individuo in population:
 	print("Individuo id = " + str(individuo.id))
