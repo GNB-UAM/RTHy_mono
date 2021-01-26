@@ -36,7 +36,7 @@ for individuo in population:
 
 # Selection and elite
 
-population_new = sorted(population, key=lambda x: population.r2, reverse=True)
+population_new = sorted(population, key=lambda x: x.r2, reverse=True)
 
 print("********** GEN **********")
 for individuo in population_new:
