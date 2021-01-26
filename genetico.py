@@ -8,12 +8,15 @@ class Individuo:
 		self.id = id
 		self.var_a = rd.uniform(15, 60)
 		self.var_b = rd.uniform(0, 20)
+		self.r2 = 0
 
 # Create initial population
 population_n = 10
 population = []
+population_new = []
 for i in range(population_n):
 	population.append(Individuo(i))
+	population.append(0)
 
 for individuo in population:
 	print("Individuo id = " + str(individuo.id))
@@ -26,11 +29,18 @@ for individuo in population:
 	name, salida = xml.create_xml(individuo.var_a, individuo.var_b)
 	print(name)
 	os.system("./RTHybrid -xml "+name)
-	r2 = os.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
-	print("Salida es "+str(r2))
+	s.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
+	with open('result.txt', 'r') as result:
+		last_line = f.read().splitlines()[-1]
+		individuo.r2 = last_line[2]
 
-	
 # Selection and elite
+
+population_new = sorted(population, key=lambda x: population.r2, reverse=True)
+
+print("********** GEN **********")
+for individuo in population_new:
+	print(individuo.r2)
 
 
 # Crossover
