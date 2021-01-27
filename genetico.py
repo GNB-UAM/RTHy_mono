@@ -49,8 +49,8 @@ for gen_i in range(gen_n):
 	# Crossover
 	for i in range(population_n-2):
 		# Crossover except elite
-		gen_a = individuo[rd.randint(0, index_descart)].var_a
-		gen_b = individuo[rd.randint(0, index_descart)].var_b
+		gen_a = population[rd.randint(0, index_descart)].var_a
+		gen_b = population[rd.randint(0, index_descart)].var_b
 		population_new[i+2].var_a = gen_a
 		population_new[i+2].var_b = gen_b
 
