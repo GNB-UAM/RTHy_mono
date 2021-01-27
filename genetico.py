@@ -10,8 +10,8 @@ class Individuo:
 		self.r2 = 0
 
 # Create initial population
-population_n = 10
-gen_n = 5
+population_n = 20
+gen_n = 10
 population = []
 population_new = []
 for i in range(population_n):
@@ -64,6 +64,9 @@ for gen_i in range(gen_n):
 	for i in range(population_n):
 		population_new[i].var_a += rd.randrange(-100, 100)/100
 		population_new[i].var_b += rd.randrange(-100, 100)/100
+
+	population_new[population_n-1] = Individuo()
+	population_new[population_n-2] = Individuo()
 
 	population = population_new
 	
