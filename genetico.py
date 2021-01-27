@@ -30,9 +30,6 @@ for individuo in population:
 	print(name)
 	os.system("./RTHybrid -xml "+name)
 	os.system("python invariante.py -f "+salida+" -n1 "+str(individuo.var_a)+" -n2 "+str(individuo.var_b)+" -n "+"result.txt")
-	with open("result.csv") as f:
-		f.​readlines()[-1]
-
 	with open('result.txt', 'r') as f:
 		last_line = f.read().splitlines()[-1]
 		last_line = last_line.split(' ')
