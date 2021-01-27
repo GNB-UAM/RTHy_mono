@@ -18,11 +18,6 @@ for i in range(population_n):
 	population.append(Individuo())
 	population_new.append(Individuo())
 
-for individuo in population:
-	#print("Individuo")
-	#print("Gen 1 = " + str(individuo.var_a))
-	#print("Gen 2 = " + str(individuo.var_b))
-
 for gen_i in range(gen_n):
 
 	# Fitness function (execute simulation and save R2)
