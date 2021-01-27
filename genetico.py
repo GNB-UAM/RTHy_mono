@@ -55,7 +55,7 @@ for gen_i in range(gen_n):
 		population_new[i+2].var_b = gen_b
 
 	# Mutation
-	for i in range(population):
+	for i in range(population_n):
 		population_new[i].var_a += rd.randrange(-100, 100)/100
 		population_new[i].var_b += rd.randrange(-100, 100)/100
 
