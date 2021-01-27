@@ -19,6 +19,12 @@ for i in range(population_n):
 	population_new.append(Individuo())
 
 for gen_i in range(gen_n):
+	
+	print("*************************")
+	print("********** GEN "+ str(gen_i) +" **********")
+	print("*************************")
+	for individuo in population:
+		print(individuo.r2)
 
 	# Fitness function (execute simulation and save R2)
 	for individuo in population:
@@ -59,11 +65,6 @@ for gen_i in range(gen_n):
 		population_new[i].var_a += rd.randrange(-100, 100)/100
 		population_new[i].var_b += rd.randrange(-100, 100)/100
 
-
-	print("*************************")
-	print("********** GEN "+ str(gen_i) +" **********")
-	print("*************************")
-	for individuo in population:
-		print(individuo.r2)
-
+	population = population_new
+	
 
