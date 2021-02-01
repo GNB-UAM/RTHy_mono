@@ -6,7 +6,7 @@ import os
 class Individuo:
 	def __init__(self):
 		self.var_a = rd.uniform(15, 60)
-		self.var_b = rd.uniform(0, 20)
+		self.var_b = rd.uniform(0, 20) * 0.05
 		self.r2 = 0
 
 # Create initial population
