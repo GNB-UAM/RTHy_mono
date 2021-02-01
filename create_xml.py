@@ -23,7 +23,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 # Senal 1
-#entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
+entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 
 # Senal 2
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
@@ -31,8 +31,8 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 # senal 3
 #entrada    =  'data_in/12-Nov-2019/16h45m10s-12-Nov-2019.txt'
 #entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
-entrada    =  'data_in/10-Sep-2019/16h42m53s-10-Sep-2019.txt'
-entrada    =  'data_in/22-Oct-2019/16h17m41s-22-Oct-2019.txt'
+#entrada    =  'data_in/10-Sep-2019/16h42m53s-10-Sep-2019.txt'
+#entrada    =  'data_in/22-Oct-2019/16h17m41s-22-Oct-2019.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -273,14 +273,14 @@ for var_a in variable_a:
 		f.write('		<k2_slow val="0.03"/>\n\n')
 
 		# ~~~~~~~~
-		#f.write('		<g_fast val="'+var_b+'"/>\n')
-		f.write('		<g_fast val="0.6"/>\n')
+		f.write('		<g_fast val="'+var_b+'"/>\n')
+		#f.write('		<g_fast val="0.6"/>\n')
 
 		f.write('		<vth_fast val="'+var_a+'"/>\n')
 		#f.write('		<vth_fast val="32.0"/>\n')
 
-		f.write('		<s_fast val="'+var_b+'"/>\n')
-		#f.write('		<s_fast val="5.0"/>\n')
+		#f.write('		<s_fast val="'+var_b+'"/>\n')
+		f.write('		<s_fast val="5.0"/>\n')
 		# ~~~~~~~~
 
 		f.write('	</synapse_ltom>\n\n')
