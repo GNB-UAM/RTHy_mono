@@ -18,6 +18,8 @@ for i in range(population_n):
 	population.append(Individuo())
 	population_new.append(Individuo())
 
+file_info = open("file_info.txt", "w")
+
 for gen_i in range(gen_n):
 	
 	# Fitness function (execute simulation and save R2)
@@ -32,7 +34,20 @@ for gen_i in range(gen_n):
 			individuo.r2 = last_line[2]
 
 	# Selection and elite
+	file_info.write("GENERACION "+str(gen_i))
+
+	file_info.write("Antes de ordenar")
+	for individuo in population:
+		file_info.write(individuo.r2)
+
 	population = sorted(population, key=lambda x: x.r2, reverse=True)
+
+	file_info.write("Despues de ordenar")
+	for individuo in population:
+		file_info.write(individuo.r2)
+	
+	file_info.write("")
+
 	population_new[0] = population[0]
 	population_new[1] = population[1]
 
@@ -61,14 +76,6 @@ for gen_i in range(gen_n):
 
 	population_new[population_n-1] = Individuo()
 	population_new[population_n-2] = Individuo()
-
-
-	print("*************************")
-	print("********** GEN "+ str(gen_i) +" **********")
-	print("*************************")
-	for individuo in population:
-		print(individuo.r2)
-
 
 	population = population_new
 	
