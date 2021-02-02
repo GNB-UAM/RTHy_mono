@@ -10,8 +10,8 @@ class Individuo:
 		self.r2 = 0
 
 # Create initial population
-population_n = 20
-gen_n = 10
+population_n = 10
+gen_n = 5
 population = []
 population_new = []
 for i in range(population_n):
@@ -34,19 +34,19 @@ for gen_i in range(gen_n):
 			individuo.r2 = last_line[2]
 
 	# Selection and elite
-	file_info.write("GENERACION "+str(gen_i))
+	file_info.write("GENERACION "+str(gen_i)+"\n")
 
-	file_info.write("Antes de ordenar")
+	file_info.write("Antes de ordenar\n")
 	for individuo in population:
-		file_info.write(individuo.r2)
+		file_info.write(str(individuo.r2)+"\n")
 
 	population = sorted(population, key=lambda x: x.r2, reverse=True)
 
-	file_info.write("Despues de ordenar")
+	file_info.write("Despues de ordenar\n")
 	for individuo in population:
-		file_info.write(individuo.r2)
-	
-	file_info.write("")
+		file_info.write(str(individuo.r2)+"\n")
+
+	file_info.write("\n")
 
 	population_new[0] = population[0]
 	population_new[1] = population[1]
