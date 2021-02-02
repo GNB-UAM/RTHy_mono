@@ -31,7 +31,7 @@ for gen_i in range(gen_n):
 		with open('result.txt', 'r') as f:
 			last_line = f.read().splitlines()[-1]
 			last_line = last_line.split(' ')
-			individuo.r2 = last_line[2]
+			individuo.r2 = float(last_line[2])
 
 	# Selection and elite
 	file_info.write("GENERACION "+str(gen_i)+"\n")
