@@ -36,15 +36,12 @@ for gen_i in range(gen_n):
 	# Selection and elite
 	file_info.write("GENERACION "+str(gen_i)+"\n")
 
-	file_info.write("Antes de ordenar\n")
-	for individuo in population:
-		file_info.write(str(individuo.r2)+"\n")
-
 	population = sorted(population, key=lambda x: x.r2, reverse=True)
 
-	file_info.write("Despues de ordenar\n")
 	for individuo in population:
 		file_info.write(str(individuo.r2)+"\n")
+		file_info.write(str("a = " + str(individuo.var_a)))
+		file_info.write(str("b = " + str(individuo.var_b)))
 
 	file_info.write("\n")
 
