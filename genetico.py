@@ -40,8 +40,8 @@ for gen_i in range(gen_n):
 
 	for individuo in population:
 		file_info.write(str(individuo.r2)+"\n")
-		file_info.write(str("a = " + str(individuo.var_a)))
-		file_info.write(str("b = " + str(individuo.var_b)))
+		file_info.write(str("a = " + str(individuo.var_a) + "\n"))
+		file_info.write(str("b = " + str(individuo.var_b) + "\n"))
 
 	file_info.write("\n")
 
