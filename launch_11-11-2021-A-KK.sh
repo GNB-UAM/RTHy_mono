@@ -2,7 +2,7 @@ echo -e '#!/bin/bash
 #SBATCH --job-name=RTHy_mono
 #SBATCH --output jobs/RTHY_mono_11-11-2021-A-KK_0.out
 #SBATCH --error  jobs/RTHY_mono_11-11-2021-A-KK_0.err
-#SBATCH -w nodo06
+#SBATCH -w nodo07
 #SBATCH --partition=fast
 /bin/echo Estoy corriendo en el nodo `hostname`
 /bin/echo Empiezo a las `date`

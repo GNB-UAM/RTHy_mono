@@ -55,7 +55,7 @@ order_err     = "#SBATCH --error  jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".
 order_part    = "#SBATCH --partition=fast\n"
 order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 order_start   = "/bin/echo Empiezo a las `date`\n\n"
-order_node    = "#SBATCH -w nodo06\n"
+order_node    = "#SBATCH -w nodo07\n"
 
 f_exec.write( order_command + order_name + order_output + order_err + order_node + order_part + order_host + order_start )
 #f_exec.write("echo -e '#!/bin/bash\n#$ -N RTHy_mono\n#$ -cwd\n#$ -o jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".out\n#$ -e jobs/RTHY_mono_"+exp_code+"_"+str(num_qsub)+".err\n\n/bin/echo Estoy corriendo en el nodo  `hostname`\n\n/bin/echo Empiezo a las `date`\n\n")
