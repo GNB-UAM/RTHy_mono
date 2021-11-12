@@ -100,7 +100,7 @@ for var_a in variable_a:
 				order_host    = "/bin/echo Estoy corriendo en el nodo `hostname`\n"
 				order_start   = "/bin/echo Empiezo a las `date`\n\n"
 				if num_qsub%2 == 0:
-					order_node    = "#SBATCH -w nodo06\n"
+					order_node    = "#SBATCH -w nodo07\n"
 				else:
 					order_node    = "#SBATCH -w nodo07\n"
 
@@ -114,7 +114,7 @@ for var_a in variable_a:
 		f.write('<clamp>\n\n')
 
 		# IZHIKEVICH
-		
+		'''
 		f.write('	<neuron type="1">\n')
 		f.write('		<vars>\n')
 		f.write('			<v val="30.24"/>\n')
@@ -129,10 +129,10 @@ for var_a in variable_a:
 		f.write('			<method val="3"/>\n')	
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		
+		'''
 
 		# K-K standar
-		'''
+		
 		f.write('	<neuron type="6">\n')
 		f.write('		<vars>\n')
 		f.write('			<V val="-55.0"/>\n')
@@ -162,7 +162,7 @@ for var_a in variable_a:
 		f.write('			<method    val="3"/>\n')
 		f.write('		</params>\n')
 		f.write('	</neuron>\n\n')
-		'''
+		
 
 		# K-K chaotic
 		'''
