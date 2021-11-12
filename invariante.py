@@ -34,11 +34,13 @@ if args.plot_inv==True:
 ########
 # EXTRAER EVENTOS
 ########
+'''
 data1.v_model_scaled[t_ignore:t_ignore_fin]  =  fil.butter_filter(data1.v_model_scaled[t_ignore:t_ignore_fin], 150, args.freq)
 data1.data_in[0][t_ignore:t_ignore_fin]      =  fil.butter_filter(data1.data_in[0][t_ignore:t_ignore_fin],     150, args.freq)
 
 fil.threshold_filter(data1.v_model_scaled[t_ignore:t_ignore_fin], 0)
 fil.threshold_filter(data1.data_in[0][t_ignore:t_ignore_fin],     0)
+'''
 
 times, model_times_ms,  events, minis, maxis = pa.periodo(data1.time[t_ignore:t_ignore_fin], data1.time_ms[t_ignore:t_ignore_fin], data1.v_model_scaled[t_ignore:t_ignore_fin], args.freq, all_events=True, plot_on=verbose)
 t_model_first, t_model_last = pa.clean_all_events(times, events, plot_on=verbose)
@@ -141,6 +143,7 @@ if fail == True:
 # INTERVALOS
 #######
 periodoLP      =  []
+periodoMODEL   =  []
 durationModel  =  []
 PDtoLP         =  []
 PDtoLP_raro    =  []
@@ -158,6 +161,7 @@ for i in range(size-1):
 	else:
 		# Calculo intervalos
 		periodoLP_i      =  t_living_first [i+1]  - t_living_first [i]
+		periodoMODEL_i   =  t_model_first  [i+1]  - t_model_first  [i]
 		durationModel_i  =  t_model_last   [i-ml] - t_model_first  [i-ml]
 
 		PDtoLP_i  =  t_model_first  [i+indexPD-ml] - t_living_first [i]
@@ -173,6 +177,7 @@ for i in range(size-1):
 		else:
 			# Guardar
 			periodoLP.append     ( periodoLP_i     )
+			periodoMODEL.append  ( periodoMODEL_i  )
 			durationModel.append ( durationModel_i )
 
 			PDtoLP.append        ( PDtoLP_i   ) 
@@ -202,10 +207,16 @@ slope4, intercept4, r_value4, p_value4, std_err4 = stats.linregress(periodoLP, d
 
 
 mean_periodoLP = statistics.mean(periodoLP)
-print("Media = " + str(mean_periodoLP) )
-
+print("\n --> Media periodo LP = " + str(mean_periodoLP) )
 stdev_periodoLP = statistics.stdev(periodoLP)
-print("Desviación estandar = " + str(stdev_periodoLP) )
+print(" --> Desviación estandar LP = " + str(stdev_periodoLP) )
+print(" --> Coeficiente variacion LP = " + str(stdev_periodoLP/mean_periodoLP) + "\n")
+
+mean_periodoMODEL = statistics.mean(periodoMODEL)
+print("\n --> Media periodo Model = " + str(mean_periodoMODEL) )
+stdev_periodoMODEL = statistics.stdev(periodoMODEL)
+print(" --> Desviación estandar Model = " + str(stdev_periodoMODEL) )
+print(" --> Coeficiente variacion Model = " + str(stdev_periodoMODEL/mean_periodoMODEL) + "\n")
 
 conf_int = stats.norm.interval(0.99, loc=mean_periodoLP, scale=stdev_periodoLP)
 print(conf_int)

@@ -23,7 +23,7 @@ variable_b = [x * 0.05 for x in range(0, 20)]
 #variable_b = ['0.0','0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.08','0.09','0.1']
 
 # Senal 1
-entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
+#entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 
 # Senal 2
 #entrada    = 'data_in/2019y_6m_6d/16h_57m_39s_data.txt'
@@ -33,6 +33,10 @@ entrada    = 'data_in/2019y_3m_14d/17h_25m_23s_data.txt'
 #entrada    =  'data_in/17-Dec-2019/17h39m04s-17-Dec-2019.txt'
 #entrada    =  'data_in/10-Sep-2019/16h42m53s-10-Sep-2019.txt'
 #entrada    =  'data_in/22-Oct-2019/16h17m41s-22-Oct-2019.txt'
+
+# Senal 4
+entrada    = 'data_in/2021y_11m_11d/16h_8m_37s_data.txt'
+#entrada    = 'data_in/2021y_11m_11d/20h_9m_22s_data.txt'
 
 xml        = 'xml_in/'+exp_code+'/xml_'+exp_code+'_'#+something
 salida     = 'data_out/'+exp_code+'/res_'+exp_code+'_'#+something
@@ -79,7 +83,7 @@ for var_a in variable_a:
 		# Invariant
 		f_exec.write("python invariante.py -f "+salida_file+" -n1 "+var_a+" -n2 "+var_b+" -n "+file_R2+str(num_qsub)+".txt\n\n")
 		
-		jobs_per_job = 10  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
+		jobs_per_job = 5  # N debe de ser multiplo de var_a*var_b // Si no habra que apañar ultimo envio
 		if contador_qsub == jobs_per_job-1:
 
 			contador_qsub = 0

@@ -15,6 +15,7 @@
 #include "model_library/neuron/Wang_1993/nm_gui_wang_1993.h"
 #include "model_library/neuron/Komendantov_Kononenko_1996/nm_gui_komendantov_kononenko_1996.h"
 
+
 #include "model_library/synapse/Electrical/sm_gui_electrical.h"
 #include "model_library/synapse/Golowasch_et_al_1999/sm_gui_golowasch_et_al_1999.h"
 #include "model_library/synapse/Destexhe_et_al_1994/sm_gui_destexhe_et_al_1994.h"
