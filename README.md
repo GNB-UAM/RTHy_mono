@@ -24,13 +24,9 @@ Pending
 
 ## Actual fork
 
-RTHybrid commit:
+- From this RTHybrid commit: [Link](https://github.com/GNB-UAM/RTHybrid/tree/9546fa8ab047aaf4a53b39743a2f4171a51434d9)
 
-https://github.com/GNB-UAM/RTHybrid/tree/9546fa8ab047aaf4a53b39743a2f4171a51434d9
-
-Date of fork: 
-
-5/11/2018 
+- Date: 5/11/2018 
 
 ## Changes
 
