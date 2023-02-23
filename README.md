@@ -2,9 +2,15 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/GNB-UAM/RTHybrid"> <img src="assets/logo_rthy.png?raw=true" width="100" height="100"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/GNB-UAM"> <img src="assets/logo_gnb.png?raw=true" width="100" height="100"> </a>
 
-RTHybrid mono-directional version (living signal into model) - No RT/DAQ/GUI
+- RTHybrid mono-directional version (only living signal to model neuron synapse)
 
-Intended to be use in computer clusters
+- This version only work offline, introducing the living neuron signal into the model neuron
+
+- This version does not support Real-Time, Data Adquisition Card or Graphic user interface
+
+- Only XML mode is tested
+
+- Intended to be use in computer clusters, allowing paralelization to test thounsands of hybrid circuits configurations
 
 ## Publication
 
@@ -12,17 +18,11 @@ Pending
 
 ## RTHybrid
 
-- Read RTHybrid main project repository to use and cite this work
+- Read RTHybrid main project repository to better understanding
 
 - https://github.com/GNB-UAM/RTHybrid
 
-## About
-
-- Special version to work offline introducing living signals into models
-
-- Only xml mode is tested (GUI not adapted)
-
-## Actual fork
+## Fork
 
 - From this RTHybrid commit: [Link](https://github.com/GNB-UAM/RTHybrid/tree/9546fa8ab047aaf4a53b39743a2f4171a51434d9)
 
